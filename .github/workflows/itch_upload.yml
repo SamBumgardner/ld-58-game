@@ -2,6 +2,8 @@ name: "itch.io upload"
 
 on:
     push:
+        branches:
+            - main
 
 env:
     GODOT_VERSION: 4.5
@@ -34,6 +36,7 @@ jobs:
               with:
                   name: ${{ env.ITCH_CHANNEL }}
                   path: ${{ env.BUILD_DIRECTORY }}
+
     itch-upload:
         needs: build-artifact
         runs-on: ubuntu-latest
