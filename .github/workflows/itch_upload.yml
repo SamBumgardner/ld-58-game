@@ -1,0 +1,62 @@
+name: "itch.io upload"
+
+on:
+    push:
+
+env:
+    GODOT_VERSION: 4.5
+    ITCH_USERNAME: sbumgardner
+    ITCH_GAME: ld-58
+    ITCH_CHANNEL: web
+    PROJECT_PATH: game
+    BUILD_DIRECTORY: build/web
+
+jobs:
+    build-artifact:
+        runs-on: ubuntu-24.04
+        container:
+            image: barichello/godot-ci:4.5
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+            - name: Godot Setup
+              run: |
+                  mkdir -v -p ~/.local/share/godot/export_templates/
+                  mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+            - name: Web Build
+              run: |
+                  mkdir -v -p ${{ env.BUILD_DIRECTORY }}
+                  EXPORT_DIR="$(readlink -f build)"
+                  cd $PROJECT_PATH
+                  godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: ${{ env.ITCH_CHANNEL }}
+                  path: ${{ env.BUILD_DIRECTORY }}
+    itch-upload:
+        needs: build-artifact
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download Artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: ${{ env.ITCH_CHANNEL }}
+                  path: ${{ env.BUILD_DIRECTORY }}
+            - name: Download Butler
+              run: |
+                  BUTLER_EXEC="butler"
+                  mkdir ./tools 2>/dev/null || true
+                  cd tools
+                      curl -sSLfo ./butler.zip "https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default"
+                      unzip butler.zip
+                      chmod +x ./${BUTLER_EXEC}
+                  cd -
+                  ./tools/${BUTLER_EXEC} -V
+            - name: Upload to itch.io
+              env:
+                  BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+              run: |
+                  BUTLER_EXEC="butler"
+                  ./tools/${BUTLER_EXEC} push ${{ env.BUILD_DIRECTORY }} \
+                    ${{ env.ITCH_USERNAME }}/${{ env.ITCH_GAME }}:${{ env.ITCH_CHANNEL }}
