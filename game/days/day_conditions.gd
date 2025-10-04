@@ -77,6 +77,13 @@ func applyNewDay(day: Day) -> void:
     
     return Day.new(weather, forecast, mood);
 
+func applyOverride(newOverride: ConditionOverride) -> void:
+    match newOverride.overrideType:
+        ConditionOverride.Types.MOOD:
+            moodOverride = newOverride.duplicate();
+        ConditionOverride.Types.WEATHER:
+            weatherOverride = newOverride.duplicate();
+
 func forceRemoveOverride(overrideType: ConditionOverride.Types) -> void:
     match overrideType:
         ConditionOverride.Types.MOOD:
