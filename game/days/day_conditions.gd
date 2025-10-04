@@ -60,7 +60,7 @@ static func initFromDay(day: Day) -> DayConditions:
 
     return newCondition;
       
-func newDay(day: Day) -> void:
+func applyNewDay(day: Day) -> void:
     for override in [moodOverride, weatherOverride]:
         if override.remainingDays == 0:
             match override.Types:
@@ -74,6 +74,8 @@ func newDay(day: Day) -> void:
     weather = day.weather;
     forecast = day.forecast;
     mood = day.mood;
+    
+    return Day.new(weather, forecast, mood);
 
 func forceRemoveOverride(overrideType: ConditionOverride.Types) -> void:
     match overrideType:

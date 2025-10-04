@@ -11,16 +11,17 @@ static var MajorEnums: Array[Dictionary] = [
     Craft
 ]
 
-enum Physical {
+enum Substats {
+    WIT = 0,
+    KNOWLEDGE = 1,
+    MAGIC = 2,
     STRENGTH = 0,
     COURAGE = 1,
     ENDURANCE = 2,
+    CREATION = 0,
+    PRECISION = 1,
+    PLANNING = 2,
 }
-static var PhysicalNames: Array[String] = [
-    "Strength",
-    "Courage",
-    "Endurance"
-]
 
 enum Study {
     WIT = 0,
@@ -31,6 +32,17 @@ static var StudyNames: Array[String] = [
     "Wit",
     "Knowledge",
     "Magic"
+]
+
+enum Physical {
+    STRENGTH = 0,
+    COURAGE = 1,
+    ENDURANCE = 2,
+}
+static var PhysicalNames: Array[String] = [
+    "Strength",
+    "Courage",
+    "Endurance"
 ]
 
 enum Craft {
