@@ -1,4 +1,4 @@
-class_name PlayerStats
+class_name PlayerStats extends RefCounted
 
 var stats: Array[Array];
 
