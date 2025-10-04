@@ -7,3 +7,12 @@ enum Types {
     GRUMPY = 3,
     MOTIVATED = 4,
 }
+
+enum Conditional {
+    ANY = -1,
+    RELAXED = 0,
+    HAPPY = 1,
+    SAD = 2,
+    GRUMPY = 3,
+    MOTIVATED = 4,
+}
