@@ -10,7 +10,7 @@ var overrideValue: int;
 var remainingDays: int;
 
 # Initialize with empty values
-func ConditionOverride(_overrideType: Types, _overrideValue: int, _remainingDays: int):
+func _init(_overrideType: Types, _overrideValue: int, _remainingDays: int):
     overrideType = _overrideType
     overrideValue = _overrideValue
     remainingDays = _remainingDays

@@ -11,7 +11,7 @@ func minor_value(statType: Stats.Types, minorStatIndex: int) -> int:
     return stats[statType][minorStatIndex];
 
 # Initialize with empty values
-func PlayerStats():
+func _init():
     stats = [];
     for majorStat in Stats.Types:
         var substats = [];

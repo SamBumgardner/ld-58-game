@@ -44,7 +44,7 @@ var weatherOverride: ConditionOverride;
 var initialized = false;
 
 # Initialize with empty values
-func DayConditions(_weather: Weather.Types, _mood: Mood.Types, _craftingCooldown: int,
+func _init(_weather: Weather.Types, _mood: Mood.Types, _craftingCooldown: int,
         _moodOverride: ConditionOverride = null, _weatherOverride: ConditionOverride = null):
     weather = _weather
     mood = _mood
@@ -54,10 +54,9 @@ func DayConditions(_weather: Weather.Types, _mood: Mood.Types, _craftingCooldown
     initialized = true
 
 static func initFromDay(day: Day) -> DayConditions:
-    var newCondition = DayConditions.new();
+    var newCondition = DayConditions.new(day.weather, day.mood, GameplayConsts.DEFAULT_CRAFTING_COOLDOWN);
     newCondition.weather = day.weather;
     newCondition.mood = day.mood;
-    newCondition.craftingCooldown = GameplayConsts.DEFAULT_CRAFTING_COOLDOWN;
 
     return newCondition;
       
