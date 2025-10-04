@@ -14,3 +14,7 @@ func getWeakestStatIndexForType(statType: Stats.Types) -> Stats.Substats:
 # get index of highest stat
 func getStrongestStatIndexForType(statType: Stats.Types) -> Stats.Substats:
     return stats.getStrongestMinorValueForType(statType) as Stats.Substats;
+
+func applyStatIncreases(statImprovements: Array[StatIncrease]) -> void:
+    for statImprovement in statImprovements:
+        stats.stats[statImprovement.statType][statImprovement.subTypeIndex] += statImprovement;

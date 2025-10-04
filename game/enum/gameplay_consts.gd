@@ -26,72 +26,90 @@ const ACTIVITY_WEATHER_NEXT_MOOD_LOOKUP: Dictionary = {
     }
 }
 
-static var DAILY_ACTIVITY_STAT_GROWTH_LOOKUP: Dictionary = {
-    Stats.Types.CRAFT: {
-        Weather.Types.FAIR: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.HOT: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.CREATION, 2)
-        ],
-        Weather.Types.CLOUDY: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.CREATION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2)
-        ],
-        Weather.Types.RAINY: [
-            StatIncrease.new(Stats.Types.CRAFT, -1, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.MISTY: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-     },
-    Stats.Types.STUDY: {
-        Weather.Types.FAIR: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.HOT: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.CLOUDY: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.RAINY: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.MISTY: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-     },
-    Stats.Types.PHYSICAL: {
-        Weather.Types.FAIR: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.HOT: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.CLOUDY: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.RAINY: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-        Weather.Types.MISTY: [
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PRECISION, 2),
-            StatIncrease.new(Stats.Types.CRAFT, Stats.Craft.PLANNING, 2)
-        ],
-     }
+static var WEATHER_ENHANCEMENT_FACTORS: Dictionary = generateWeatherEnhancements();
+static var MOOD_ENHANCEMENT_FACTORS: Dictionary = generateMoodEnhancements();
 
-}
+static func generateWeatherEnhancements() -> Dictionary:
+    const STANDARD_BONUS = 1;
+    const STANDARD_PENALTY = -1;
+
+    var result = {};
+    for weatherType: Weather.Types in [Weather.Types.HOT, Weather.Types.CLOUDY, Weather.Types.RAINY, Weather.Types.MISTY]:
+        var enhancedStatTypes: Array[Stats.Types];
+        var reducedStatTypes: Array[Stats.Types];
+        match weatherType:
+            Weather.Types.HOT:
+                enhancedStatTypes = [Stats.Types.PHYSICAL]
+                reducedStatTypes = [Stats.Types.STUDY]
+            Weather.Types.CLOUDY:
+                enhancedStatTypes = [Stats.Types.CRAFT]
+                reducedStatTypes = [Stats.Types.PHYSICAL]
+            Weather.Types.RAINY:
+                enhancedStatTypes = [Stats.Types.STUDY]
+                reducedStatTypes = [Stats.Types.CRAFT]
+            Weather.Types.MISTY:
+                enhancedStatTypes = []
+                reducedStatTypes = [Stats.Types.STUDY, Stats.Types.PHYSICAL, Stats.Types.CRAFT]
+            _:
+                push_error();
+        
+        var enhancements: Array[EnhancementFactor] = [];
+
+        for enhancedStatType in enhancedStatTypes:
+            var enhancement = EnhancementFactor.new(weatherType as Weather.Conditional,
+                Mood.Conditional.ANY, enhancedStatType, [],
+                EnhancementFactor.EnhancementType.FLAT_ADD, STANDARD_BONUS);
+            enhancements.push_back(enhancement);
+
+        for reducedStatType in reducedStatTypes:
+            var enhancement = EnhancementFactor.new(weatherType as Weather.Conditional,
+                Mood.Conditional.ANY, reducedStatType, [],
+                EnhancementFactor.EnhancementType.FLAT_ADD, STANDARD_PENALTY);
+            enhancements.push_back(enhancement);
+
+        result[weatherType] = enhancements;
+            
+    return result;
+
+
+static func generateMoodEnhancements() -> Dictionary:
+    const STANDARD_BONUS = 1;
+    const STANDARD_PENALTY = -1;
+
+    var result = {};
+    for moodType: Mood.Types in [Mood.Types.HAPPY, Mood.Types.SAD, Mood.Types.GRUMPY, Mood.Types.MOTIVATED]:
+        var enhancedStatTypes: Array[Stats.Types];
+        var reducedStatTypes: Array[Stats.Types];
+        match moodType:
+            Mood.Types.HAPPY:
+                enhancedStatTypes = [Stats.Types.PHYSICAL]
+                reducedStatTypes = [Stats.Types.STUDY]
+            Mood.Types.SAD:
+                enhancedStatTypes = [Stats.Types.CRAFT]
+                reducedStatTypes = [Stats.Types.PHYSICAL]
+            Mood.Types.GRUMPY:
+                enhancedStatTypes = [Stats.Types.STUDY]
+                reducedStatTypes = [Stats.Types.CRAFT]
+            Mood.Types.MOTIVATED:
+                enhancedStatTypes = [Stats.Types.STUDY, Stats.Types.PHYSICAL, Stats.Types.CRAFT]
+                reducedStatTypes = []
+            _:
+                push_error();
+        
+        var enhancements: Array[EnhancementFactor] = [];
+
+        for enhancedStatType in enhancedStatTypes:
+            var enhancement = EnhancementFactor.new(Weather.Conditional.ANY,
+                moodType as Mood.Conditional, enhancedStatType, [],
+                EnhancementFactor.EnhancementType.FLAT_ADD, STANDARD_BONUS);
+            enhancements.push_back(enhancement);
+
+        for reducedStatType in reducedStatTypes:
+            var enhancement = EnhancementFactor.new(Weather.Conditional.ANY,
+                moodType as Mood.Conditional, reducedStatType, [],
+                EnhancementFactor.EnhancementType.FLAT_ADD, STANDARD_PENALTY);
+            enhancements.push_back(enhancement);
+
+        result[moodType] = enhancements;
+            
+    return result;
