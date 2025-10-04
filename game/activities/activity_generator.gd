@@ -201,7 +201,9 @@ static func combineMatchingIncreases(statIncreases: Array[StatIncrease]) -> Arra
         var key = "%s_%s" % [increase.statType, increase.subTypeIndex];
         var existing = memo.get(key);
         if existing != null:
-            existing.changeAmount += increase.changeAmount;
+            var existingIndex = result.find(existing);
+            result[existingIndex] = StatIncrease.new(existing.statType, existing.subTypeIndex,
+                existing.changeAmount + increase.changeAmount);
         else:
             result.push_back(increase);
             memo[key] = increase;
