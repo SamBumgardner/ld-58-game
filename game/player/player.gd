@@ -1,4 +1,4 @@
-class_name Player
+class_name Player extends RefCounted
 
 var job: Job.Types
 var stats: PlayerStats
