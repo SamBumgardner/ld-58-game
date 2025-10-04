@@ -2,13 +2,39 @@ class_name PlayerStats extends RefCounted
 
 var stats: Array[Array];
 
-func major_total(statType: Stats.Types) -> int:
+func majorTotal(statType: Stats.Types) -> int:
     var result = 0;
     stats[statType].reduce(func(accum, num): return accum + num, result);
     return result;
 
-func minor_value(statType: Stats.Types, minorStatIndex: int) -> int:
+func minorValue(statType: Stats.Types, minorStatIndex: int) -> int:
     return stats[statType][minorStatIndex];
+
+func getWeakestMinorValueForType(statType: Stats.Types) -> int:
+    var substats = stats[statType]
+    var minValue = 0;
+    var weakestIndexes: Array[int] = [-1];
+    for i in substats.size():
+        if weakestIndexes[0] == -1 or substats[i] < minValue:
+            minValue = substats[i];
+            weakestIndexes = [i];
+        elif substats[i] == minValue:
+            weakestIndexes.push_back(i);
+    
+    return weakestIndexes.pick_random();
+
+func getStrongestMinorValueForType(statType: Stats.Types) -> int:
+    var substats = stats[statType]
+    var maxValue = 0;
+    var strongestIndexes: Array[int] = [-1];
+    for i in substats.size():
+        if strongestIndexes[0] == -1 or substats[i] > maxValue:
+            maxValue = substats[i];
+            strongestIndexes = [i];
+        elif substats[i] == maxValue:
+            strongestIndexes.push_back(i);
+    
+    return strongestIndexes.pick_random();
 
 # Initialize with empty values
 func _init():
