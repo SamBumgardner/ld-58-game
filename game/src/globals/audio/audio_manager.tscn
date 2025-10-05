@@ -18,15 +18,12 @@ bus = &"Sound Effects"
 
 [node name="SFXTrainingTypeStudyComplete" type="AudioStreamPlayer" parent="TrainingComplete"]
 stream = ExtResource("3_yaxo8")
-max_polyphony = 2
-bus = &"Sound Effects"
+bus = &"Sound Effects: Vocal"
 
 [node name="SFXTrainingTypePhysicalComplete" type="AudioStreamPlayer" parent="TrainingComplete"]
 stream = ExtResource("4_7tnnk")
-max_polyphony = 2
-bus = &"Sound Effects"
+bus = &"Sound Effects: Vocal"
 
 [node name="SFXTrainingTypeCraftComplete" type="AudioStreamPlayer" parent="TrainingComplete"]
 stream = ExtResource("5_lhb1d")
-max_polyphony = 2
-bus = &"Sound Effects"
+bus = &"Sound Effects: Vocal"
