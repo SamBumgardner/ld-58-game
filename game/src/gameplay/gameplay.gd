@@ -80,6 +80,7 @@ func rootSceneActions():
 
 func initScene(transitionData: TransitionData):
     print_debug("initializing scene");
+    receivedTransitionData = transitionData;
     # Determine if we're loading an existing scenario or if we're working on one in-progress
     var newStart: bool = transitionData.initialSetupData != null;
     
@@ -172,7 +173,7 @@ func _onMajorEventCompleted(selectionIndex: int) -> void:
     if outcome.ending != null:
         print_debug("ending is happening, woo wooo!");
         get_tree().quit();
-        return;
+        return ;
 
     # apply results of outcome:
     player.applyStatIncreases(outcome.statChangesToApply);

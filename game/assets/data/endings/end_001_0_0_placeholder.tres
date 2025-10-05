@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://cj3t85rm6mdd2"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_m5jex"]
+
+[resource]
+script = ExtResource("1_m5jex")
+description = "Placeholder Ending"
+win = true
+metadata/_custom_type_script = "uid://ctkljby408cvs"
