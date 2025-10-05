@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_m5jex")
+title = "Placeholder Title"
 description = "Placeholder Ending"
 win = true
 metadata/_custom_type_script = "uid://ctkljby408cvs"

@@ -172,7 +172,15 @@ func _onMajorEventCompleted(selectionIndex: int) -> void:
     # check for game over exit
     if outcome.ending != null:
         print_debug("ending is happening, woo wooo!");
-        get_tree().quit();
+        receivedTransitionData.endingData = TransitionData.EndingData.new();
+        receivedTransitionData.endingData.achieved_ending = outcome.ending;
+
+        var nextScene: PackedScene = load("res://src/ending/ending_display.tscn");
+        var nextRoot: Node = nextScene.instantiate();
+        add_sibling(nextRoot);
+        nextRoot.initScene(receivedTransitionData);
+        nextRoot.call_deferred("startScene");
+        queue_free();
         return ;
 
     # apply results of outcome:
