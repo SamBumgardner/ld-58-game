@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene load_steps=12 format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://src/gameplay/gameplay.gd" id="1_41n4r"]
 [ext_resource type="Script" uid="uid://b4mr4nqec0gds" path="res://src/player/player.gd" id="2_r5as3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bp1i2ft4knik3" path="res://src/gameplay/hud/activity_selection.tscn" id="7_uk44f"]
 [ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://src/gameplay/hud/stat_details.gd" id="8_yvprt"]
 [ext_resource type="PackedScene" uid="uid://cfn4gebfndu50" path="res://src/gameplay/hud/events/major_event_display.tscn" id="10_r22ir"]
+[ext_resource type="PackedScene" uid="uid://dmsrehee6sok5" path="res://src/gameplay/hud/events/event_outcome_display.tscn" id="11_p86j0"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -185,3 +186,7 @@ offset_right = 398.5
 offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="EventOutcomeDisplay" parent="." instance=ExtResource("11_p86j0")]
+visible = false
+layout_mode = 1

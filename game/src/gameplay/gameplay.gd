@@ -19,6 +19,7 @@ signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 @onready var statDetails: Node = $StatDetails;
 @onready var player: Player = $Player;
 @onready var majorEventDisplay: MajorEventDisplay = $MajorEventDisplay;
+@onready var eventOutcomeDisplay: EventOutcomeDisplay = $EventOutcomeDisplay;
 #endregion
 
 
@@ -41,6 +42,7 @@ var dayCount: int:
 var activityOptions: Array[Activity] = [];
 var enhancedActivities: Array[ActivityEnhanced] = [];
 var lastCompletedActivity: Activity;
+var lastOutcome: MajorOutcome;
 
 var receivedTransitionData: TransitionData;
 @export
@@ -68,6 +70,7 @@ func _ready():
         activitySelection.activitySelected.connect(_onActivityConfirmed);
     player.statsUpdated.connect(statDetails._onPlayerStatsUpdated);
     majorEventDisplay.eventOptionSelected.connect(_onMajorEventCompleted);
+    eventOutcomeDisplay.outcomeDisplayConfirmed.connect(_onEventOutcomeConfirmed);
 
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
@@ -165,15 +168,20 @@ func _onMajorEventCompleted(selectionIndex: int) -> void:
     print_debug("major event is completed");
     var selectedOption: EventOption = nextMajorEvent.options[selectionIndex];
     # todo: calculate outcome
-    var outcome: MajorOutcome = [selectedOption.failureResult, selectedOption.successResult, selectedOption.greatSuccessResult].pick_random();
+    lastOutcome = [selectedOption.failureResult, selectedOption.successResult, selectedOption.greatSuccessResult].pick_random();
 
     #todo: figure out how to display outcome results
+    eventOutcomeDisplay.open(lastOutcome);
+    
+    majorEventDisplay.close();
+    # nextMajorEvent = selectedOption
 
+func _onEventOutcomeConfirmed() -> void:
     # check for game over exit
-    if outcome.ending != null:
+    if lastOutcome.ending != null:
         print_debug("ending is happening, woo wooo!");
         receivedTransitionData.endingData = TransitionData.EndingData.new();
-        receivedTransitionData.endingData.achieved_ending = outcome.ending;
+        receivedTransitionData.endingData.achieved_ending = lastOutcome.ending;
 
         var nextScene: PackedScene = load("res://src/ending/ending_display.tscn");
         var nextRoot: Node = nextScene.instantiate();
@@ -183,23 +191,22 @@ func _onMajorEventCompleted(selectionIndex: int) -> void:
         queue_free();
         return ;
 
-    # apply results of outcome:
-    player.applyStatIncreases(outcome.statChangesToApply);
-    if outcome.moodOverride != null:
-        dayManager.applyOverride(outcome.moodOverride);
-    if outcome.weatherOverride != null:
-        dayManager.applyOverride(outcome.weatherOverride);
-    
+    # apply results of lastOutcome:
+    player.applyStatIncreases(lastOutcome.statChangesToApply);
+    if lastOutcome.moodOverride != null:
+        dayManager.applyOverride(lastOutcome.moodOverride);
+    if lastOutcome.weatherOverride != null:
+        dayManager.applyOverride(lastOutcome.weatherOverride);
+
     # set up next major event
-    nextMajorEvent = outcome.nextMajorObjective.pick_random();
+    nextMajorEvent = lastOutcome.nextMajorObjective.pick_random();
     daysTillMajorEvent = nextMajorEvent.setupDays;
     
-    majorEventDisplay.close();
-    # nextMajorEvent = selectedOption
+    eventOutcomeDisplay.close();
     process_mode = Node.PROCESS_MODE_INHERIT
-
+    
+    
 #endregion
-
 #region interruption_events
 func _onWeatherChanged(_newWeather: Weather.Types) -> void:
     enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
