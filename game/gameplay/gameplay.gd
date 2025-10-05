@@ -3,7 +3,7 @@ class_name Gameplay extends Node
 signal dayCountChanged(newDayCount: int);
 signal daysRemainingChanged(daysRemainingCount: int);
 signal nextMajorEventChanged(newNextMajorEvent: MajorEvent);
-signal activitiesChanged(newActivities: Array[Activity]);
+signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 
 #region node init
 @onready var dayManager: DayManager = $DayManager;
@@ -135,7 +135,7 @@ func _onSetUpNewDay() -> void:
 
     activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
     enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
-    activitiesChanged.emit(activityOptions);
+    activitiesChanged.emit(enhancedActivities);
     
     dayCount += 1;
     daysTillMajorEvent -= 1
