@@ -5,6 +5,7 @@ var playerData: PlayerData;
 var metaProgressionData: MetaProgressionData;
 var initialSetupData: InitialSetupData;
 var scenarioData: ScenarioData;
+var endingData: EndingData;
 
 class PlayerData extends Resource:
     var job: Job.Types;
@@ -12,6 +13,7 @@ class PlayerData extends Resource:
 
 class MetaProgressionData extends Resource:
     var tutorialComplete: bool = false
+    var completedEndings: Dictionary = {}
 
 class InitialSetupData extends Resource:
     var possibleMajorEvents: Array[MajorEvent]
@@ -33,6 +35,9 @@ class CurrentDayData extends Resource:
     var moodOverride: ConditionOverride;
     var weatherOverride: ConditionOverride;
 
+class EndingData extends Resource:
+    var achieved_ending: Ending;
+
 static func generateDefault() -> TransitionData:
     var default = TransitionData.new();
     default.playerData = PlayerData.new()
@@ -49,4 +54,16 @@ static func generateDefault() -> TransitionData:
         majorEvent
     ]);
     
+    default.metaProgressionData = MetaProgressionData.new();
+    default.metaProgressionData.completedEndings = buildTotalPossibleEndings();
+    
     return default
+
+static func buildTotalPossibleEndings() -> Dictionary:
+    var result = {}
+    var dir := DirAccess.open("res://assets/data/endings")
+    const prefix = "res://assets/data/endings/"
+    dir.list_dir_begin();
+    for filename: String in dir.get_files():
+        result[prefix + filename] = 0;
+    return result;

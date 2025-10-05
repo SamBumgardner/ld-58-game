@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0oh4lk6lmf63"]
+
+[ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="1_46xre"]
+[ext_resource type="Script" uid="uid://c0q1ieoas7qpl" path="res://src/ending/ending_display.gd" id="1_f1g78"]
+
+[node name="EndingDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f1g78")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="MainContent" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -126.0
+offset_right = 126.0
+offset_bottom = 345.0
+grow_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Title"
+horizontal_alignment = 1
+
+[node name="SplashImage" type="TextureRect" parent="MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_46xre")
+stretch_mode = 2
+
+[node name="Description" type="Label" parent="MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "An ending description lies here..."
+horizontal_alignment = 1
+
+[node name="MetaContent" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="Flavor" type="Label" parent="MetaContent"]
+layout_mode = 2
+text = "As one story ends, another begins..."
+horizontal_alignment = 1
+
+[node name="EndingsAchievedCount" type="Label" parent="MetaContent"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 / 10 Endings Achieved!"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="MetaContent"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play Again"
