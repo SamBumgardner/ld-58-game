@@ -1,14 +1,37 @@
 class_name Gameplay extends Node
 
+signal dayCountChanged(newDayCount: int);
+signal daysRemainingChanged(daysRemainingCount: int);
+signal nextMajorEventChanged(newNextMajorEvent: MajorEvent);
+
+#region node init
 @onready
 var dayManager: DayManager = $DayManager;
+@onready
+var moodTracker: Node = $MoodTracker
+@onready
+var dayCountTracker: Node = $DayCountTracker
+@onready
+var weatherDisplay: Node = $WeatherDisplay
+@onready
+var majorObjectiveBanner: Node = $MajorObjectiveBanner
+#endregion
 
 var player: Player;
 var nextDayGenerator: NextDayGenerator;
 
-var nextMajorEvent: MajorEvent;
-var daysTillMajorEvent: int;
-var dayCount: int;
+var nextMajorEvent: MajorEvent:
+    set(newValue):
+        nextMajorEvent = newValue
+        nextMajorEventChanged.emit(nextMajorEvent);
+var daysTillMajorEvent: int:
+    set(newValue):
+        daysTillMajorEvent = newValue
+        daysRemainingChanged.emit(daysTillMajorEvent);
+var dayCount: int:
+    set(newValue):
+        dayCount = newValue
+        dayCountChanged.emit(dayCount);
 #var inventory: Inventory;
 
 var activityOptions: Array[Activity] = [];
@@ -26,6 +49,14 @@ func _ready():
 
     dayManager.weatherChanged.connect(_onWeatherChanged);
     dayManager.moodChanged.connect(_onMoodChanged);
+    
+    # TODO: REMOVE LATER, TEMP SETUP
+    dayManager.weatherChanged.connect(weatherDisplay._onWeatherChange);
+    dayManager.forecastChanged.connect(weatherDisplay._onForecastChange);
+    dayManager.moodChanged.connect(moodTracker._onMoodChange);
+    dayCountChanged.connect(dayCountTracker._onDayCountChange);
+    daysRemainingChanged.connect(majorObjectiveBanner._onDaysRemainingChange);
+    nextMajorEventChanged.connect(majorObjectiveBanner._onMajorObjectiveChange);
 
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();

@@ -15,7 +15,7 @@ var weather: Weather.Types:
         if weatherOverride != null:
             newValue = weatherOverride.overrideValue as Weather.Types;
         weather = newValue;
-        if initialized && oldValue != weather:
+        if not initialized or oldValue != weather:
             weatherChanged.emit(newValue);
 
 var forecast: Weather.Types:
@@ -25,7 +25,7 @@ var forecast: Weather.Types:
         if weatherOverride != null and weatherOverride.remainingDays >= 1:
             newValue = weatherOverride.overrideValue as Weather.Types;
         forecast = newValue;
-        if initialized && oldValue != weather:
+        if not initialized or oldValue != weather:
             forecastChanged.emit(newValue);
 
 var mood: Mood.Types:
@@ -35,13 +35,13 @@ var mood: Mood.Types:
         if moodOverride != null:
             newValue = moodOverride.overrideValue as Mood.Types;
         mood = newValue;
-        if initialized && oldValue != mood:
+        if not initialized or oldValue != mood:
             moodChanged.emit(newValue);
 
 var craftingCooldown: int;
 var moodOverride: ConditionOverride;
 var weatherOverride: ConditionOverride;
-var initialized = false;
+var initialized = false; 
 
 
 func initialize(initData: TransitionData.CurrentDayData):
