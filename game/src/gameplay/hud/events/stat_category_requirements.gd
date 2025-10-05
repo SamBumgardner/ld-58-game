@@ -11,14 +11,15 @@ class_name StatCategoryRequirements extends VBoxContainer
     $MinorStatIcon3,
 ]
 @onready var minorStatLabels: Array[Node] = [
-    $MinorStatIcon1/MinorStatThreshold1,
-    $MinorStatIcon2/MinorStatThreshold2,
-    $MinorStatIcon3/MinorStatThreshold3,
+    $MinorStatIcon1/MinorStatThreshold,
+    $MinorStatIcon2/MinorStatThreshold,
+    $MinorStatIcon3/MinorStatThreshold,
 ]
 
 func setValues(majorStatRequirements: Array[int], minorStatRequirements: Array[StatIncrease]):
     # todo: set major stat icon
     majorStatThreshold.text = "%d" % majorStatRequirements[statCategory];
+    majorStatThreshold.show();
     var filteredMinorStatRequirements := minorStatRequirements.filter(func(x): return x.statType == statCategory);
     for i in minorStatLabels.size():
         if i < filteredMinorStatRequirements.size():
@@ -33,11 +34,13 @@ func setValues(majorStatRequirements: Array[int], minorStatRequirements: Array[S
 func displayChanges(statChanges: Array[StatIncrease]):
     # todo: set major stat icon
     var filteredMinorStatChanges := statChanges.filter(func(x): return x.statType == statCategory);
+    majorStatThreshold.hide();
+    majorStatIcon.visible = not filteredMinorStatChanges.is_empty();
+    
     for i in minorStatLabels.size():
         if i < filteredMinorStatChanges.size():
             # todo: set minor stat icons
             minorStatIcons[i].show();
-
             var minorStatLabel: Label = minorStatLabels[i]
             minorStatLabel.text = "%d" % filteredMinorStatChanges[i].changeAmount
         else:

@@ -8,7 +8,9 @@
 [resource]
 script = ExtResource("3_fj7pl")
 title = "Failure..."
-description = "A misfire occurs as the display is set to being, launching a rocket straight into the mayor's house."
+description = "A misfire occurs as the display begins, launching a rocket straight into the mayor's house. 
+
+Smoke begins to rise as townsfolk take cover..."
 daysUntilNextEvent = 0
 ending = ExtResource("1_rtqji")
 metadata/_custom_type_script = "uid://i2f2r7105gxu"
