@@ -1,11 +1,15 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://bib3433hlvjwi"]
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://bib3433hlvjwi"]
 
-[ext_resource type="AudioStream" uid="uid://dfrvfx7tj3y6e" path="res://assets/audio/sfx/sfx_405_physical.wav" id="1_jski7"]
-[ext_resource type="AudioStream" uid="uid://cl0niny8ox0ds" path="res://assets/audio/sfx/sfx_406_physical.wav" id="2_owggp"]
-[ext_resource type="AudioStream" uid="uid://dmdgqxt24547g" path="res://assets/audio/sfx/sfx_407_physical.wav" id="3_v5umw"]
+[ext_resource type="AudioStream" uid="uid://bblsgqt78iiyk" path="res://assets/audio/sfx/sfx_408_craft.wav" id="1_v5umw"]
+[ext_resource type="AudioStream" uid="uid://dh52mrwp36mcs" path="res://assets/audio/sfx/sfx_409_craft.wav" id="2_82ut8"]
+[ext_resource type="AudioStream" uid="uid://dxtyp1ne0sgma" path="res://assets/audio/sfx/sfx_410_craft.wav" id="3_4wvgy"]
+[ext_resource type="AudioStream" uid="uid://b7mom74wvm4n5" path="res://assets/audio/sfx/sfx_411_craft.wav" id="4_xxf5f"]
+[ext_resource type="AudioStream" uid="uid://mnctmqtb04mb" path="res://assets/audio/sfx/sfx_412_craft.wav" id="5_xws1d"]
 
 [resource]
-streams_count = 3
-stream_0/stream = ExtResource("1_jski7")
-stream_1/stream = ExtResource("2_owggp")
-stream_2/stream = ExtResource("3_v5umw")
+streams_count = 5
+stream_0/stream = ExtResource("1_v5umw")
+stream_1/stream = ExtResource("2_82ut8")
+stream_2/stream = ExtResource("3_4wvgy")
+stream_3/stream = ExtResource("4_xxf5f")
+stream_4/stream = ExtResource("5_xws1d")
