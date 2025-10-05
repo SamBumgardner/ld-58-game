@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://deoyucrau4xtd"
-path="res://.godot/imported/sfx_415_craft.wav-fc9f88fe0b24fe11f50a7f635d4eadc9.sample"
+path="res://.godot/imported/sfx_415_generic.wav-dcfb937990aa86f5132a335c2848d502.sample"
 
 [deps]
 
-source_file="res://assets/audio/sfx/sfx_415_craft.wav"
-dest_files=["res://.godot/imported/sfx_415_craft.wav-fc9f88fe0b24fe11f50a7f635d4eadc9.sample"]
+source_file="res://assets/audio/sfx/sfx_415_generic.wav"
+dest_files=["res://.godot/imported/sfx_415_generic.wav-dcfb937990aa86f5132a335c2848d502.sample"]
 
 [params]
 
