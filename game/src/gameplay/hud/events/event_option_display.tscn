@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://daf2ytso3cs48"]
+
+[ext_resource type="Script" uid="uid://bmop7dlgni0qo" path="res://src/gameplay/hud/events/event_option_display.gd" id="1_bgh2p"]
+[ext_resource type="PackedScene" uid="uid://chuptqvahkktv" path="res://src/gameplay/hud/events/stat_category_requirements.tscn" id="1_olpdw"]
+
+[node name="EventOptionDisplay" type="PanelContainer"]
+custom_minimum_size = Vector2(240, 0)
+size_flags_horizontal = 3
+script = ExtResource("1_bgh2p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Content" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "Option Title"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="MarginContainer/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "You'd rather support the party in a more subtle way.
+Organizing an event on this scale will be a challenge, though."
+autowrap_mode = 2
+clip_text = true
+
+[node name="StatRequirements" type="HBoxContainer" parent="MarginContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StatCategoryRequirements" parent="MarginContainer/Content/StatRequirements" instance=ExtResource("1_olpdw")]
+layout_mode = 2
+
+[node name="StatCategoryRequirements2" parent="MarginContainer/Content/StatRequirements" instance=ExtResource("1_olpdw")]
+layout_mode = 2
+statCategory = 1
+
+[node name="StatCategoryRequirements3" parent="MarginContainer/Content/StatRequirements" instance=ExtResource("1_olpdw")]
+layout_mode = 2
+statCategory = 2
+
+[node name="AttemptButton" type="Button" parent="MarginContainer/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 10
+text = "Attempt"

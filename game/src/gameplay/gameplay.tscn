@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene load_steps=11 format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://src/gameplay/gameplay.gd" id="1_41n4r"]
 [ext_resource type="Script" uid="uid://b4mr4nqec0gds" path="res://src/player/player.gd" id="2_r5as3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cqei7411b6o8u" path="res://src/gameplay/hud/major_objective_banner.gd" id="6_yvprt"]
 [ext_resource type="PackedScene" uid="uid://bp1i2ft4knik3" path="res://src/gameplay/hud/activity_selection.tscn" id="7_uk44f"]
 [ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://src/gameplay/hud/stat_details.gd" id="8_yvprt"]
+[ext_resource type="PackedScene" uid="uid://cfn4gebfndu50" path="res://src/gameplay/hud/events/major_event_display.tscn" id="10_r22ir"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -169,3 +170,17 @@ size_flags_vertical = 6
 text = "Substat 1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MajorEventDisplay" parent="." instance=ExtResource("10_r22ir")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -398.5
+offset_top = -270.0
+offset_right = 398.5
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
