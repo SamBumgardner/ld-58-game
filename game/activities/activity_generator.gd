@@ -61,11 +61,11 @@ static func getStudyStats(day: Day, player: Player) -> Array[StatIncrease]:
                     StatIncrease.new(study, Stats.Study.MAGIC, 2)
                 ]
         _:
-            return []
+            bonusIncreases = [];
     
     # Combine duplicates
     statIncreases.append_array(bonusIncreases);
-    combineMatchingIncreases(statIncreases);
+    statIncreases = combineMatchingIncreases(statIncreases);
 
     return statIncreases;
 
@@ -123,11 +123,11 @@ static func getPhysicalStats(day: Day, player: Player) -> Array[StatIncrease]:
                     StatIncrease.new(physical, Stats.Physical.ENDURANCE, 2)
                 ]
         _:
-            return []
+            bonusIncreases = [];
     
     # Combine duplicates
     statIncreases.append_array(bonusIncreases);
-    combineMatchingIncreases(statIncreases);
+    statIncreases = combineMatchingIncreases(statIncreases);
 
     return statIncreases;
 
@@ -185,11 +185,11 @@ static func getCraftStats(day: Day, player: Player) -> Array[StatIncrease]:
                     StatIncrease.new(craft, Stats.Craft.PLANNING, 2)
                 ]
         _:
-            return []
+            bonusIncreases = [];
     
     # Combine duplicates
     statIncreases.append_array(bonusIncreases);
-    combineMatchingIncreases(statIncreases);
+    statIncreases = combineMatchingIncreases(statIncreases);
 
     return statIncreases;
 

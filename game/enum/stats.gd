@@ -55,3 +55,12 @@ static var CraftNames: Array[String] = [
     "Precision",
     "Planning"
 ]
+
+static var NamesLookup: Array[Array] = [
+    StudyNames,
+    PhysicalNames,
+    CraftNames,
+]
+
+static func getNameForSubstat(statType: Types, substatIndex: int) -> Array[String]:
+    return NamesLookup[statType][substatIndex];
