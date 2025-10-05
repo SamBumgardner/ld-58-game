@@ -4,7 +4,7 @@ var stats: Array[Array];
 
 func majorTotal(statType: Stats.Types) -> int:
     var result = 0;
-    stats[statType].reduce(func(accum, num): return accum + num, result);
+    result = stats[statType].reduce(func(accum, num): return accum + num);
     return result;
 
 func minorValue(statType: Stats.Types, minorStatIndex: int) -> int:
