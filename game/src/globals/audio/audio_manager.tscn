@@ -13,6 +13,7 @@ script = ExtResource("1_3jwtn")
 [node name="MusicGameplay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lhb1d")
 autoplay = true
+bus = &"Music"
 
 [node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xevv2")
