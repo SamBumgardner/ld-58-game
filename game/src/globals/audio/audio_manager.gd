@@ -7,10 +7,11 @@ extends Node
 
 func _ready() -> void:
     EventBus.globalActivitySelected.connect(_playSfxTrainingComplete)
-    pass
 
 func _playSfxUiClickConfirm(_unused: int) -> void:
     sfxUiClickConfirm.play()
+
+#region training complete
 
 func _playSfxTrainingComplete(_unused: int) -> void:
     if _unused == 0:
@@ -22,19 +23,21 @@ func _playSfxTrainingComplete(_unused: int) -> void:
     else:
         print_debug("Warning: Tried to play SFX out of bounds at", _unused)
 
-func _playSfxTrainingTypeStudyComplete() -> void:
+func _playSfxTrainingTypeCraftComplete() -> void:
     _stopSfxTrainingComplete()
-    sfxTrainingTypeStudyComplete.play()
+    sfxTrainingTypeCraftComplete.play()
 
 func _playSfxTrainingTypePhysicalComplete() -> void:
     _stopSfxTrainingComplete()
     sfxTrainingTypePhysicalComplete.play()
 
-func _playSfxTrainingTypeCraftComplete() -> void:
+func _playSfxTrainingTypeStudyComplete() -> void:
     _stopSfxTrainingComplete()
-    sfxTrainingTypeCraftComplete.play()
+    sfxTrainingTypeStudyComplete.play()
 
 func _stopSfxTrainingComplete() -> void:
     sfxTrainingTypeCraftComplete.stop()
     sfxTrainingTypePhysicalComplete.stop()
     sfxTrainingTypeStudyComplete.stop()
+
+#endregion
