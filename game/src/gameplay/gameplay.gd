@@ -167,10 +167,16 @@ func _onEventCompleted(_selectionIndex: int) -> void:
 func _onMajorEventCompleted(selectionIndex: int) -> void:
     print_debug("major event is completed");
     var selectedOption: EventOption = nextMajorEvent.options[selectionIndex];
-    # todo: calculate outcome
-    lastOutcome = [selectedOption.failureResult, selectedOption.successResult, selectedOption.greatSuccessResult].pick_random();
+    
+    # Calculating outcome (logic in Player class)
+    var rollResults: Player.EventRollRecord = player.attemptBeatEventRequirements(selectedOption);
+    if rollResults.greatSuccess:
+        lastOutcome = selectedOption.greatSuccessResult;
+    elif rollResults.success:
+        lastOutcome = selectedOption.successResult;
+    else:
+        lastOutcome = selectedOption.failureResult;
 
-    #todo: figure out how to display outcome results
     eventOutcomeDisplay.open(lastOutcome);
     
     majorEventDisplay.close();

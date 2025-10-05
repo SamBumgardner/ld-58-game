@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [resource]
 script = ExtResource("4_y20wq")
-title = "Success!"
+title = "Great Success!"
 description = "The party is a great success! 
 
 Food and drink flow freely, and everyone enjoys their fill.

@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://ccfhidydcpt2p"
 
 [resource]
 script = ExtResource("4_ds64x")
-title = "Success!"
+title = "Failure..."
 description = "Organizing party was more complicated and stressful than you expected. It's done now, but you know it could've gone better.
 
 You're left with feelings of regret and disappointment..."
