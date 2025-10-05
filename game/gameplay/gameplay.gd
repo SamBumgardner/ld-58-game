@@ -1,7 +1,7 @@
 class_name Gameplay extends Node
 
-@export
-var dayManager: DayManager;
+@onready
+var dayManager: DayManager = $DayManager;
 
 var player: Player;
 var nextDayGenerator: NextDayGenerator;
@@ -11,8 +11,8 @@ var daysTillMajorEvent: int;
 var dayCount: int;
 #var inventory: Inventory;
 
-var activityOptions: Array[Activity];
-var enhancedActivities: Array[ActivityEnhanced]
+var activityOptions: Array[Activity] = [];
+var enhancedActivities: Array[ActivityEnhanced] = [];
 var lastCompletedActivity: Activity;
 
 var receivedTransitionData: TransitionData;
@@ -32,10 +32,12 @@ func _ready():
 
 func rootSceneActions():
     isStartingScene = true;
-    initScene(TransitionData.generateDefault());
+    receivedTransitionData = TransitionData.generateDefault();
+    initScene(receivedTransitionData);
     startScene();
 
 func initScene(transitionData: TransitionData):
+    print_debug("initializing scene");
     # Determine if we're loading an existing scenario or if we're working on one in-progress
     var newStart: bool = transitionData.initialSetupData != null;
     
@@ -43,6 +45,7 @@ func initScene(transitionData: TransitionData):
     player = Player.new(transitionData.playerData.job, transitionData.playerData.stats);
 
     if newStart:
+        print_debug("determined that we're starting a fresh game");
         nextMajorEvent = transitionData.initialSetupData.possibleMajorEvents.pick_random()
         dayCount = 0
         daysTillMajorEvent = nextMajorEvent.setupDays;
@@ -57,6 +60,7 @@ func initScene(transitionData: TransitionData):
         push_error("loading in-progress-scenarios is not implemented");
         
 func startScene():
+    print_debug("starting scene");
     process_mode = Node.ProcessMode.PROCESS_MODE_INHERIT
     _onSetUpNewDay() # may need to replace this with a timed animation thing
 
@@ -65,6 +69,7 @@ func startScene():
 
 #region day sequence management
 func _onActivityConfirmed(selectedActivity: Activity) -> void:
+    print_debug("activity confirmed");
     # Activate fade-out
     # Fade in training image
     # show results of training
@@ -76,11 +81,13 @@ func _onActivityConfirmed(selectedActivity: Activity) -> void:
     _onSetUpNewDay();
 
 func _applyResultsOfActivity() -> void:
+    print_debug("applying results of activity");
     var enhancedActivityGains: Array[StatIncrease] = \
         enhancedActivities[activityOptions.find(lastCompletedActivity)].enhancedIncreases;
     player.applyStatIncreases(enhancedActivityGains);
 
 func _onSetUpNewDay() -> void:
+    print_debug("setting up new day");
     if dayCount != 0: # don't want to these steps if we're starting a fresh play
         var newDay = nextDayGenerator.getNextDay(dayManager.weather, dayManager.forecast, lastCompletedActivity);
         newDay = dayManager.applyNewDay(newDay);
@@ -93,16 +100,19 @@ func _onSetUpNewDay() -> void:
     _onNewDayFadeIn();
 
 func _onNewDayFadeIn() -> void:
+    print_debug("new day is fading in");
     # this is where we check for events happening, bring up the exciting screen.
     pass ;
 
 func _onEventCompleted() -> void:
+    print_debug("event is completed");
     # Apply results of event
     # Clean up scene stuff
     # Resume normal gameplay
     pass ;
 
 func _onMajorEventCompleted() -> void:
+    print_debug("major event is completed");
     # check for game over exit
     # if not, apply status changes
     pass ;

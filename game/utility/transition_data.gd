@@ -14,7 +14,7 @@ class MetaProgressionData extends Resource:
     var tutorialComplete: bool = false
 
 class InitialSetupData extends Resource:
-    var possibleMajorEvents = Array[MajorEvent]
+    var possibleMajorEvents: Array[MajorEvent]
 
 class ScenarioData extends Resource:
     var currentDayData: CurrentDayData
@@ -37,11 +37,11 @@ static func generateDefault() -> TransitionData:
     var default = TransitionData.new();
     default.playerData = PlayerData.new()
     default.playerData.job = Job.Types.HERO;
-    default.playerData.job = [
+    default.playerData.stats.assign([
         [1, 1, 2],
         [3, 2, 2],
         [1, 1, 1],
-    ]
+    ]);
     
     default.initialSetupData = InitialSetupData.new()
     var majorEvent: MajorEvent = MajorEvent.new();
@@ -49,8 +49,8 @@ static func generateDefault() -> TransitionData:
     majorEvent.description = "this is a test description";
     var eventOption: EventOption = EventOption.generateDefault();
     majorEvent.options = [eventOption];
-    default.initialSetupData.possibleMajorEvents = [
+    default.initialSetupData.possibleMajorEvents.assign([
         majorEvent
-    ]
+    ]);
     
     return default

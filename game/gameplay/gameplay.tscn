@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpxe6jiswo1v2"]
+
+[ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://gameplay/gameplay.gd" id="1_41n4r"]
+[ext_resource type="Script" uid="uid://6ugnkjruhtf5" path="res://days/day_manager.gd" id="2_ueusv"]
+
+[node name="Gameplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_41n4r")
+
+[node name="DayManager" type="Node" parent="."]
+script = ExtResource("2_ueusv")
+metadata/_custom_type_script = "uid://6ugnkjruhtf5"
