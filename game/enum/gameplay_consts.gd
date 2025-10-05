@@ -34,10 +34,13 @@ static func generateWeatherEnhancements() -> Dictionary:
     const STANDARD_PENALTY = -1;
 
     var result = {};
-    for weatherType: Weather.Types in [Weather.Types.HOT, Weather.Types.CLOUDY, Weather.Types.RAINY, Weather.Types.MISTY]:
+    for weatherType: Weather.Types in Weather.Types.values():
         var enhancedStatTypes: Array[Stats.Types];
         var reducedStatTypes: Array[Stats.Types];
         match weatherType:
+            Weather.Types.FAIR:
+                enhancedStatTypes = []
+                reducedStatTypes = []
             Weather.Types.HOT:
                 enhancedStatTypes = [Stats.Types.PHYSICAL]
                 reducedStatTypes = [Stats.Types.STUDY]
@@ -77,10 +80,13 @@ static func generateMoodEnhancements() -> Dictionary:
     const STANDARD_PENALTY = -1;
 
     var result = {};
-    for moodType: Mood.Types in [Mood.Types.HAPPY, Mood.Types.SAD, Mood.Types.GRUMPY, Mood.Types.MOTIVATED]:
+    for moodType: Mood.Types in Mood.Types.values():
         var enhancedStatTypes: Array[Stats.Types];
         var reducedStatTypes: Array[Stats.Types];
         match moodType:
+            Mood.Types.RELAXED:
+                enhancedStatTypes = []
+                reducedStatTypes = []
             Mood.Types.HAPPY:
                 enhancedStatTypes = [Stats.Types.PHYSICAL]
                 reducedStatTypes = [Stats.Types.STUDY]
