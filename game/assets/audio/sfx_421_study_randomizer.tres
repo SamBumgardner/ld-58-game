@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://cdyhq661xd33r"]
+
+[ext_resource type="AudioStream" uid="uid://c6cltnyoy3iq0" path="res://assets/audio/sfx/sfx_401_study.wav" id="1_0rbdd"]
+[ext_resource type="AudioStream" uid="uid://bq5fqvf0gvpx2" path="res://assets/audio/sfx/sfx_402_study.wav" id="2_frjh5"]
+[ext_resource type="AudioStream" uid="uid://fxenvjd5dgmt" path="res://assets/audio/sfx/sfx_403_study.wav" id="3_ts35v"]
+[ext_resource type="AudioStream" uid="uid://ypmyy5t8ofim" path="res://assets/audio/sfx/sfx_404_study.wav" id="4_laiqs"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_0rbdd")
+stream_1/stream = ExtResource("2_frjh5")
+stream_2/stream = ExtResource("3_ts35v")
+stream_3/stream = ExtResource("4_laiqs")
