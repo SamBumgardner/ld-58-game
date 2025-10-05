@@ -8,6 +8,9 @@ signal eventOptionSelected(selectedIndex: int);
 @onready var description: Label = $%Description;
 @onready var eventOptionDisplays: Array[Node] = $%EventOptions.get_children();
 
+func _init() -> void:
+    process_mode = Node.PROCESS_MODE_ALWAYS;
+
 func _ready() -> void:
     for display: EventOptionDisplay in eventOptionDisplays:
         display.eventOptionSelected.connect(eventOptionSelected.emit);
@@ -21,3 +24,6 @@ func open(majorEvent: MajorEvent) -> void:
     for eventOptionDisplay: EventOptionDisplay in eventOptionDisplays:
         eventOptionDisplay.setValues(majorEvent.options);
     show();
+
+func close() -> void:
+    hide();

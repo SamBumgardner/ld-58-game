@@ -18,6 +18,7 @@ signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 ];
 @onready var statDetails: Node = $StatDetails;
 @onready var player: Player = $Player;
+@onready var majorEventDisplay: MajorEventDisplay = $MajorEventDisplay;
 #endregion
 
 
@@ -66,6 +67,7 @@ func _ready():
         activitiesChanged.connect(activitySelection._onActivitiesChanged);
         activitySelection.activitySelected.connect(_onActivityConfirmed);
     player.statsUpdated.connect(statDetails._onPlayerStatsUpdated);
+    majorEventDisplay.eventOptionSelected.connect(_onMajorEventCompleted);
 
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
@@ -146,20 +148,46 @@ func _onSetUpNewDay() -> void:
 func _onNewDayFadeIn() -> void:
     print_debug("new day is fading in");
     # this is where we check for events happening, bring up the exciting screen.
-    pass ;
+    if daysTillMajorEvent == 0:
+        process_mode = Node.PROCESS_MODE_DISABLED;
+        majorEventDisplay.open(nextMajorEvent);
 
-func _onEventCompleted() -> void:
+func _onEventCompleted(_selectionIndex: int) -> void:
     print_debug("event is completed");
     # Apply results of event
+
     # Clean up scene stuff
     # Resume normal gameplay
-    pass ;
+    process_mode = Node.PROCESS_MODE_INHERIT
 
-func _onMajorEventCompleted() -> void:
+func _onMajorEventCompleted(selectionIndex: int) -> void:
     print_debug("major event is completed");
+    var selectedOption: EventOption = nextMajorEvent.options[selectionIndex];
+    # todo: calculate outcome
+    var outcome: MajorOutcome = [selectedOption.failureResult, selectedOption.successResult, selectedOption.greatSuccessResult].pick_random();
+
+    #todo: figure out how to display outcome results
+
     # check for game over exit
-    # if not, apply status changes
-    pass ;
+    if outcome.ending != null:
+        print_debug("ending is happening, woo wooo!");
+        get_tree().quit();
+        return;
+
+    # apply results of outcome:
+    player.applyStatIncreases(outcome.statChangesToApply);
+    if outcome.moodOverride != null:
+        dayManager.applyOverride(outcome.moodOverride);
+    if outcome.weatherOverride != null:
+        dayManager.applyOverride(outcome.weatherOverride);
+    
+    # set up next major event
+    nextMajorEvent = outcome.nextMajorObjective.pick_random();
+    daysTillMajorEvent = nextMajorEvent.setupDays;
+    
+    majorEventDisplay.close();
+    # nextMajorEvent = selectedOption
+    process_mode = Node.PROCESS_MODE_INHERIT
 
 #endregion
 
