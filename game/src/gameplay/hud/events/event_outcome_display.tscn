@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmsrehee6sok5"]
+
+[ext_resource type="Script" uid="uid://gnw026frlxia" path="res://src/gameplay/hud/events/event_outcome_display.gd" id="1_41wie"]
+[ext_resource type="PackedScene" uid="uid://chuptqvahkktv" path="res://src/gameplay/hud/events/stat_category_requirements.tscn" id="3_41wie"]
+[ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="4_dduxo"]
+
+[node name="EventOutcomeDisplay" type="Panel"]
+offset_right = 797.0
+offset_bottom = 540.0
+script = ExtResource("1_41wie")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 1.0
+offset_bottom = -12.0
+grow_horizontal = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+text = "Title"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor"
+autowrap_mode = 2
+
+[node name="Spacing" type="MarginContainer" parent="Content"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ResultsHeader" type="Label" parent="Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderSmall"
+text = "Results"
+horizontal_alignment = 1
+
+[node name="ResultsContainer" type="HBoxContainer" parent="Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="StatRequirements" type="HBoxContainer" parent="Content/ResultsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 12
+
+[node name="StatCategoryRequirements" parent="Content/ResultsContainer/StatRequirements" instance=ExtResource("3_41wie")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="StatCategoryRequirements2" parent="Content/ResultsContainer/StatRequirements" instance=ExtResource("3_41wie")]
+layout_mode = 2
+size_flags_horizontal = 6
+statCategory = 1
+
+[node name="StatCategoryRequirements3" parent="Content/ResultsContainer/StatRequirements" instance=ExtResource("3_41wie")]
+layout_mode = 2
+size_flags_horizontal = 6
+statCategory = 2
+
+[node name="OptionalMoodAndWeatherInfo" type="VBoxContainer" parent="Content/ResultsContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoodContainer" type="HBoxContainer" parent="Content/ResultsContainer/OptionalMoodAndWeatherInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Content/ResultsContainer/OptionalMoodAndWeatherInfo/MoodContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Mood:"
+
+[node name="TextureRect" type="TextureRect" parent="Content/ResultsContainer/OptionalMoodAndWeatherInfo/MoodContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("4_dduxo")
+expand_mode = 3
+
+[node name="WeatherContainer" type="HBoxContainer" parent="Content/ResultsContainer/OptionalMoodAndWeatherInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Content/ResultsContainer/OptionalMoodAndWeatherInfo/WeatherContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Weather:"
+
+[node name="TextureRect" type="TextureRect" parent="Content/ResultsContainer/OptionalMoodAndWeatherInfo/WeatherContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("4_dduxo")
+expand_mode = 3
+
+[node name="ConfirmButton" type="Button" parent="Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Continue"
