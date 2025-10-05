@@ -37,10 +37,13 @@ func getStrongestMinorValueForType(statType: Stats.Types) -> int:
     return strongestIndexes.pick_random();
 
 # Initialize with empty values
-func _init():
-    stats = [];
-    for majorStat in Stats.Types:
-        var substats = [];
-        for substat in Stats.MajorEnums:
-            substats.push_back(0);
-        stats.push_back([]);
+func _init(_stats: Array[Array] = []):
+    stats = _stats;
+
+    if stats.is_empty():
+        stats = [];
+        for majorStat in Stats.Types:
+            var substats = [];
+            for substat in Stats.MajorEnums:
+                substats.push_back(0);
+            stats.push_back([]);

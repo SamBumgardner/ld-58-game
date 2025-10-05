@@ -1,8 +1,7 @@
 class_name Gameplay extends Node
 
 @export
-var dayConditions: DayConditions;
-var currentDay: Day;
+var dayManager: DayManager;
 
 var player: Player;
 var nextDayGenerator: NextDayGenerator;
@@ -16,52 +15,106 @@ var activityOptions: Array[Activity];
 var enhancedActivities: Array[ActivityEnhanced]
 var lastCompletedActivity: Activity;
 
-func _init():
-    dayConditions.weatherChanged.connect(_onWeatherChanged);
-    dayConditions.moodChanged.connect(_onMoodChanged);
-    
-    # Need to sort out how the gameplay state first transitions in.
-    # Should have some starting information
+var receivedTransitionData: TransitionData;
+@export
+var isStartingScene: bool = false;
 
-#region event_handling
+
+#region scene transition
+func _ready():
+    process_mode = Node.PROCESS_MODE_DISABLED
+
+    dayManager.weatherChanged.connect(_onWeatherChanged);
+    dayManager.moodChanged.connect(_onMoodChanged);
+
+    if self == get_tree().current_scene || isStartingScene:
+        rootSceneActions();
+
+func rootSceneActions():
+    isStartingScene = true;
+    initScene(TransitionData.generateDefault());
+    startScene();
+
+func initScene(transitionData: TransitionData):
+    # Determine if we're loading an existing scenario or if we're working on one in-progress
+    var newStart: bool = transitionData.initialSetupData != null;
+    
+    # Initialize player with starting stats from transitionData
+    player = Player.new(transitionData.playerData.job, transitionData.playerData.stats);
+
+    if newStart:
+        nextMajorEvent = transitionData.initialSetupData.possibleMajorEvents.pick_random()
+        dayCount = 0
+        daysTillMajorEvent = nextMajorEvent.setupDays;
+
+        nextDayGenerator = NextDayGenerator.new(nextMajorEvent.weatherPool)
+        var newDay = nextDayGenerator.getNewDayWithoutHistory();
+        dayManager.applyNewDay(newDay);
+
+    else:
+        # currentDayData should be used to populate DayManager
+        # should be able to use transition data to populate everything
+        push_error("loading in-progress-scenarios is not implemented");
+        
+func startScene():
+    process_mode = Node.ProcessMode.PROCESS_MODE_INHERIT
+    _onSetUpNewDay() # may need to replace this with a timed animation thing
+
+#endregion
+
+
+#region day sequence management
 func _onActivityConfirmed(selectedActivity: Activity) -> void:
     # Activate fade-out
     # Fade in training image
     # show results of training
     # expose button (or just click-anywhere) for user to continue.
     lastCompletedActivity = selectedActivity;
+    _applyResultsOfActivity();
     
     #todo: remove this later
-    _onNewDayBegin();
+    _onSetUpNewDay();
 
 func _applyResultsOfActivity() -> void:
-    # get enhancements
-    # apply enhancements before applying stat increases
     var enhancedActivityGains: Array[StatIncrease] = \
         enhancedActivities[activityOptions.find(lastCompletedActivity)].enhancedIncreases;
     player.applyStatIncreases(enhancedActivityGains);
 
-func _onNewDayBegin() -> void:
-    var newDay = nextDayGenerator.getNextDay(dayConditions.weather, dayConditions.forecast, lastCompletedActivity);
-    newDay = dayConditions.applyNewDay(newDay);
-    currentDay = newDay;
+func _onSetUpNewDay() -> void:
+    if dayCount != 0: # don't want to these steps if we're starting a fresh play
+        var newDay = nextDayGenerator.getNextDay(dayManager.weather, dayManager.forecast, lastCompletedActivity);
+        newDay = dayManager.applyNewDay(newDay);
+
+    activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
+    dayCount += 1;
+    daysTillMajorEvent -= 1
     
-    activityOptions = ActivityGenerator.generateActivities(currentDay, player);
+    #todo: remove this later
+    _onNewDayFadeIn();
+
+func _onNewDayFadeIn() -> void:
+    # this is where we check for events happening, bring up the exciting screen.
+    pass ;
+
+func _onEventCompleted() -> void:
+    # Apply results of event
+    # Clean up scene stuff
+    # Resume normal gameplay
+    pass ;
 
 func _onMajorEventCompleted() -> void:
     # check for game over exit
     # if not, apply status changes
     pass ;
 
-func _onWeatherChanged(newWeather: Weather.Types) -> void:
-    if newWeather != currentDay.weather:
-        currentDay.weather = newWeather;
-        enhancedActivities = _createActivityEnhancements(activityOptions, currentDay, player)
+#endregion
 
-func _onMoodChanged(newMood: Mood.Types) -> void:
-    if newMood != currentDay.mood:
-        currentDay.mood = newMood;
-        enhancedActivities = _createActivityEnhancements(activityOptions, currentDay, player)
+#region interruption_events
+func _onWeatherChanged(_newWeather: Weather.Types) -> void:
+    enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
+
+func _onMoodChanged(_newMood: Mood.Types) -> void:
+    enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
 
 #endregion
 
