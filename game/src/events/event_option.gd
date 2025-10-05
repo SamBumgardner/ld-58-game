@@ -2,7 +2,7 @@ class_name EventOption extends Resource
 
 @export
 var title: String = "option test title";
-@export
+@export_multiline
 var description: String = "option test description";
 #var selectionCutscene: DialogueCutscene;
 @export_category("Stats")
