@@ -16,14 +16,18 @@ func setValues(eventOptions: Array[EventOption]) -> void:
     if eventOptionIndex == -1:
         push_error("eventOptionDisplay is missing export var setup: see eventOptionSelected");
 
-    var eventOption = eventOptions[eventOptionIndex];
-    title.text = eventOption.title;
-    description.text = eventOption.description;
-    for statCategoryRequirement: StatCategoryRequirements in statCategoryRequirements:
-        statCategoryRequirement.setValues(
-            eventOption.majorStatRequirments,
-            eventOption.minorStatRequirements
-        );
+    if eventOptionIndex < eventOptions.size():
+        var eventOption = eventOptions[eventOptionIndex];
+        title.text = eventOption.title;
+        description.text = eventOption.description;
+        for statCategoryRequirement: StatCategoryRequirements in statCategoryRequirements:
+            statCategoryRequirement.setValues(
+                eventOption.majorStatRequirments,
+                eventOption.minorStatRequirements
+            );
+        show();
+    else:
+        hide();
 
 func _onAttemptButtonPressed() -> void:
     eventOptionSelected.emit(eventOptionIndex);
