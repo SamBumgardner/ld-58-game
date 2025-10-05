@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://chuptqvahkktv"]
+
+[ext_resource type="Script" uid="uid://bqfbocodahwu3" path="res://src/gameplay/hud/events/stat_category_requirements.gd" id="1_0o46o"]
+[ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="1_u0opm"]
+
+[node name="StatCategoryRequirements" type="VBoxContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_0o46o")
+
+[node name="MajorStatIcon" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.6862745)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_u0opm")
+expand_mode = 2
+
+[node name="MajorStatThreshold" type="Label" parent="MajorStatIcon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinorStatIcon1" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.6862745)
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_u0opm")
+expand_mode = 2
+
+[node name="MinorStatThreshold1" type="Label" parent="MinorStatIcon1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinorStatIcon2" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.6862745)
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_u0opm")
+expand_mode = 2
+
+[node name="MinorStatThreshold2" type="Label" parent="MinorStatIcon2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinorStatIcon3" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.6862745)
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_u0opm")
+expand_mode = 2
+
+[node name="MinorStatThreshold3" type="Label" parent="MinorStatIcon3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
