@@ -44,11 +44,7 @@ static func generateDefault() -> TransitionData:
     ]);
     
     default.initialSetupData = InitialSetupData.new()
-    var majorEvent: MajorEvent = MajorEvent.new();
-    majorEvent.title = "test major event";
-    majorEvent.description = "this is a test description";
-    var eventOption: EventOption = EventOption.generateDefault();
-    majorEvent.options = [eventOption];
+    var majorEvent: MajorEvent = load("res://assets/data/major_events/me_000_test.tres")
     default.initialSetupData.possibleMajorEvents.assign([
         majorEvent
     ]);
