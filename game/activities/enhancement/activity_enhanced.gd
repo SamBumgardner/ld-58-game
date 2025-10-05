@@ -18,6 +18,6 @@ func calculateEnhancedVersion(day: Day, player: Player) -> void:
         enhancedIncreases = factor.applyEnhancement(enhancedIncreases, day, player)
     
     increaseDiff = [];
-    for i in enhancedIncreases:
+    for i in enhancedIncreases.size():
         var diff = enhancedIncreases[i].changeAmount - baseActivity.statIncreases[i].changeAmount;
         increaseDiff.push_back(diff);

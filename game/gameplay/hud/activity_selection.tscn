@@ -66,3 +66,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Stat upgrade 1"
 horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2

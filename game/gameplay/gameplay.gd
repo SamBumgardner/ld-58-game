@@ -7,19 +7,20 @@ signal activitiesChanged(newActivities: Array[Activity]);
 
 #region node init
 @onready var dayManager: DayManager = $DayManager;
-@onready var moodTracker: Node = $MoodTracker
-@onready var dayCountTracker: Node = $DayCountTracker
-@onready var weatherDisplay: Node = $WeatherDisplay
-@onready var majorObjectiveBanner: Node = $MajorObjectiveBanner
+@onready var moodTracker: Node = $MoodTracker;
+@onready var dayCountTracker: Node = $DayCountTracker;
+@onready var weatherDisplay: Node = $WeatherDisplay;
+@onready var majorObjectiveBanner: Node = $MajorObjectiveBanner;
 @onready var activitySelections: Array[Node] = [
     $ActivitySelection1,
     $ActivitySelection2,
     $ActivitySelection3,
-]
+];
+@onready var statDetails: Node = $StatDetails;
+@onready var player: Player = $Player;
 #endregion
 
 
-var player: Player;
 var nextDayGenerator: NextDayGenerator;
 
 var nextMajorEvent: MajorEvent:
@@ -63,6 +64,8 @@ func _ready():
         var activitySelection: ActivitySelection = activitySelections[i] as ActivitySelection;
         activitySelection.activityIndex = i;
         activitiesChanged.connect(activitySelection._onActivitiesChanged);
+        activitySelection.activitySelected.connect(_onActivityConfirmed);
+    player.statsUpdated.connect(statDetails._onPlayerStatsUpdated);
 
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
@@ -79,7 +82,7 @@ func initScene(transitionData: TransitionData):
     var newStart: bool = transitionData.initialSetupData != null;
     
     # Initialize player with starting stats from transitionData
-    player = Player.new(transitionData.playerData.job, transitionData.playerData.stats);
+    player.initalize(transitionData.playerData.job, transitionData.playerData.stats);
 
     if newStart:
         print_debug("determined that we're starting a fresh game");
@@ -105,22 +108,23 @@ func startScene():
 
 
 #region day sequence management
-func _onActivityConfirmed(selectedActivity: Activity) -> void:
+func _onActivityConfirmed(activityIndex: int) -> void:
+    var selectedActivity := activityOptions[activityIndex]
     print_debug("activity confirmed");
     # Activate fade-out
     # Fade in training image
     # show results of training
     # expose button (or just click-anywhere) for user to continue.
     lastCompletedActivity = selectedActivity;
-    _applyResultsOfActivity();
+    _applyResultsOfActivity(activityIndex);
     
     #todo: remove this later
     _onSetUpNewDay();
 
-func _applyResultsOfActivity() -> void:
+func _applyResultsOfActivity(activityIndex: int) -> void:
     print_debug("applying results of activity");
     var enhancedActivityGains: Array[StatIncrease] = \
-        enhancedActivities[activityOptions.find(lastCompletedActivity)].enhancedIncreases;
+        enhancedActivities[activityIndex].enhancedIncreases;
     player.applyStatIncreases(enhancedActivityGains);
 
 func _onSetUpNewDay() -> void:
@@ -130,6 +134,7 @@ func _onSetUpNewDay() -> void:
         newDay = dayManager.applyNewDay(newDay);
 
     activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
+    enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
     activitiesChanged.emit(activityOptions);
     
     dayCount += 1;
@@ -173,7 +178,7 @@ static func _createActivityEnhancements(baseActivites: Array[Activity], day: Day
     var weatherEnhancements = GameplayConsts.WEATHER_ENHANCEMENT_FACTORS[day.weather];
     var moodEnhancements = GameplayConsts.MOOD_ENHANCEMENT_FACTORS[day.mood];
     
-    var totalEnhancements = []
+    var totalEnhancements: Array[EnhancementFactor] = []
     totalEnhancements.append_array(weatherEnhancements);
     totalEnhancements.append_array(moodEnhancements);
 
@@ -182,6 +187,6 @@ static func _createActivityEnhancements(baseActivites: Array[Activity], day: Day
     for activity in baseActivites:
         var enhanced = ActivityEnhanced.new(activity, totalEnhancements);
         enhanced.calculateEnhancedVersion(day, p);
-        result.append(enhanced);
+        result.push_back(enhanced);
     
     return result;
