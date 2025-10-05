@@ -29,3 +29,16 @@ func setValues(majorStatRequirements: Array[int], minorStatRequirements: Array[S
             minorStatLabel.text = "%d" % filteredMinorStatRequirements[i].changeAmount
         else:
             minorStatIcons[i].hide();
+
+func displayChanges(statChanges: Array[StatIncrease]):
+    # todo: set major stat icon
+    var filteredMinorStatChanges := statChanges.filter(func(x): return x.statType == statCategory);
+    for i in minorStatLabels.size():
+        if i < filteredMinorStatChanges.size():
+            # todo: set minor stat icons
+            minorStatIcons[i].show();
+
+            var minorStatLabel: Label = minorStatLabels[i]
+            minorStatLabel.text = "%d" % filteredMinorStatChanges[i].changeAmount
+        else:
+            minorStatIcons[i].hide();
