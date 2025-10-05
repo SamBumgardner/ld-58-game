@@ -26,14 +26,14 @@ func _ready():
     tween.tween_property(self, "scale", Vector2.ONE, 2);
     tween.set_loops();
 
-func _onActivitiesChanged(newActivities: Array[Activity]) -> void:
-    var activity = newActivities.get(activityIndex);
+func _onActivitiesChanged(newActivities: Array[ActivityEnhanced]) -> void:
+    var activity: ActivityEnhanced = newActivities.get(activityIndex);
     if activity != null:
-        title.text = HEADER_TEXT % Stats.Types.find_key(activity.statType);
+        title.text = HEADER_TEXT % Stats.Types.find_key(activity.baseActivity.statType);
         
         for i in increases.size():
-            if i < activity.statIncreases.size():
-                var statIncrease: StatIncrease = activity.statIncreases[i];
+            if i < activity.enhancedIncreases.size():
+                var statIncrease: StatIncrease = activity.enhancedIncreases[i];
                 increases[i].text = INCREASE_TEXT % [
                     Stats.NamesLookup[statIncrease.statType][statIncrease.subTypeIndex],
                     statIncrease.changeAmount
