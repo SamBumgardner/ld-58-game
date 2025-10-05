@@ -3,9 +3,9 @@ class_name Player extends RefCounted
 var job: Job.Types
 var stats: PlayerStats
 
-func _init():
-    job = Job.Types.HERO;
-    stats = PlayerStats.new()
+func _init(_job: Job.Types = Job.Types.HERO, statsArray: Array[Array] = []):
+    job = _job;
+    stats = PlayerStats.new(statsArray);
     
 # get index of lowest stat
 func getWeakestStatIndexForType(statType: Stats.Types) -> Stats.Substats:

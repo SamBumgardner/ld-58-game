@@ -1,4 +1,4 @@
-class_name DayConditions extends Node
+class_name DayManager extends Node
 
 signal weatherChanged(newWeather: Weather.Types);
 signal forecastChanged(newWeather: Weather.Types);
@@ -43,22 +43,20 @@ var moodOverride: ConditionOverride;
 var weatherOverride: ConditionOverride;
 var initialized = false;
 
-# Initialize with empty values
-func _init(_weather: Weather.Types, _mood: Mood.Types, _craftingCooldown: int,
-        _moodOverride: ConditionOverride = null, _weatherOverride: ConditionOverride = null):
-    weather = _weather
-    mood = _mood
-    craftingCooldown = _craftingCooldown
-    moodOverride = _moodOverride
-    weatherOverride = _weatherOverride
+
+func initialize(initData: TransitionData.CurrentDayData):
+    originalWeather = initData.originalWeather
+    originalForecast = initData.originalForecast
+    originalMood = initData.originalMood
+    weather = initData.weather
+    forecast = initData.forecast
+    mood = initData.mood
+    craftingCooldown = initData.craftingCooldown
+    moodOverride = initData.moodOverride
+    weatherOverride = initData.weatherOverride
+
     initialized = true
 
-static func initFromDay(day: Day) -> DayConditions:
-    var newCondition = DayConditions.new(day.weather, day.mood, GameplayConsts.DEFAULT_CRAFTING_COOLDOWN);
-    newCondition.weather = day.weather;
-    newCondition.mood = day.mood;
-
-    return newCondition;
       
 func applyNewDay(day: Day) -> Day:
     for override in [moodOverride, weatherOverride]:
