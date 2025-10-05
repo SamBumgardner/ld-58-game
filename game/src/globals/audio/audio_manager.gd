@@ -1,7 +1,9 @@
 extends Node
 
+@onready var sfxTrainingTypeCraftComplete = $TrainingComplete/SFXTrainingTypeCraftComplete
+@onready var sfxTrainingTypePhysicalComplete = $TrainingComplete/SFXTrainingTypePhysicalComplete
+@onready var sfxTrainingTypeStudyComplete = $TrainingComplete/SFXTrainingTypeStudyComplete
 @onready var sfxUiClickConfirm = $SFXUIClickConfirm
-@onready var sfxTrainingStudyingComplete = $TrainingComplete/SFXTrainingTypeStudyComplete
 
 func _ready() -> void:
     EventBus.globalActivitySelected.connect(_playSfxTrainingComplete)
@@ -21,10 +23,18 @@ func _playSfxTrainingComplete(_unused: int) -> void:
         print_debug("Warning: Tried to play SFX out of bounds at", _unused)
 
 func _playSfxTrainingTypeStudyComplete() -> void:
-    sfxTrainingStudyingComplete.play()
+    _stopSfxTrainingComplete()
+    sfxTrainingTypeStudyComplete.play()
 
 func _playSfxTrainingTypePhysicalComplete() -> void:
-    sfxTrainingStudyingComplete.play()
+    _stopSfxTrainingComplete()
+    sfxTrainingTypePhysicalComplete.play()
 
 func _playSfxTrainingTypeCraftComplete() -> void:
-    sfxTrainingStudyingComplete.play()
+    _stopSfxTrainingComplete()
+    sfxTrainingTypeCraftComplete.play()
+
+func _stopSfxTrainingComplete() -> void:
+    sfxTrainingTypeCraftComplete.stop()
+    sfxTrainingTypePhysicalComplete.stop()
+    sfxTrainingTypeStudyComplete.stop()
