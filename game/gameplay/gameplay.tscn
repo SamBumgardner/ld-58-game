@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene load_steps=10 format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://gameplay/gameplay.gd" id="1_41n4r"]
+[ext_resource type="Script" uid="uid://b4mr4nqec0gds" path="res://player/player.gd" id="2_r5as3"]
 [ext_resource type="Script" uid="uid://6ugnkjruhtf5" path="res://days/day_manager.gd" id="2_ueusv"]
 [ext_resource type="Script" uid="uid://b7pjdgjub5h4f" path="res://gameplay/hud/mood_tracker.gd" id="3_ueusv"]
 [ext_resource type="Script" uid="uid://sjthgtynkfv6" path="res://gameplay/hud/day_count_tracker.gd" id="4_7pdct"]
 [ext_resource type="Script" uid="uid://cg87aybsxabex" path="res://gameplay/hud/weather_display.gd" id="5_uk44f"]
 [ext_resource type="Script" uid="uid://cqei7411b6o8u" path="res://gameplay/hud/major_objective_banner.gd" id="6_yvprt"]
 [ext_resource type="PackedScene" uid="uid://bp1i2ft4knik3" path="res://gameplay/hud/activity_selection.tscn" id="7_uk44f"]
+[ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://gameplay/hud/stat_details.gd" id="8_yvprt"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -16,6 +18,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_41n4r")
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("2_r5as3")
+metadata/_custom_type_script = "uid://b4mr4nqec0gds"
 
 [node name="DayManager" type="Node" parent="."]
 script = ExtResource("2_ueusv")
@@ -82,3 +88,84 @@ offset_left = 882.0
 offset_top = 273.0
 offset_right = 1138.0
 offset_bottom = 529.0
+
+[node name="StatDetails" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 589.0
+offset_right = 1124.0
+offset_bottom = 687.0
+columns = 3
+script = ExtResource("8_yvprt")
+
+[node name="Substat1" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Substat2" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Substat3" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Substat4" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Substat5" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Substat6" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Substat7" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Substat8" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Substat9" type="Label" parent="StatDetails"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Substat 1"
+horizontal_alignment = 1
+vertical_alignment = 1

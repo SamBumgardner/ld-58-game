@@ -1,5 +1,7 @@
 class_name ActivitySelection extends Control
 
+signal activitySelected(activityIndex: int)
+
 const HEADER_TEXT := "Training: %s"
 const INCREASE_TEXT := "%s %+d"
 
@@ -16,6 +18,8 @@ const INCREASE_TEXT := "%s %+d"
 var activityIndex := 0;
 
 func _ready():
+    $TextureButton.pressed.connect(_onPressed);
+
     pivot_offset = size / 2;
     var tween := create_tween()
     tween.tween_property(self, "scale", Vector2.ONE * 1.05, 2);
@@ -37,3 +41,6 @@ func _onActivitiesChanged(newActivities: Array[Activity]) -> void:
                 increases[i].show();
             else:
                 increases[i].hide();
+
+func _onPressed():
+    activitySelected.emit(activityIndex);
