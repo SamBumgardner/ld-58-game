@@ -60,13 +60,13 @@ func initialize(initData: TransitionData.CurrentDayData):
       
 func applyNewDay(day: Day) -> Day:
     for override in [moodOverride, weatherOverride]:
-        if override.remainingDays == 0:
+        if override != null and override.remainingDays == 0:
             match override.Types:
                 ConditionOverride.Types.MOOD:
                     moodOverride = null;
                 ConditionOverride.Types.WEATHER:
                     weatherOverride = null
-        else:
+        elif override != null:
             override.remainingDays -= 1;
 
     weather = day.weather;
