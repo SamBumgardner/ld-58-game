@@ -16,3 +16,11 @@ enum Conditional {
     GRUMPY = 3,
     MOTIVATED = 4,
 }
+
+static var MoodIconPaths: Array[String] = [
+    "res://assets/art/mood_relaxed.png",
+    "res://assets/art/mood_happy.png",
+    "res://assets/art/mood_sad.png",
+    "res://assets/art/mood_grumpy.png",
+    "res://assets/art/mood_motivated.png",
+]

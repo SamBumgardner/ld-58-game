@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene load_steps=13 format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://src/gameplay/gameplay.gd" id="1_41n4r"]
 [ext_resource type="Script" uid="uid://b4mr4nqec0gds" path="res://src/player/player.gd" id="2_r5as3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://src/gameplay/hud/stat_details.gd" id="8_yvprt"]
 [ext_resource type="PackedScene" uid="uid://cfn4gebfndu50" path="res://src/gameplay/hud/events/major_event_display.tscn" id="10_r22ir"]
 [ext_resource type="PackedScene" uid="uid://dmsrehee6sok5" path="res://src/gameplay/hud/events/event_outcome_display.tscn" id="11_p86j0"]
+[ext_resource type="PackedScene" uid="uid://b0mcg1ibos2g1" path="res://src/gameplay/hud/end_day_summary.tscn" id="12_fbjph"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -190,3 +191,25 @@ grow_vertical = 2
 [node name="EventOutcomeDisplay" parent="." instance=ExtResource("11_p86j0")]
 visible = false
 layout_mode = 1
+anchors_preset = 8
+offset_left = -398.5
+offset_right = 398.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+
+[node name="EndDaySummary" parent="CanvasLayer/ColorRect" instance=ExtResource("12_fbjph")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0

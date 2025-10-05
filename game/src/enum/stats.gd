@@ -64,3 +64,9 @@ static var NamesLookup: Array[Array] = [
 
 static func getNameForSubstat(statType: Types, substatIndex: int) -> Array[String]:
     return NamesLookup[statType][substatIndex];
+
+static var PrimaryStatIconPaths: Array[String] = [
+    "res://assets/art/stat_study.svg",
+    "res://assets/art/stat_physical.svg",
+    "res://assets/art/stat_craft.svg"
+]

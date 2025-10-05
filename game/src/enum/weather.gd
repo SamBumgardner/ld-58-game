@@ -16,3 +16,11 @@ enum Conditional {
     RAINY = 3,
     MISTY = 4,
 }
+
+static var WeatherIconPaths: Array[String] = [
+    "res://assets/art/weather_fair.png",
+    "res://assets/art/weather_hot.png",
+    "res://assets/art/weather_cloudy.png",
+    "res://assets/art/weather_rainy.png",
+    "res://assets/art/weather_misty.png",
+]

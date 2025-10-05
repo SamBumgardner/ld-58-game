@@ -42,6 +42,6 @@ func displayChanges(statChanges: Array[StatIncrease]):
             # todo: set minor stat icons
             minorStatIcons[i].show();
             var minorStatLabel: Label = minorStatLabels[i]
-            minorStatLabel.text = "%d" % filteredMinorStatChanges[i].changeAmount
+            minorStatLabel.text = "%+d" % filteredMinorStatChanges[i].changeAmount
         else:
             minorStatIcons[i].hide();

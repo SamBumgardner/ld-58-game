@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0mcg1ibos2g1"]
+
+[ext_resource type="PackedScene" uid="uid://chuptqvahkktv" path="res://src/gameplay/hud/events/stat_category_requirements.tscn" id="1_4aoew"]
+[ext_resource type="Script" uid="uid://dwvwlcirsflnh" path="res://src/gameplay/hud/end_day_summary.gd" id="1_h2rau"]
+
+[node name="EndDaySummary" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2rau")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Another Day Well Spent!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Preamble" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Dear Diary,
+I worked on [img=48]uid://b1mlvk6tg1i1x[/img] today.
+
+Here's how it went:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="StatChanges" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StatCategoryRequirements" parent="MarginContainer/VBoxContainer/StatChanges" instance=ExtResource("1_4aoew")]
+layout_mode = 2
+
+[node name="StatCategoryRequirements2" parent="MarginContainer/VBoxContainer/StatChanges" instance=ExtResource("1_4aoew")]
+layout_mode = 2
+
+[node name="StatCategoryRequirements3" parent="MarginContainer/VBoxContainer/StatChanges" instance=ExtResource("1_4aoew")]
+layout_mode = 2
+
+[node name="Conclusion" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][img=48]uid://b1mlvk6tg1i1x[/img] on a [img=48]uid://b1mlvk6tg1i1x[/img] day left me feeling [img=48]uid://b1mlvk6tg1i1x[/img][/center]
+
+I have X days left until 
+[indent]\"Next Event Title\"[/indent]
+I hope I'll be ready.
+
+Your pal,
+NAME"
+fit_content = true
+autowrap_mode = 0
