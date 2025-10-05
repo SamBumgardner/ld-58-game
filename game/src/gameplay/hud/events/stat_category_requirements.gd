@@ -19,13 +19,13 @@ class_name StatCategoryRequirements extends VBoxContainer
 func setValues(majorStatRequirements: Array[int], minorStatRequirements: Array[StatIncrease]):
     # todo: set major stat icon
     majorStatThreshold.text = "%d" % majorStatRequirements[statCategory];
-    
+    var filteredMinorStatRequirements := minorStatRequirements.filter(func(x): return x.statType == statCategory);
     for i in minorStatLabels.size():
-        if i < minorStatRequirements.size():
+        if i < filteredMinorStatRequirements.size():
             # todo: set minor stat icons
             minorStatIcons[i].show();
 
             var minorStatLabel: Label = minorStatLabels[i]
-            minorStatLabel.text = "%d" % minorStatRequirements[i].changeAmount
+            minorStatLabel.text = "%d" % filteredMinorStatRequirements[i].changeAmount
         else:
             minorStatIcons[i].hide();
