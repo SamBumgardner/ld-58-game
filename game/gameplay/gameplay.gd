@@ -3,19 +3,21 @@ class_name Gameplay extends Node
 signal dayCountChanged(newDayCount: int);
 signal daysRemainingChanged(daysRemainingCount: int);
 signal nextMajorEventChanged(newNextMajorEvent: MajorEvent);
+signal activitiesChanged(newActivities: Array[Activity]);
 
 #region node init
-@onready
-var dayManager: DayManager = $DayManager;
-@onready
-var moodTracker: Node = $MoodTracker
-@onready
-var dayCountTracker: Node = $DayCountTracker
-@onready
-var weatherDisplay: Node = $WeatherDisplay
-@onready
-var majorObjectiveBanner: Node = $MajorObjectiveBanner
+@onready var dayManager: DayManager = $DayManager;
+@onready var moodTracker: Node = $MoodTracker
+@onready var dayCountTracker: Node = $DayCountTracker
+@onready var weatherDisplay: Node = $WeatherDisplay
+@onready var majorObjectiveBanner: Node = $MajorObjectiveBanner
+@onready var activitySelections: Array[Node] = [
+    $ActivitySelection1,
+    $ActivitySelection2,
+    $ActivitySelection3,
+]
 #endregion
+
 
 var player: Player;
 var nextDayGenerator: NextDayGenerator;
@@ -57,6 +59,10 @@ func _ready():
     dayCountChanged.connect(dayCountTracker._onDayCountChange);
     daysRemainingChanged.connect(majorObjectiveBanner._onDaysRemainingChange);
     nextMajorEventChanged.connect(majorObjectiveBanner._onMajorObjectiveChange);
+    for i in activitySelections.size():
+        var activitySelection: ActivitySelection = activitySelections[i] as ActivitySelection;
+        activitySelection.activityIndex = i;
+        activitiesChanged.connect(activitySelection._onActivitiesChanged);
 
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
@@ -124,6 +130,8 @@ func _onSetUpNewDay() -> void:
         newDay = dayManager.applyNewDay(newDay);
 
     activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
+    activitiesChanged.emit(activityOptions);
+    
     dayCount += 1;
     daysTillMajorEvent -= 1
     

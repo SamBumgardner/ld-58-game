@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene load_steps=8 format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://gameplay/gameplay.gd" id="1_41n4r"]
 [ext_resource type="Script" uid="uid://6ugnkjruhtf5" path="res://days/day_manager.gd" id="2_ueusv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://sjthgtynkfv6" path="res://gameplay/hud/day_count_tracker.gd" id="4_7pdct"]
 [ext_resource type="Script" uid="uid://cg87aybsxabex" path="res://gameplay/hud/weather_display.gd" id="5_uk44f"]
 [ext_resource type="Script" uid="uid://cqei7411b6o8u" path="res://gameplay/hud/major_objective_banner.gd" id="6_yvprt"]
+[ext_resource type="PackedScene" uid="uid://bp1i2ft4knik3" path="res://gameplay/hud/activity_selection.tscn" id="7_uk44f"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -60,3 +61,24 @@ offset_right = 644.0
 offset_bottom = 66.0
 text = "Major Objective Banner"
 script = ExtResource("6_yvprt")
+
+[node name="ActivitySelection1" parent="." instance=ExtResource("7_uk44f")]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 301.0
+offset_right = 409.0
+offset_bottom = 557.0
+
+[node name="ActivitySelection2" parent="." instance=ExtResource("7_uk44f")]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 234.0
+offset_right = 786.0
+offset_bottom = 490.0
+
+[node name="ActivitySelection3" parent="." instance=ExtResource("7_uk44f")]
+layout_mode = 0
+offset_left = 882.0
+offset_top = 273.0
+offset_right = 1138.0
+offset_bottom = 529.0
