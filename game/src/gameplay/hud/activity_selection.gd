@@ -44,3 +44,4 @@ func _onActivitiesChanged(newActivities: Array[ActivityEnhanced]) -> void:
 
 func _onPressed():
     activitySelected.emit(activityIndex);
+    EventBus.globalActivitySelected.emit(activityIndex);

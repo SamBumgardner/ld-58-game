@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://fq68jyyyvhko"]
+
+[ext_resource type="Script" uid="uid://bm3om7hdb11ly" path="res://src/globals/audio/audio_manager.gd" id="1_3jwtn"]
+[ext_resource type="AudioStream" uid="uid://8vswnvvii78l" path="res://assets/audio/sfx/sfx_102_click_confirm.wav" id="2_xevv2"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_3jwtn")
+
+[node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xevv2")
+max_polyphony = 2
+bus = &"Sound Effects"
+
+[node name="SFXTrainingStudyingComplete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xevv2")
+max_polyphony = 2
+bus = &"Sound Effects"
