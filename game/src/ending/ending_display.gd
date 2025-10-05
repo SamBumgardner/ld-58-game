@@ -15,6 +15,7 @@ var receivedTransitionData: TransitionData;
 func _ready() -> void:
     process_mode = Node.PROCESS_MODE_DISABLED;
     # connect button click to restart game behavior
+    restartButton.pressed.connect(_onRestartPressed);
     
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
@@ -44,3 +45,16 @@ func initScene(transitionData: TransitionData):
 
 func startScene():
     process_mode = Node.PROCESS_MODE_INHERIT;
+
+func _onRestartPressed():
+    print_debug("Starting to play again");
+    var newTransitionData: TransitionData = TransitionData.generateDefault();
+    newTransitionData.metaProgressionData = receivedTransitionData.metaProgressionData;
+
+    var nextScene: PackedScene = load("res://src/gameplay/gameplay.tscn");
+    var nextRoot: Node = nextScene.instantiate();
+    add_sibling(nextRoot);
+    nextRoot.initScene(newTransitionData);
+    nextRoot.call_deferred("startScene");
+    queue_free();
+    return ;
