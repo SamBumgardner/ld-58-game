@@ -18,8 +18,9 @@ signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 ];
 @onready var statDetails: Node = $HudElements/Control/StatDetails;
 @onready var player: Player = $Player;
-@onready var majorEventDisplay: MajorEventDisplay = $MajorEventDisplay;
-@onready var eventOutcomeDisplay: EventOutcomeDisplay = $EventOutcomeDisplay;
+@onready var eventsLayer: CanvasLayer = $EventsLayer
+@onready var majorEventDisplay: MajorEventDisplay = $%MajorEventDisplay;
+@onready var eventOutcomeDisplay: EventOutcomeDisplay = $%EventOutcomeDisplay;
 @onready var endDaySummary: EndDaySummary = $%EndDaySummary;
 #endregion
 
@@ -60,7 +61,6 @@ func _ready():
     dayManager.weatherChanged.connect(_onWeatherChanged);
     dayManager.moodChanged.connect(_onMoodChanged);
     
-    # TODO: REMOVE LATER, TEMP SETUP
     dayManager.weatherChanged.connect(weatherDisplay._onWeatherChange);
     dayManager.forecastChanged.connect(weatherDisplay._onForecastChange);
     dayManager.moodChanged.connect(moodTracker._onMoodChange);
@@ -167,6 +167,8 @@ func _onSetUpNewDay() -> void:
     
     if daysTillMajorEvent == 0:
         process_mode = Node.PROCESS_MODE_DISABLED;
+        
+        eventsLayer.show();
         majorEventDisplay.open(nextMajorEvent);
     
     if dayCount == 1 or turboMode:
@@ -236,6 +238,7 @@ func _onEventOutcomeConfirmed() -> void:
     nextDayGenerator.overwriteWeatherPool(nextMajorEvent.weatherPool);
     
     eventOutcomeDisplay.close();
+    eventsLayer.hide();
     process_mode = Node.PROCESS_MODE_INHERIT
     
     
