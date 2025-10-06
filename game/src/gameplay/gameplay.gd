@@ -233,6 +233,7 @@ func _onEventOutcomeConfirmed() -> void:
     # set up next major event
     nextMajorEvent = lastOutcome.nextMajorObjective.pick_random();
     daysTillMajorEvent = nextMajorEvent.setupDays;
+    nextDayGenerator.overwriteWeatherPool(nextMajorEvent.weatherPool);
     
     eventOutcomeDisplay.close();
     process_mode = Node.PROCESS_MODE_INHERIT
