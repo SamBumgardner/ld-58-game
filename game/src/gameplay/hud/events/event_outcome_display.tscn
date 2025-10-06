@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmsrehee6sok5"]
+[gd_scene load_steps=7 format=3 uid="uid://dmsrehee6sok5"]
 
 [ext_resource type="Script" uid="uid://gnw026frlxia" path="res://src/gameplay/hud/events/event_outcome_display.gd" id="1_41wie"]
+[ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="1_ypufe"]
 [ext_resource type="Resource" uid="uid://sher5mt0y7qg" path="res://assets/data/outcomes/oc_000_0_0_fireworks_failure.tres" id="2_dduxo"]
 [ext_resource type="PackedScene" uid="uid://chuptqvahkktv" path="res://src/gameplay/hud/events/stat_category_requirements.tscn" id="3_41wie"]
 [ext_resource type="Texture2D" uid="uid://dbxi6f6uibdfa" path="res://assets/art/mood_sad.png" id="4_0116r"]
@@ -8,13 +9,14 @@
 
 [node name="EventOutcomeDisplay" type="PanelContainer"]
 custom_minimum_size = Vector2(797, 0)
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ypufe")
 script = ExtResource("1_41wie")
 testOutcome = ExtResource("2_dduxo")
 
@@ -58,6 +60,7 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme_type_variation = &"NestedPanelContainer"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -101,6 +104,7 @@ statCategory = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
+theme_type_variation = &"NestedPanelContainer"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo"]
 layout_mode = 2

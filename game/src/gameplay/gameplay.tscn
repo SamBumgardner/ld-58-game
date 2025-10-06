@@ -389,21 +389,6 @@ offset_top = 322.0
 offset_right = 1108.0
 offset_bottom = 602.9861
 
-[node name="MajorEventDisplay" parent="." instance=ExtResource("10_r22ir")]
-visible = false
-layout_mode = 1
-offset_left = -398.5
-offset_top = -270.0
-offset_right = 398.5
-offset_bottom = 270.0
-
-[node name="EventOutcomeDisplay" parent="." instance=ExtResource("11_p86j0")]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-offset_left = -398.5
-offset_right = 398.5
-
 [node name="TurboToggle" type="Button" parent="."]
 visible = false
 layout_mode = 0
@@ -413,6 +398,38 @@ offset_right = 156.0
 offset_bottom = 669.0
 text = "Skip Diary: OFF"
 script = ExtResource("13_23xb3")
+
+[node name="EventsLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+visible = false
+
+[node name="ColorRect" type="TextureRect" parent="EventsLayer"]
+self_modulate = Color(0.49747366, 0.49747366, 0.49747366, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_s5sow")
+texture = ExtResource("3_thf4h")
+expand_mode = 1
+
+[node name="MajorEventDisplay" parent="EventsLayer/ColorRect" instance=ExtResource("10_r22ir")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -499.90436
+offset_top = -325.49304
+offset_right = 499.90436
+offset_bottom = 325.49304
+
+[node name="EventOutcomeDisplay" parent="EventsLayer/ColorRect" instance=ExtResource("11_p86j0")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
