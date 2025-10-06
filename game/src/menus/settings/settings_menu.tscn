@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd342lxt581l4"]
+
+[ext_resource type="PackedScene" uid="uid://bmh68yefaofg8" path="res://src/menus/settings/settings_menu_content.tscn" id="1_orxww"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsMenuContent" parent="CenterContainer" instance=ExtResource("1_orxww")]
+layout_mode = 2

@@ -37,7 +37,7 @@ func _on_button_quit_pressed():
 
 func _on_button_settings_pressed():
     EventBus.globalUiElementSelected.emit()
-    pass
+    get_tree().change_scene_to_file("res://src/menus/settings/settings_menu.tscn")
 #endregion
 
 #region menu bar mouse entered
