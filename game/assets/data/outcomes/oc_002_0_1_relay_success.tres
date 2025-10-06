@@ -1,21 +1,27 @@
 [gd_resource type="Resource" script_class="MajorOutcome" load_steps=7 format=3 uid="uid://b6aobi02yjvbr"]
 
-[ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_2rtto"]
+[ext_resource type="Resource" uid="uid://dfqrmsxcktc75" path="res://assets/data/major_events/me_003_crop.tres" id="2_nxild"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_qehab"]
-[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_0ugry"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_bsefa"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_6pyin"]
 
-[sub_resource type="Resource" id="Resource_2f4g7"]
-script = ExtResource("1_2rtto")
-overrideValue = 4
-remainingDays = 2
-metadata/_custom_type_script = "uid://ccfhidydcpt2p"
+[sub_resource type="Resource" id="Resource_nxild"]
+script = ExtResource("5_6pyin")
+statType = 1
+subTypeIndex = 2
+changeAmount = 3
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_tjg1m"]
+script = ExtResource("5_6pyin")
+statType = 2
+changeAmount = 2
+metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [resource]
 script = ExtResource("4_bsefa")
 title = "Success!"
 description = "The relay race was a success! You even carried little ones on your back so everyone could finish."
-moodOverride = SubResource("Resource_2f4g7")
-nextMajorObjective = Array[ExtResource("2_qehab")]([ExtResource("3_0ugry")])
+statChangesToApply = Array[ExtResource("5_6pyin")]([SubResource("Resource_nxild"), SubResource("Resource_tjg1m")])
+nextMajorObjective = Array[ExtResource("2_qehab")]([ExtResource("2_nxild")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"
