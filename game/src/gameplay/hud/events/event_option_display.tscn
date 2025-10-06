@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://daf2ytso3cs48"]
+[gd_scene load_steps=4 format=3 uid="uid://daf2ytso3cs48"]
 
 [ext_resource type="Script" uid="uid://bmop7dlgni0qo" path="res://src/gameplay/hud/events/event_option_display.gd" id="1_bgh2p"]
 [ext_resource type="PackedScene" uid="uid://chuptqvahkktv" path="res://src/gameplay/hud/events/stat_category_requirements.tscn" id="1_olpdw"]
+[ext_resource type="StyleBox" uid="uid://eoki4f7rst2x" path="res://assets/art/hud/dark_panel.tres" id="2_0lgsk"]
 
 [node name="EventOptionDisplay" type="PanelContainer"]
 custom_minimum_size = Vector2(240, 0)
@@ -34,18 +35,38 @@ Organizing an event on this scale will be a challenge, though."
 autowrap_mode = 2
 clip_text = true
 
-[node name="StatRequirements" type="HBoxContainer" parent="MarginContainer/Content"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Content"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_0lgsk")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Content/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Requires" type="Label" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Requires:"
+autowrap_mode = 2
+
+[node name="StatRequirements" type="HBoxContainer" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StatCategoryRequirements" parent="MarginContainer/Content/StatRequirements" instance=ExtResource("1_olpdw")]
+[node name="StatCategoryRequirements" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("1_olpdw")]
 layout_mode = 2
 
-[node name="StatCategoryRequirements2" parent="MarginContainer/Content/StatRequirements" instance=ExtResource("1_olpdw")]
+[node name="StatCategoryRequirements2" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("1_olpdw")]
 layout_mode = 2
 statCategory = 1
 
-[node name="StatCategoryRequirements3" parent="MarginContainer/Content/StatRequirements" instance=ExtResource("1_olpdw")]
+[node name="StatCategoryRequirements3" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("1_olpdw")]
 layout_mode = 2
 statCategory = 2
 
@@ -53,4 +74,4 @@ statCategory = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
-text = "Attempt"
+text = "Roll the Dice!"
