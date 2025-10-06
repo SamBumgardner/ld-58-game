@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://cvefexdnb6bi7"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_8nq86"]
+
+[resource]
+script = ExtResource("1_8nq86")
+title = "Famine Disaster!"
+description = "The mysterious crop circles prevent farmers from bringing in harvests, bringing ruin to the village."
+metadata/_custom_type_script = "uid://ctkljby408cvs"

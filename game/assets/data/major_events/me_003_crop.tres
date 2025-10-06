@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="MajorEvent" load_steps=16 format=3 uid="uid://dfqrmsxcktc75"]
+
+[ext_resource type="Script" uid="uid://cx0fvjypep5kl" path="res://src/events/event_option.gd" id="1_q2oiu"]
+[ext_resource type="Resource" uid="uid://bonrng1bamumx" path="res://assets/data/outcomes/oc_003_0_0_foot_failure.tres" id="2_q2oiu"]
+[ext_resource type="Resource" uid="uid://bb3riq3k580xg" path="res://assets/data/outcomes/oc_003_0_2_foot_great.tres" id="3_50fkr"]
+[ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_5qpui"]
+[ext_resource type="Resource" uid="uid://cwwvda5r6gsdw" path="res://assets/data/outcomes/oc_003_0_1_foot_success.tres" id="5_75ibk"]
+[ext_resource type="Resource" uid="uid://qbnetr44iwl" path="res://assets/data/outcomes/oc_003_1_0_above_failure.tres" id="6_5qpui"]
+[ext_resource type="Resource" uid="uid://vv42ossl1sht" path="res://assets/data/outcomes/oc_003_1_2_above_great.tres" id="7_nrsar"]
+[ext_resource type="Resource" uid="uid://cj0xyc0fukeex" path="res://assets/data/outcomes/oc_003_1_1_above_success.tres" id="8_kj5l1"]
+[ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="9_a7658"]
+
+[sub_resource type="Resource" id="Resource_6hgne"]
+script = ExtResource("4_5qpui")
+subTypeIndex = 2
+changeAmount = 6
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_w565b"]
+script = ExtResource("4_5qpui")
+statType = 2
+changeAmount = 5
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_dgngi"]
+script = ExtResource("1_q2oiu")
+title = "Take Notes on Foot"
+description = "Walk through the field taking notes. Were the crops burnt or cut down?"
+majorStatRequirments = Array[int]([15, 0, 8])
+minorStatRequirements = Array[ExtResource("4_5qpui")]([SubResource("Resource_6hgne"), SubResource("Resource_w565b")])
+failureResult = ExtResource("2_q2oiu")
+successResult = ExtResource("5_75ibk")
+greatSuccessResult = ExtResource("3_50fkr")
+metadata/_custom_type_script = "uid://cx0fvjypep5kl"
+
+[sub_resource type="Resource" id="Resource_5olp8"]
+script = ExtResource("4_5qpui")
+statType = 1
+subTypeIndex = 2
+changeAmount = 5
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_fkjhc"]
+script = ExtResource("4_5qpui")
+statType = 2
+subTypeIndex = 2
+changeAmount = 12
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_xafv3"]
+script = ExtResource("1_q2oiu")
+title = "View from High Above"
+description = "Rig a contraption to get you high enough to see the patterns from a bird's eye view."
+majorStatRequirments = Array[int]([5, 5, 18])
+minorStatRequirements = Array[ExtResource("4_5qpui")]([SubResource("Resource_5olp8"), SubResource("Resource_fkjhc")])
+failureResult = ExtResource("6_5qpui")
+successResult = ExtResource("8_kj5l1")
+greatSuccessResult = ExtResource("7_nrsar")
+metadata/_custom_type_script = "uid://cx0fvjypep5kl"
+
+[resource]
+script = ExtResource("9_a7658")
+title = "Research Crop Circles"
+description = "The morning after a meteor shower, crop circles have appeared in nearby farm fields.
+How do you research them?"
+options = Array[ExtResource("1_q2oiu")]([SubResource("Resource_dgngi"), SubResource("Resource_xafv3")])
+metadata/_custom_type_script = "uid://bldc6pmej3q38"
