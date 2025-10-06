@@ -371,6 +371,7 @@ theme = ExtResource("17_g7uyf")
 text = "Settings"
 
 [node name="CenterContainerSettings" type="CenterContainer" parent="HudElements/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
