@@ -94,9 +94,9 @@ func _onCharacterSelected(characterIndex: int):
     print_debug("character selected");
     var newTransitionData: TransitionData = characterScenarios[characterIndex];
     newTransitionData.metaProgressionData = receivedTransitionData.metaProgressionData;
-    
-    #TODO: Noah - set audio info here. Job.Types is an enum value that is unique for each character.
-    var selectedJob: Job.Types = newTransitionData.playerData.job
+
+    var selectedJob: Job.Types = newTransitionData.playerData.job;
+    EventBus.globalJobSelected.emit(selectedJob);
 
     var nextScene: PackedScene = load("res://src/gameplay/gameplay.tscn");
     var nextRoot: Node = nextScene.instantiate();
