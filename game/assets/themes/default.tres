@@ -2,6 +2,7 @@
 
 [resource]
 Button/constants/outline_size = 5
+GridContainer/constants/h_separation = 8
 Label/constants/outline_size = 7
 MenuBar/constants/outline_size = 5
 PopupMenu/constants/outline_size = 5

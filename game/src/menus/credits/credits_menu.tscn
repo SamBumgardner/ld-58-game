@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhx22jo5egvqn"]
+
+[ext_resource type="PackedScene" uid="uid://nc5eq6u5b733" path="res://src/menus/credits/credits_menu_content.tscn" id="1_1fet1"]
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreditsMenuContent" parent="CenterContainer" instance=ExtResource("1_1fet1")]
+layout_mode = 2
