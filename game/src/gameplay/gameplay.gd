@@ -285,7 +285,10 @@ func _on_button_settings_mouse_entered():
 
 func _on_button_settings_pressed():
     EventBus.globalUiElementSelected.emit()
-    centerContainerSettings.show()
+    if centerContainerSettings.visible:
+        centerContainerSettings.hide()
+    else:
+        centerContainerSettings.show()
 
 func _on_settings_menu_content_button_back_pressed():
     centerContainerSettings.hide()
