@@ -1,6 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://bycg83yijgs5y"]
 
 [ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://src/gameplay/hud/stat_details.gd" id="1_il4s4"]
+[ext_resource type="StyleBox" uid="uid://eoki4f7rst2x" path="res://assets/art/hud/dark_panel.tres" id="2_0d250"]
 [ext_resource type="Script" uid="uid://bqfbocodahwu3" path="res://src/gameplay/hud/events/stat_category_requirements.gd" id="2_mj0hr"]
 [ext_resource type="PackedScene" uid="uid://0xhkhdvqoeg5" path="res://src/gameplay/hud/events/major_stat_icon.tscn" id="3_0d250"]
 [ext_resource type="Texture2D" uid="uid://dv3qtmmwvrt5w" path="res://assets/art/stat_study.png" id="4_xaogy"]
@@ -16,13 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://i7r8a8g5h5dn" path="res://assets/art/substats/substat_creation.png" id="14_smeiu"]
 [ext_resource type="Texture2D" uid="uid://datc2l3oc2a1p" path="res://assets/art/substats/substat_precision.png" id="15_wnq15"]
 [ext_resource type="Texture2D" uid="uid://b4paisbn6qsio" path="res://assets/art/substats/substat_planning.png" id="16_w700p"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pj0cy"]
-bg_color = Color(0, 0, 0, 0.74509805)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [node name="StatDetails" type="Control"]
 layout_mode = 3
@@ -42,7 +36,7 @@ anchor_bottom = 1.0
 offset_right = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pj0cy")
+theme_override_styles/panel = ExtResource("2_0d250")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
