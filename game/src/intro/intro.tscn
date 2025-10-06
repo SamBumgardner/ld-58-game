@@ -1,12 +1,193 @@
-[gd_scene load_steps=6 format=3 uid="uid://co2mhrtt8s1c6"]
+[gd_scene load_steps=8 format=3 uid="uid://co2mhrtt8s1c6"]
 
 [ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="1_11jar"]
-[ext_resource type="Script" uid="uid://c0q1ieoas7qpl" path="res://src/ending/ending_display.gd" id="2_jmycm"]
 [ext_resource type="Texture2D" uid="uid://d3g6fuom10m5t" path="res://assets/art/backgrounds/bg2.jpg" id="3_nqxh0"]
 [ext_resource type="StyleBox" uid="uid://eoki4f7rst2x" path="res://assets/art/hud/dark_panel.tres" id="4_yxki3"]
 [ext_resource type="PackedScene" uid="uid://cixu34tobcypn" path="res://src/intro/character_selector.tscn" id="5_nqxh0"]
 
-[node name="EndingDisplay" type="Control"]
+[sub_resource type="Animation" id="Animation_nqxh0"]
+resource_name = "entry"
+length = 9.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainContent/Title:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainContent/Title2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainContent/Title3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.5, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainContent/Title4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5.5, 6.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("InstructionsContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(7.5, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Character Select:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(7.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Character Select:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(7.5, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yxki3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainContent/Title:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainContent/Title2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainContent/Title3:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainContent/Title4:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("InstructionsContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Character Select:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Character Select:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqxb2"]
+_data = {
+&"RESET": SubResource("Animation_yxki3"),
+&"entry": SubResource("Animation_nqxh0")
+}
+
+[node name="Intro" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +195,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_11jar")
-script = ExtResource("2_jmycm")
 
 [node name="ColorRect" type="TextureRect" parent="."]
 self_modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
@@ -39,6 +219,7 @@ theme_override_constants/separation = 16
 
 [node name="Title" type="Label" parent="MainContent"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "The world is magical and mysterious. "
@@ -46,13 +227,15 @@ horizontal_alignment = 1
 
 [node name="Title2" type="Label" parent="MainContent"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-text = "The world is small; most folks' knowledge stopes at the edge of their village or town."
+text = "The world is small; most folks' knowledge stops at the edge of town."
 horizontal_alignment = 1
 
 [node name="Title3" type="Label" parent="MainContent"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "The world is large; for those with the will and the means, most anything is possible."
@@ -60,12 +243,14 @@ horizontal_alignment = 1
 
 [node name="Title4" type="Label" parent="MainContent"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "What will your story be?"
 horizontal_alignment = 1
 
 [node name="InstructionsContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -97,6 +282,8 @@ Test yourself against the major events, and collect as many endings as possible!
 horizontal_alignment = 1
 
 [node name="Character Select" type="HBoxContainer" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -117,3 +304,9 @@ characterIndex = 1
 [node name="CharacterSelector3" parent="Character Select" instance=ExtResource("5_nqxh0")]
 layout_mode = 2
 characterIndex = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bqxb2")
+}
+autoplay = "entry"
