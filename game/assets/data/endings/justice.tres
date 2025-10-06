@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_6fd7e")
 title = "Drawn to Justice"
-description = "The town mobilizes, making haste to capture the rapscallion, returning not just your friend's, but many other's, prized possessions. "
+description = "The town mobilizes, making haste to capture the rapscallion.
+They return not just your friend's, but many others' prized possessions. "
 win = true
 metadata/_custom_type_script = "uid://ctkljby408cvs"

@@ -5,5 +5,7 @@
 [resource]
 script = ExtResource("1_m2e6t")
 title = "Charlatan"
-description = "The ritual fizzles, you are unable to pierce through the veil between the living and the dead. After making a boast of your magical abilities, both this poor sod's story and the trust your community had in you is lost."
+description = "The ritual fizzles, you are unable to pierce through the veil between the living and the dead. 
+After making a boast of your magical abilities, 
+both this poor sod's story and the trust your community had in you is lost."
 metadata/_custom_type_script = "uid://ctkljby408cvs"

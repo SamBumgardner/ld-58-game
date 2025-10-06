@@ -5,5 +5,8 @@
 [resource]
 script = ExtResource("1_cbosf")
 title = "Cobbler of Monte Cristo"
-description = "Jeromey the Cobbler spent years behind bars all because of your crude illustration, a few weeks ago he was finally released. All you can do is live in fear he will come back with a vegence."
+description = "Jeromey the Cobbler spent years behind bars all because of your crude illustration.
+A few weeks ago he was finally released. 
+
+All you can do is live in fear he will come back with a vegence."
 metadata/_custom_type_script = "uid://ctkljby408cvs"

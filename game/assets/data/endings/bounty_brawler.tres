@@ -5,5 +5,7 @@
 [resource]
 script = ExtResource("1_saww7")
 title = "Tavern Brawler"
-description = "With nothing but a few bruises to show for it, your trail goes cold. The most you can do is return with an overpriced locket of you're friend's bought day later from a pawn shop."
+description = "With nothing but a few bruises to show for it, your trail goes cold. 
+The most you can do is return with an overpriced locket your friends 
+bought a day later from a pawn shop."
 metadata/_custom_type_script = "uid://ctkljby408cvs"
