@@ -31,11 +31,11 @@ func setValues(majorStatRequirements: Array[int], minorStatRequirements: Array[S
         else:
             minorStatIcons[i].hide();
 
-func displayChanges(statChanges: Array[StatIncrease]):
+func displayChanges(statChanges: Array[StatIncrease], majorAlwaysVisible: bool = false):
     # todo: set major stat icon
     var filteredMinorStatChanges := statChanges.filter(func(x): return x.statType == statCategory);
     majorStatThreshold.hide();
-    majorStatIcon.visible = not filteredMinorStatChanges.is_empty();
+    majorStatIcon.visible = not filteredMinorStatChanges.is_empty() or majorAlwaysVisible;
     
     for i in minorStatLabels.size():
         if i < filteredMinorStatChanges.size():

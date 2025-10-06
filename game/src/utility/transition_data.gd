@@ -10,6 +10,7 @@ var endingData: EndingData;
 class PlayerData extends Resource:
     var job: Job.Types;
     var stats: Array[Array]
+    var character_name: String;
 
 class MetaProgressionData extends Resource:
     var tutorialComplete: bool = false
@@ -47,6 +48,7 @@ static func generateDefault() -> TransitionData:
         [3, 2, 2],
         [1, 1, 1],
     ]);
+    default.playerData.character_name = "Wilfred";
     
     default.initialSetupData = InitialSetupData.new()
     var majorEvent: MajorEvent = load("res://assets/data/major_events/me_000_test.tres")

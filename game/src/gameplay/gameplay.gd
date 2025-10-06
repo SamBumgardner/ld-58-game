@@ -47,8 +47,9 @@ var selectedActivityIndex: int;
 var lastOutcome: MajorOutcome;
 
 var receivedTransitionData: TransitionData;
-@export
-var isStartingScene: bool = false;
+@export var isStartingScene: bool = false;
+# skip end of day journal entry, could have other speed-up effects too.
+@export var turboMode: bool = false;
 
 
 #region scene transition
@@ -91,7 +92,8 @@ func initScene(transitionData: TransitionData):
     var newStart: bool = transitionData.initialSetupData != null;
     
     # Initialize player with starting stats from transitionData
-    player.initalize(transitionData.playerData.job, transitionData.playerData.stats);
+    player.initalize(transitionData.playerData.job, transitionData.playerData.stats,
+        transitionData.playerData.character_name);
 
     if newStart:
         print_debug("determined that we're starting a fresh game");
@@ -123,7 +125,10 @@ func _onActivityConfirmed(activityIndex: int) -> void:
     print_debug("activity confirmed");
     # starts fade-out, triggers next steps
     process_mode = Node.PROCESS_MODE_DISABLED;
-    $AnimationPlayer.play("end_of_day_fadeout");
+    if not turboMode:
+        $AnimationPlayer.play("end_of_day_fadeout");
+    else:
+        _applyResultsOfActivity();
     
 func _applyResultsOfActivity() -> void:
     print_debug("applying results of activity");
@@ -135,18 +140,23 @@ func _applyResultsOfActivity() -> void:
 
 func _onSetUpNewDay() -> void:
     print_debug("setting up new day");
+    var previousWeather: Weather.Types = dayManager.weather;
     if dayCount != 0: # don't want to these steps if we're starting a fresh play
         var newDay = nextDayGenerator.getNextDay(dayManager.weather, dayManager.forecast, selectedActivity);
         newDay = dayManager.applyNewDay(newDay);
+        endDaySummary.setValues(selectedActivity.statType, enhancedActivities[selectedActivityIndex].enhancedIncreases,
+            previousWeather, dayManager.mood, daysTillMajorEvent, nextMajorEvent.title, player.characterName);
 
     activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
     enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
     activitiesChanged.emit(enhancedActivities);
+    
+    # load data onto endOfDay screen
         
     dayCount += 1;
     daysTillMajorEvent -= 1
     
-    if dayCount == 1:
+    if dayCount == 1 or turboMode:
         _onNewDayFadeIn();
 
 func _onNewDayFadeIn() -> void:
@@ -159,6 +169,7 @@ func _onNewDayFadeIn() -> void:
     else:
         process_mode = Node.PROCESS_MODE_INHERIT;
 
+# NOTE: Not currently in use
 func _onEventCompleted(_selectionIndex: int) -> void:
     print_debug("event is completed");
     # Apply results of event

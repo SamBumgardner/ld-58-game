@@ -54,27 +54,29 @@ layout_mode = 2
 
 [node name="StatCategoryRequirements2" parent="MarginContainer/VBoxContainer/StatChanges" instance=ExtResource("1_4aoew")]
 layout_mode = 2
+statCategory = 1
 
 [node name="StatCategoryRequirements3" parent="MarginContainer/VBoxContainer/StatChanges" instance=ExtResource("1_4aoew")]
 layout_mode = 2
+statCategory = 2
 
 [node name="Conclusion" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
-text = "[center][img=48]uid://b1mlvk6tg1i1x[/img] on a [img=48]uid://b1mlvk6tg1i1x[/img] day left me feeling [img=48]uid://b1mlvk6tg1i1x[/img][/center]
+text = "[center][img=48]uid://b1mlvk6tg1i1x[/img] on a [img=48]uid://b1mlvk6tg1i1x[/img] day left me feeling [img=36]uid://b1mlvk6tg1i1x[/img][/center]
 
 I have X days left until 
 [indent]\"Next Event Title\"[/indent]
-I hope I'll be ready.
-
-Your pal,
-NAME"
+I hope I'll be ready."
 fit_content = true
 autowrap_mode = 0
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
-size_flags_horizontal = 8
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 8
 text = "Continue to Next Day"
