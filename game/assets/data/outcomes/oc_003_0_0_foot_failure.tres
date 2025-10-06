@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://bonrng1bamumx"]
+
+[ext_resource type="Resource" uid="uid://dr4034ietipgn" path="res://assets/data/endings/end_003_0_0_foot_disaster.tres" id="1_0n6mu"]
+[ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_pul7h"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="3_qejqe"]
+[ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_prn4y"]
+
+[resource]
+script = ExtResource("3_qejqe")
+title = "Failure..."
+description = "The plants brushing against your arms and legs bother you too much to notice anything."
+daysUntilNextEvent = 0
+ending = ExtResource("1_0n6mu")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"

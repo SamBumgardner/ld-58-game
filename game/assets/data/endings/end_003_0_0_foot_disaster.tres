@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://dr4034ietipgn"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_e2qwf"]
+
+[resource]
+script = ExtResource("1_e2qwf")
+title = "Falling Disaster!"
+description = "Splat! You took too much falling damage."
+metadata/_custom_type_script = "uid://ctkljby408cvs"

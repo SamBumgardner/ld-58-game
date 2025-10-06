@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=9 format=3 uid="uid://qbnetr44iwl"]
+
+[ext_resource type="Resource" uid="uid://cvefexdnb6bi7" path="res://assets/data/endings/end_003_0_1_above_disaster.tres" id="1_5wx0d"]
+[ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_hc7ro"]
+[ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_5wx0d"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_ypvem"]
+[ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_e5jrm"]
+
+[sub_resource type="Resource" id="Resource_p4wbo"]
+script = ExtResource("1_hc7ro")
+overrideValue = 2
+remainingDays = 2
+metadata/_custom_type_script = "uid://ccfhidydcpt2p"
+
+[sub_resource type="Resource" id="Resource_6xhew"]
+script = ExtResource("5_e5jrm")
+statType = 2
+subTypeIndex = 2
+changeAmount = 1
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_gqumi"]
+script = ExtResource("1_hc7ro")
+overrideType = 1
+overrideValue = 3
+remainingDays = 2
+metadata/_custom_type_script = "uid://ccfhidydcpt2p"
+
+[resource]
+script = ExtResource("4_ypvem")
+title = "Failure..."
+description = "Your catapult looked pretty safe before you launched yourself into the sky."
+statChangesToApply = Array[ExtResource("5_e5jrm")]([SubResource("Resource_6xhew")])
+moodOverride = SubResource("Resource_p4wbo")
+weatherOverride = SubResource("Resource_gqumi")
+daysUntilNextEvent = 0
+ending = ExtResource("1_5wx0d")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
