@@ -46,7 +46,7 @@ static func getStudyStats(day: Day, player: Player) -> Array[StatIncrease]:
         Weather.Types.HOT:
             if day.mood == Mood.Types.SAD:
                 bonusIncreases = [
-                    StatIncrease.new(study, player.getWeakestStatIndexForType(Stats.Types.PHYSICAL), 2),
+                    StatIncrease.new(Stats.Types.PHYSICAL, player.getWeakestStatIndexForType(Stats.Types.PHYSICAL), 2),
                 ]
         Weather.Types.RAINY:
             if day.mood == Mood.Types.SAD:
@@ -113,7 +113,7 @@ static func getPhysicalStats(day: Day, player: Player) -> Array[StatIncrease]:
         Weather.Types.CLOUDY:
             if day.mood == Mood.Types.GRUMPY:
                 bonusIncreases = [
-                    StatIncrease.new(physical, player.getWeakestStatIndexForType(Stats.Types.CRAFT), 2),
+                    StatIncrease.new(Stats.Types.CRAFT, player.getWeakestStatIndexForType(Stats.Types.CRAFT), 2),
                 ]
         Weather.Types.MISTY:
             if day.mood == Mood.Types.RELAXED:
@@ -175,7 +175,7 @@ static func getCraftStats(day: Day, player: Player) -> Array[StatIncrease]:
         Weather.Types.RAINY:
             if day.mood == Mood.Types.HAPPY:
                 bonusIncreases = [
-                    StatIncrease.new(craft, player.getWeakestStatIndexForType(Stats.Types.STUDY), 2),
+                    StatIncrease.new(Stats.Types.STUDY, player.getWeakestStatIndexForType(Stats.Types.STUDY), 2),
                 ]
         Weather.Types.MISTY:
             if day.mood == Mood.Types.RELAXED:
