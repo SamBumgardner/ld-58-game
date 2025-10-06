@@ -1,9 +1,14 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ctxs8u1hji701"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ctxs8u1hji701"]
 
+[ext_resource type="StyleBox" uid="uid://uaphpquxjkcw" path="res://assets/art/hud/panelStyleBox.tres" id="1_2hdo2"]
 [ext_resource type="StyleBox" uid="uid://d33e0y1ljewut" path="res://assets/art/hud/panelStyleBox_border.tres" id="1_ew55u"]
 
 [resource]
 Label/constants/outline_size = 10
+NestedPanel/base_type = &"Panel"
+NestedPanel/styles/panel = ExtResource("1_2hdo2")
+NestedPanelContainer/base_type = &"PanelContainer"
+NestedPanelContainer/styles/panel = ExtResource("1_2hdo2")
 Panel/styles/panel = ExtResource("1_ew55u")
 PanelContainer/styles/panel = ExtResource("1_ew55u")
 RichTextLabel/constants/outline_size = 10

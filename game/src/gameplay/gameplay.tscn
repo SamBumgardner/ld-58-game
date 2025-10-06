@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene load_steps=25 format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://src/gameplay/gameplay.gd" id="1_41n4r"]
 [ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="1_s5sow"]
 [ext_resource type="Script" uid="uid://b4mr4nqec0gds" path="res://src/player/player.gd" id="2_r5as3"]
 [ext_resource type="Script" uid="uid://6ugnkjruhtf5" path="res://src/days/day_manager.gd" id="2_ueusv"]
+[ext_resource type="Texture2D" uid="uid://c1p3v8fymq62j" path="res://assets/art/backgrounds/bg1.jpg" id="3_thf4h"]
 [ext_resource type="Script" uid="uid://b7pjdgjub5h4f" path="res://src/gameplay/hud/mood_tracker.gd" id="3_ueusv"]
 [ext_resource type="Script" uid="uid://sjthgtynkfv6" path="res://src/gameplay/hud/day_count_tracker.gd" id="4_7pdct"]
 [ext_resource type="Texture2D" uid="uid://cau7fhofse071" path="res://assets/art/hud/corner.png" id="5_tjoey"]
@@ -215,7 +216,25 @@ metadata/_custom_type_script = "uid://b4mr4nqec0gds"
 script = ExtResource("2_ueusv")
 metadata/_custom_type_script = "uid://6ugnkjruhtf5"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_s5sow")
+}
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.8175213, 0.8175213, 0.81752115, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_thf4h")
+expand_mode = 1
+
 [node name="HudElements" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="Control" type="Control" parent="HudElements"]
 layout_mode = 3
@@ -430,7 +449,6 @@ offset_bottom = 529.0
 [node name="MajorEventDisplay" parent="." instance=ExtResource("10_r22ir")]
 visible = false
 layout_mode = 1
-anchors_preset = 8
 offset_left = -398.5
 offset_top = -270.0
 offset_right = 398.5
@@ -443,33 +461,6 @@ anchors_preset = 8
 offset_left = -398.5
 offset_right = 398.5
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("1_s5sow")
-color = Color(0.21950102, 0.21950102, 0.21950102, 1)
-
-[node name="EndDaySummary" parent="CanvasLayer/ColorRect" instance=ExtResource("12_fbjph")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-offset_left = -200.0
-offset_right = 200.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_s5sow")
-}
-
 [node name="TurboToggle" type="Button" parent="."]
 visible = false
 layout_mode = 0
@@ -479,3 +470,28 @@ offset_right = 156.0
 offset_bottom = 669.0
 text = "Skip Diary: OFF"
 script = ExtResource("13_23xb3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+visible = false
+
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(0.49747366, 0.49747366, 0.49747366, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_s5sow")
+texture = ExtResource("3_thf4h")
+expand_mode = 1
+
+[node name="EndDaySummary" parent="CanvasLayer/ColorRect" instance=ExtResource("12_fbjph")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -200.0
+offset_right = 200.0
+theme_type_variation = &"NestedPanelContainer"
