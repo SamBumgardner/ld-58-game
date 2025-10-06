@@ -4,11 +4,14 @@ signal statsUpdated(stats: PlayerStats)
 
 var job: Job.Types
 var stats: PlayerStats
+var characterName: String
 
-func initalize(_job: Job.Types = Job.Types.HERO, statsArray: Array[Array] = []):
+func initalize(_job: Job.Types = Job.Types.HERO, statsArray: Array[Array] = [],
+        _characterName: String = ""):
     job = _job;
     stats = PlayerStats.new(statsArray);
     statsUpdated.emit(stats);
+    characterName = _characterName;
     
 # get index of lowest stat
 func getWeakestStatIndexForType(statType: Stats.Types) -> Stats.Substats:

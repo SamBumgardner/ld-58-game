@@ -88,13 +88,13 @@ static func generateMoodEnhancements() -> Dictionary:
                 enhancedStatTypes = []
                 reducedStatTypes = []
             Mood.Types.HAPPY:
-                enhancedStatTypes = [Stats.Types.PHYSICAL]
+                enhancedStatTypes = [Stats.Types.CRAFT]
                 reducedStatTypes = [Stats.Types.STUDY]
             Mood.Types.SAD:
-                enhancedStatTypes = [Stats.Types.CRAFT]
+                enhancedStatTypes = [Stats.Types.STUDY]
                 reducedStatTypes = [Stats.Types.PHYSICAL]
             Mood.Types.GRUMPY:
-                enhancedStatTypes = [Stats.Types.STUDY]
+                enhancedStatTypes = [Stats.Types.PHYSICAL]
                 reducedStatTypes = [Stats.Types.CRAFT]
             Mood.Types.MOTIVATED:
                 enhancedStatTypes = [Stats.Types.STUDY, Stats.Types.PHYSICAL, Stats.Types.CRAFT]

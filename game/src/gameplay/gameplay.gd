@@ -20,6 +20,7 @@ signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 @onready var player: Player = $Player;
 @onready var majorEventDisplay: MajorEventDisplay = $MajorEventDisplay;
 @onready var eventOutcomeDisplay: EventOutcomeDisplay = $EventOutcomeDisplay;
+@onready var endDaySummary: EndDaySummary = $%EndDaySummary;
 #endregion
 
 
@@ -41,12 +42,15 @@ var dayCount: int:
 
 var activityOptions: Array[Activity] = [];
 var enhancedActivities: Array[ActivityEnhanced] = [];
-var lastCompletedActivity: Activity;
+var selectedEnhancedActivity: ActivityEnhanced;
+var selectedActivity: Activity;
+var selectedActivityIndex: int;
 var lastOutcome: MajorOutcome;
 
 var receivedTransitionData: TransitionData;
-@export
-var isStartingScene: bool = false;
+@export var isStartingScene: bool = false;
+# skip end of day journal entry, could have other speed-up effects too.
+@export var turboMode: bool = false;
 
 
 #region scene transition
@@ -71,6 +75,8 @@ func _ready():
     player.statsUpdated.connect(statDetails._onPlayerStatsUpdated);
     majorEventDisplay.eventOptionSelected.connect(_onMajorEventCompleted);
     eventOutcomeDisplay.outcomeDisplayConfirmed.connect(_onEventOutcomeConfirmed);
+    endDaySummary.endOfDaySummaryClosed.connect($AnimationPlayer.play.bind("new_day_fade_in"));
+    $TurboToggle.pressed.connect(_onTurboTogglePressed);
 
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
@@ -88,7 +94,14 @@ func initScene(transitionData: TransitionData):
     var newStart: bool = transitionData.initialSetupData != null;
     
     # Initialize player with starting stats from transitionData
-    player.initalize(transitionData.playerData.job, transitionData.playerData.stats);
+    player.initalize(transitionData.playerData.job, transitionData.playerData.stats,
+        transitionData.playerData.character_name);
+
+    # Allow turbo for players with meta progression
+    if transitionData.metaProgressionData != null and transitionData.metaProgressionData.turboAvailable == true:
+        $TurboToggle.show();
+        turboMode = transitionData.metaProgressionData.turboMode;
+        $TurboToggle.text = "Skip Diary: ON" if turboMode else "Skip Diary: OFF"
 
     if newStart:
         print_debug("determined that we're starting a fresh game");
@@ -115,47 +128,60 @@ func startScene():
 
 #region day sequence management
 func _onActivityConfirmed(activityIndex: int) -> void:
-    var selectedActivity := activityOptions[activityIndex]
+    selectedEnhancedActivity = enhancedActivities[activityIndex];
+    selectedActivity = activityOptions[activityIndex];
+    selectedActivityIndex = activityIndex;
     print_debug("activity confirmed");
-    # Activate fade-out
-    # Fade in training image
-    # show results of training
-    # expose button (or just click-anywhere) for user to continue.
-    lastCompletedActivity = selectedActivity;
-    _applyResultsOfActivity(activityIndex);
+    # starts fade-out, triggers next steps
+    process_mode = Node.PROCESS_MODE_DISABLED;
+    if not turboMode:
+        $AnimationPlayer.play("end_of_day_fadeout");
+    else:
+        _applyResultsOfActivity();
     
-    #todo: remove this later
-    _onSetUpNewDay();
-
-func _applyResultsOfActivity(activityIndex: int) -> void:
+func _applyResultsOfActivity() -> void:
     print_debug("applying results of activity");
     var enhancedActivityGains: Array[StatIncrease] = \
-        enhancedActivities[activityIndex].enhancedIncreases;
+        enhancedActivities[selectedActivityIndex].enhancedIncreases;
     player.applyStatIncreases(enhancedActivityGains);
+
+    _onSetUpNewDay();
 
 func _onSetUpNewDay() -> void:
     print_debug("setting up new day");
+    var previousWeather: Weather.Types = dayManager.weather;
     if dayCount != 0: # don't want to these steps if we're starting a fresh play
-        var newDay = nextDayGenerator.getNextDay(dayManager.weather, dayManager.forecast, lastCompletedActivity);
+        var newDay = nextDayGenerator.getNextDay(dayManager.weather, dayManager.forecast, selectedActivity);
         newDay = dayManager.applyNewDay(newDay);
+        endDaySummary.setValues(selectedActivity.statType, selectedEnhancedActivity.enhancedIncreases,
+            previousWeather, dayManager.mood, daysTillMajorEvent, nextMajorEvent.title, player.characterName);
 
     activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
     enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
     activitiesChanged.emit(enhancedActivities);
     
+    # load data onto endOfDay screen
+        
     dayCount += 1;
     daysTillMajorEvent -= 1
     
-    #todo: remove this later
-    _onNewDayFadeIn();
-
-func _onNewDayFadeIn() -> void:
-    print_debug("new day is fading in");
-    # this is where we check for events happening, bring up the exciting screen.
     if daysTillMajorEvent == 0:
         process_mode = Node.PROCESS_MODE_DISABLED;
         majorEventDisplay.open(nextMajorEvent);
+    
+    if dayCount == 1 or turboMode:
+        _onNewDayFadeIn();
 
+func _onNewDayFadeIn() -> void:
+    print_debug("new day is fading in");
+
+    # this is where we check for events happening, bring up the exciting screen.
+    if daysTillMajorEvent == 0:
+        process_mode = Node.PROCESS_MODE_DISABLED;
+    else:
+        process_mode = Node.PROCESS_MODE_INHERIT;
+
+# NOTE: Not currently in use
 func _onEventCompleted(_selectionIndex: int) -> void:
     print_debug("event is completed");
     # Apply results of event
@@ -207,6 +233,7 @@ func _onEventOutcomeConfirmed() -> void:
     # set up next major event
     nextMajorEvent = lastOutcome.nextMajorObjective.pick_random();
     daysTillMajorEvent = nextMajorEvent.setupDays;
+    nextDayGenerator.overwriteWeatherPool(nextMajorEvent.weatherPool);
     
     eventOutcomeDisplay.close();
     process_mode = Node.PROCESS_MODE_INHERIT
@@ -221,6 +248,10 @@ func _onMoodChanged(_newMood: Mood.Types) -> void:
     enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
 
 #endregion
+
+func _onTurboTogglePressed():
+    turboMode = not turboMode;
+    $TurboToggle.text = "Skip Diary: ON" if turboMode else "Skip Diary: OFF"
 
 # Needs to re-run when player changes or when day changes.
 static func _createActivityEnhancements(baseActivites: Array[Activity], day: Day, p: Player) -> Array[ActivityEnhanced]:

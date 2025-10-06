@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene load_steps=18 format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://src/gameplay/gameplay.gd" id="1_41n4r"]
 [ext_resource type="Script" uid="uid://b4mr4nqec0gds" path="res://src/player/player.gd" id="2_r5as3"]
@@ -11,6 +11,185 @@
 [ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://src/gameplay/hud/stat_details.gd" id="8_yvprt"]
 [ext_resource type="PackedScene" uid="uid://cfn4gebfndu50" path="res://src/gameplay/hud/events/major_event_display.tscn" id="10_r22ir"]
 [ext_resource type="PackedScene" uid="uid://dmsrehee6sok5" path="res://src/gameplay/hud/events/event_outcome_display.tscn" id="11_p86j0"]
+[ext_resource type="PackedScene" uid="uid://b0mcg1ibos2g1" path="res://src/gameplay/hud/end_day_summary.tscn" id="12_fbjph"]
+[ext_resource type="Script" uid="uid://c267m4vx16j5c" path="res://src/gameplay/turbo_toggle.gd" id="13_23xb3"]
+
+[sub_resource type="Animation" id="Animation_fbjph"]
+resource_name = "end_of_day_fadeout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_applyResultsOfActivity"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect/EndDaySummary:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ColorRect/EndDaySummary:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_23xb3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect/EndDaySummary:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect/EndDaySummary:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect/EndDaySummary:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s5sow"]
+resource_name = "new_day_fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_onNewDayFadeIn"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect/EndDaySummary:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5sow"]
+_data = {
+&"RESET": SubResource("Animation_23xb3"),
+&"end_of_day_fadeout": SubResource("Animation_fbjph"),
+&"new_day_fade_in": SubResource("Animation_s5sow")
+}
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -176,17 +355,50 @@ vertical_alignment = 1
 visible = false
 layout_mode = 1
 anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -398.5
 offset_top = -270.0
 offset_right = 398.5
 offset_bottom = 270.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="EventOutcomeDisplay" parent="." instance=ExtResource("11_p86j0")]
 visible = false
 layout_mode = 1
+anchors_preset = 8
+offset_left = -398.5
+offset_right = 398.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.21950102, 0.21950102, 0.21950102, 1)
+
+[node name="EndDaySummary" parent="CanvasLayer/ColorRect" instance=ExtResource("12_fbjph")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -200.0
+offset_right = 200.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_s5sow")
+}
+
+[node name="TurboToggle" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 638.0
+offset_right = 156.0
+offset_bottom = 669.0
+text = "Skip Diary: OFF"
+script = ExtResource("13_23xb3")
