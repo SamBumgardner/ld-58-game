@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_8nq86")
 title = "Famine Disaster!"
-description = "The mysterious crop circles prevent farmers from bringing in harvests, bringing ruin to the village."
+description = "Splat! 
+You took too much falling damage."
 metadata/_custom_type_script = "uid://ctkljby408cvs"

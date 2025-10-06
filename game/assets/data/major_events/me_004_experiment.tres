@@ -1,61 +1,34 @@
-[gd_resource type="Resource" script_class="MajorEvent" load_steps=16 format=3 uid="uid://cy4hlxf7aodbg"]
+[gd_resource type="Resource" script_class="MajorEvent" load_steps=10 format=3 uid="uid://cy4hlxf7aodbg"]
 
 [ext_resource type="Script" uid="uid://cx0fvjypep5kl" path="res://src/events/event_option.gd" id="1_jh50t"]
-[ext_resource type="Resource" uid="uid://bonrng1bamumx" path="res://assets/data/outcomes/oc_003_0_0_foot_failure.tres" id="2_uglr3"]
-[ext_resource type="Resource" uid="uid://bb3riq3k580xg" path="res://assets/data/outcomes/oc_003_0_2_foot_great.tres" id="3_k55kb"]
+[ext_resource type="Resource" uid="uid://87bxubnem1y7" path="res://assets/data/outcomes/oc_004_0_0_mix_failure.tres" id="2_6dbx4"]
+[ext_resource type="Resource" uid="uid://becxt1adjcm6o" path="res://assets/data/outcomes/oc_004_0_2_mix_great.tres" id="3_77dso"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_6hncl"]
-[ext_resource type="Resource" uid="uid://cwwvda5r6gsdw" path="res://assets/data/outcomes/oc_003_0_1_foot_success.tres" id="5_c3oo2"]
-[ext_resource type="Resource" uid="uid://qbnetr44iwl" path="res://assets/data/outcomes/oc_003_1_0_above_failure.tres" id="6_xyprs"]
-[ext_resource type="Resource" uid="uid://vv42ossl1sht" path="res://assets/data/outcomes/oc_003_1_2_above_great.tres" id="7_344qq"]
-[ext_resource type="Resource" uid="uid://cj0xyc0fukeex" path="res://assets/data/outcomes/oc_003_1_1_above_success.tres" id="8_gwifh"]
+[ext_resource type="Resource" uid="uid://dphjmewd77pfl" path="res://assets/data/outcomes/oc_004_0_1_mix_success.tres" id="4_lhpgo"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="9_7akdl"]
 
 [sub_resource type="Resource" id="Resource_6hgne"]
 script = ExtResource("4_6hncl")
-subTypeIndex = 2
-changeAmount = 6
+statType = 2
+subTypeIndex = 1
+changeAmount = 10
 metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [sub_resource type="Resource" id="Resource_w565b"]
 script = ExtResource("4_6hncl")
 statType = 2
-changeAmount = 5
+changeAmount = 10
 metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [sub_resource type="Resource" id="Resource_dgngi"]
 script = ExtResource("1_jh50t")
 title = "Mix a Health Potion"
 description = "Health potions always come in handy, but they are so expensive. Why not make your own?"
-majorStatRequirments = Array[int]([15, 0, 8])
+majorStatRequirments = Array[int]([30, 0, 20])
 minorStatRequirements = Array[ExtResource("4_6hncl")]([SubResource("Resource_6hgne"), SubResource("Resource_w565b")])
-failureResult = ExtResource("2_uglr3")
-successResult = ExtResource("5_c3oo2")
-greatSuccessResult = ExtResource("3_k55kb")
-metadata/_custom_type_script = "uid://cx0fvjypep5kl"
-
-[sub_resource type="Resource" id="Resource_5olp8"]
-script = ExtResource("4_6hncl")
-statType = 1
-subTypeIndex = 2
-changeAmount = 5
-metadata/_custom_type_script = "uid://op751y44hm3t"
-
-[sub_resource type="Resource" id="Resource_fkjhc"]
-script = ExtResource("4_6hncl")
-statType = 2
-subTypeIndex = 2
-changeAmount = 12
-metadata/_custom_type_script = "uid://op751y44hm3t"
-
-[sub_resource type="Resource" id="Resource_xafv3"]
-script = ExtResource("1_jh50t")
-title = "Build a Labratory"
-description = "This won't be the first time you need to do an experiment. Why not build a labratory to support ongoing research?"
-majorStatRequirments = Array[int]([5, 5, 18])
-minorStatRequirements = Array[ExtResource("4_6hncl")]([SubResource("Resource_5olp8"), SubResource("Resource_fkjhc")])
-failureResult = ExtResource("6_xyprs")
-successResult = ExtResource("8_gwifh")
-greatSuccessResult = ExtResource("7_344qq")
+failureResult = ExtResource("2_6dbx4")
+successResult = ExtResource("4_lhpgo")
+greatSuccessResult = ExtResource("3_77dso")
 metadata/_custom_type_script = "uid://cx0fvjypep5kl"
 
 [resource]
@@ -63,5 +36,5 @@ script = ExtResource("9_7akdl")
 title = "Experiment with Chemicals"
 description = "Chemicals are their own kind of magic, one you want to master.
 How do you experiment with them?"
-options = Array[ExtResource("1_jh50t")]([SubResource("Resource_dgngi"), SubResource("Resource_xafv3")])
+options = Array[ExtResource("1_jh50t")]([SubResource("Resource_dgngi")])
 metadata/_custom_type_script = "uid://bldc6pmej3q38"

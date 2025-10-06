@@ -8,7 +8,9 @@
 [resource]
 script = ExtResource("3_qejqe")
 title = "Failure..."
-description = "The plants brushing against your arms and legs bother you too much to notice anything."
+description = "The plants brushing against your arms and legs bother you too much to notice anything.
+It's a bit relaxing, though, walking in these big circles.
+Other villagers start following in your footsteps... "
 daysUntilNextEvent = 0
 ending = ExtResource("1_0n6mu")
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

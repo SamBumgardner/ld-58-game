@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=7 format=3 uid="uid://cwwvda5r6gsdw"]
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=9 format=3 uid="uid://cwwvda5r6gsdw"]
 
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_4elie"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_aq05h"]
-[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_l2mw6"]
+[ext_resource type="Resource" uid="uid://ce7xb27fq3jqk" path="res://assets/data/major_events/me_010_capture_bounty.tres" id="3_4elie"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_083mu"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_l3wlk"]
 
@@ -12,10 +12,24 @@ overrideValue = 4
 remainingDays = 2
 metadata/_custom_type_script = "uid://ccfhidydcpt2p"
 
+[sub_resource type="Resource" id="Resource_4elie"]
+script = ExtResource("5_l3wlk")
+subTypeIndex = 1
+changeAmount = 5
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_aq05h"]
+script = ExtResource("5_l3wlk")
+subTypeIndex = 2
+changeAmount = 5
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
 [resource]
 script = ExtResource("4_083mu")
 title = "Success!"
-description = "The plants were cut down recently with evenly wide curves. You take notes as you walk to put together the whole picture later."
+description = "The plants were cut down recently with evenly wide curves, not unlike what could be done with a great scythe.
+You share this observation with the villagers, and it sparks much discussion & debate about its purpose."
+statChangesToApply = Array[ExtResource("5_l3wlk")]([SubResource("Resource_4elie"), SubResource("Resource_aq05h")])
 moodOverride = SubResource("Resource_2f4g7")
-nextMajorObjective = Array[ExtResource("2_aq05h")]([ExtResource("3_l2mw6")])
+nextMajorObjective = Array[ExtResource("2_aq05h")]([ExtResource("3_4elie")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

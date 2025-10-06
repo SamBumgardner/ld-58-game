@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_gvrxh"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_umxsd"]
-[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_br261"]
+[ext_resource type="Resource" uid="uid://cmyr3dtqdmqj7" path="res://assets/data/major_events/me_009_save_dimension.tres" id="3_gvrxh"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_wxbje"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_qaor8"]
 
@@ -35,5 +35,5 @@ title = "Great Success!"
 description = "After making a hot air balloon, you sail above and draw the shapes inside your journal. The circles alternate between large and small, almost like a code."
 statChangesToApply = Array[ExtResource("5_qaor8")]([SubResource("Resource_6xhew"), SubResource("Resource_sqmph"), SubResource("Resource_x0nqs")])
 moodOverride = SubResource("Resource_p4wbo")
-nextMajorObjective = Array[ExtResource("2_umxsd")]([ExtResource("3_br261")])
+nextMajorObjective = Array[ExtResource("2_umxsd")]([ExtResource("3_gvrxh")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

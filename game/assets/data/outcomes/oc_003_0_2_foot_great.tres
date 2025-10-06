@@ -1,13 +1,33 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://bb3riq3k580xg"]
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=8 format=3 uid="uid://bb3riq3k580xg"]
 
-[ext_resource type="Resource" uid="uid://wq541clhgyw4" path="res://assets/data/endings/end_000_0_2_fireworks_maestro.tres" id="1_1u31w"]
+[ext_resource type="Resource" uid="uid://ce7xb27fq3jqk" path="res://assets/data/major_events/me_010_capture_bounty.tres" id="2_1u31w"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_mxniu"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="3_j3wyg"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_hbq5b"]
 
+[sub_resource type="Resource" id="Resource_mxniu"]
+script = ExtResource("4_hbq5b")
+subTypeIndex = 1
+changeAmount = 10
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_j3wyg"]
+script = ExtResource("4_hbq5b")
+subTypeIndex = 2
+changeAmount = 5
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_hbq5b"]
+script = ExtResource("4_hbq5b")
+statType = 2
+changeAmount = 5
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
 [resource]
 script = ExtResource("3_j3wyg")
 title = "Great Success!"
-description = "Looking carefully, you notice metallic debris at one spot in each circle. It is as if something sharp was shot from above, spun in a circle, and then shattered onto the ground."
-ending = ExtResource("1_1u31w")
+description = "Looking carefully, you notice metallic debris at one spot in each circle. It is as if something sharp was shot from above, spun in a circle, and then shattered onto the ground.
+This insight sparks a number of new ideas - could something new be done with this mysterious metal?"
+statChangesToApply = Array[ExtResource("4_hbq5b")]([SubResource("Resource_mxniu"), SubResource("Resource_j3wyg"), SubResource("Resource_hbq5b")])
+nextMajorObjective = Array[ExtResource("2_mxniu")]([ExtResource("2_1u31w")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

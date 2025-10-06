@@ -1,14 +1,21 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://87bxubnem1y7"]
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=6 format=3 uid="uid://87bxubnem1y7"]
 
-[ext_resource type="Resource" uid="uid://dr4034ietipgn" path="res://assets/data/endings/end_003_0_0_foot_disaster.tres" id="1_pnibq"]
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_pnibq"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_cts2p"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="3_0182w"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_6c20b"]
 
+[sub_resource type="Resource" id="Resource_cts2p"]
+script = ExtResource("1_pnibq")
+title = "Penniless"
+description = "After you hit rock bottom, there's nowhere to go but up... but why don't we start fresh?"
+metadata/_custom_type_script = "uid://ctkljby408cvs"
+
 [resource]
 script = ExtResource("3_0182w")
 title = "Failure..."
-description = "The plants brushing against your arms and legs bother you too much to notice anything."
+description = "After getting a bargain recipe from a salesman you had never seen before, you sit down to mix all 20 ingredients in order. 
+The smell is overpowering, and so is your disappointment in your recent deal."
 daysUntilNextEvent = 0
-ending = ExtResource("1_pnibq")
+ending = SubResource("Resource_cts2p")
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

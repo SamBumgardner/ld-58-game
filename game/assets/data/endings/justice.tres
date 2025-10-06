@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://ckkqucklsrs63"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_6fd7e"]
+
+[resource]
+script = ExtResource("1_6fd7e")
+title = "Drawn to Justice"
+description = "The town mobilizes, making haste to capture the rapscallion, returning not just your friend's, but many other's, prized possessions. "
+win = true
+metadata/_custom_type_script = "uid://ctkljby408cvs"

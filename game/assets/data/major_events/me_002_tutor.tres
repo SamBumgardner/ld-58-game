@@ -12,6 +12,7 @@
 
 [sub_resource type="Resource" id="Resource_6hgne"]
 script = ExtResource("4_y5mt3")
+statType = 1
 subTypeIndex = 2
 changeAmount = 6
 metadata/_custom_type_script = "uid://op751y44hm3t"
@@ -19,14 +20,15 @@ metadata/_custom_type_script = "uid://op751y44hm3t"
 [sub_resource type="Resource" id="Resource_w565b"]
 script = ExtResource("4_y5mt3")
 statType = 2
-changeAmount = 5
+subTypeIndex = 2
+changeAmount = 4
 metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [sub_resource type="Resource" id="Resource_dgngi"]
 script = ExtResource("1_32c3q")
 title = "Relay Race"
 description = "Run the rascals ragged to raise their resilience."
-majorStatRequirments = Array[int]([15, 0, 8])
+majorStatRequirments = Array[int]([0, 15, 6])
 minorStatRequirements = Array[ExtResource("4_y5mt3")]([SubResource("Resource_6hgne"), SubResource("Resource_w565b")])
 failureResult = ExtResource("2_32c3q")
 successResult = ExtResource("5_c36oe")
@@ -35,23 +37,20 @@ metadata/_custom_type_script = "uid://cx0fvjypep5kl"
 
 [sub_resource type="Resource" id="Resource_5olp8"]
 script = ExtResource("4_y5mt3")
-statType = 1
-subTypeIndex = 2
-changeAmount = 5
+changeAmount = 4
 metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [sub_resource type="Resource" id="Resource_fkjhc"]
 script = ExtResource("4_y5mt3")
-statType = 2
-subTypeIndex = 2
-changeAmount = 12
+subTypeIndex = 1
+changeAmount = 4
 metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [sub_resource type="Resource" id="Resource_xafv3"]
 script = ExtResource("1_32c3q")
 title = "Handwriting"
 description = "Put together materials so the kids can learn to write their own names."
-majorStatRequirments = Array[int]([5, 5, 18])
+majorStatRequirments = Array[int]([10, 0, 10])
 minorStatRequirements = Array[ExtResource("4_y5mt3")]([SubResource("Resource_5olp8"), SubResource("Resource_fkjhc")])
 failureResult = ExtResource("6_y5mt3")
 successResult = ExtResource("8_hwrcu")

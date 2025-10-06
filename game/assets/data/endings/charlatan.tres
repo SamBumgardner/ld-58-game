@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://bw5kmnuwjg1bh"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_m2e6t"]
+
+[resource]
+script = ExtResource("1_m2e6t")
+title = "Charlatan"
+description = "The ritual fizzles, you are unable to pierce through the veil between the living and the dead. After making a boast of your magical abilities, both this poor sod's story and the trust your community had in you is lost."
+metadata/_custom_type_script = "uid://ctkljby408cvs"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://cgx6hoxk3xnf6"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_kn73e"]
+
+[resource]
+script = ExtResource("1_kn73e")
+title = "Bounty Hunter"
+description = "With the information gathered, you capture the criminal with ease. You return with the stolen goods and captured criminal in tow. "
+win = true
+metadata/_custom_type_script = "uid://ctkljby408cvs"

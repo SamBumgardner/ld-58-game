@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://cturkpjo7bj73"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_gi57w"]
+
+[resource]
+script = ExtResource("1_gi57w")
+title = "Spirit Medium"
+description = "You become a reknowned spirit healer who helps people find closure with their lost loved ones. "
+win = true
+metadata/_custom_type_script = "uid://ctkljby408cvs"

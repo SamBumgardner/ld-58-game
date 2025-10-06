@@ -12,21 +12,21 @@
 
 [sub_resource type="Resource" id="Resource_6hgne"]
 script = ExtResource("4_5qpui")
+statType = 1
 subTypeIndex = 2
-changeAmount = 6
+changeAmount = 15
 metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [sub_resource type="Resource" id="Resource_w565b"]
 script = ExtResource("4_5qpui")
-statType = 2
-changeAmount = 5
+changeAmount = 20
 metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [sub_resource type="Resource" id="Resource_dgngi"]
 script = ExtResource("1_q2oiu")
 title = "Take Notes on Foot"
 description = "Walk through the field taking notes. Were the crops burnt or cut down?"
-majorStatRequirments = Array[int]([15, 0, 8])
+majorStatRequirments = Array[int]([30, 20, 0])
 minorStatRequirements = Array[ExtResource("4_5qpui")]([SubResource("Resource_6hgne"), SubResource("Resource_w565b")])
 failureResult = ExtResource("2_q2oiu")
 successResult = ExtResource("5_75ibk")
@@ -36,7 +36,6 @@ metadata/_custom_type_script = "uid://cx0fvjypep5kl"
 [sub_resource type="Resource" id="Resource_5olp8"]
 script = ExtResource("4_5qpui")
 statType = 1
-subTypeIndex = 2
 changeAmount = 5
 metadata/_custom_type_script = "uid://op751y44hm3t"
 

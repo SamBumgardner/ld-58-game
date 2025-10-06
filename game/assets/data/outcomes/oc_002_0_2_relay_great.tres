@@ -1,13 +1,42 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://hvotr0jdlv6v"]
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=10 format=3 uid="uid://hvotr0jdlv6v"]
 
-[ext_resource type="Resource" uid="uid://wq541clhgyw4" path="res://assets/data/endings/end_000_0_2_fireworks_maestro.tres" id="1_tj6mb"]
+[ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_meskm"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_kxp5b"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="3_8y6gy"]
+[ext_resource type="Resource" uid="uid://dfqrmsxcktc75" path="res://assets/data/major_events/me_003_crop.tres" id="3_meskm"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_ooeto"]
+
+[sub_resource type="Resource" id="Resource_jbo0p"]
+script = ExtResource("1_meskm")
+overrideValue = 4
+remainingDays = 3
+metadata/_custom_type_script = "uid://ccfhidydcpt2p"
+
+[sub_resource type="Resource" id="Resource_nxild"]
+script = ExtResource("4_ooeto")
+statType = 1
+subTypeIndex = 2
+changeAmount = 3
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_tjg1m"]
+script = ExtResource("4_ooeto")
+statType = 2
+changeAmount = 2
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_geucv"]
+script = ExtResource("4_ooeto")
+statType = 2
+subTypeIndex = 2
+changeAmount = 2
+metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [resource]
 script = ExtResource("3_8y6gy")
 title = "Great Success!"
-description = "Your well thought out relay race inspired towns to put on their own races annually in your honor."
-ending = ExtResource("1_tj6mb")
+description = "Your well thought out relay race inspired towns to put on their own races annually in your honor!"
+statChangesToApply = Array[ExtResource("4_ooeto")]([SubResource("Resource_nxild"), SubResource("Resource_tjg1m"), SubResource("Resource_geucv")])
+moodOverride = SubResource("Resource_jbo0p")
+nextMajorObjective = Array[ExtResource("2_kxp5b")]([ExtResource("3_meskm")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"
