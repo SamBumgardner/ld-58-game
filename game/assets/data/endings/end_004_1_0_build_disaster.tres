@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://dmtqtgkb1dgoj"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_nehef"]
+
+[resource]
+script = ExtResource("1_nehef")
+title = "Fireworks Disaster!"
+description = "The whole village burned down thanks to some faulty fireworks... 
+Whose idea was that, anyway?"
+metadata/_custom_type_script = "uid://ctkljby408cvs"
