@@ -29,7 +29,16 @@ func _on_button_credits_pressed():
 
 func _on_button_play_pressed():
     EventBus.globalUiElementSelected.emit()
-    get_tree().change_scene_to_file("res://src/gameplay/gameplay.tscn")
+
+    var newTransitionData: TransitionData = TransitionData.generateDefault();
+    #var newTransitionData.metaProgressionData # if we have time, load meta progression data here.
+
+    var nextScene: PackedScene = load("res://src/intro/intro.tscn");
+    var nextRoot: Node = nextScene.instantiate();
+    get_tree().root.add_child(nextRoot);
+    nextRoot.initScene(newTransitionData);
+    nextRoot.call_deferred("startScene");
+    queue_free();
 
 func _on_button_quit_pressed():
     EventBus.globalUiElementSelected.emit()
