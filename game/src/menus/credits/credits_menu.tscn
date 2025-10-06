@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhx22jo5egvqn"]
+[gd_scene load_steps=5 format=3 uid="uid://bhx22jo5egvqn"]
 
 [ext_resource type="PackedScene" uid="uid://nc5eq6u5b733" path="res://src/menus/credits/credits_menu_content.tscn" id="1_1fet1"]
+[ext_resource type="Texture2D" uid="uid://cs3oplwa3fxij" path="res://assets/art/backgrounds/bg3.jpg" id="1_rqbbn"]
+[ext_resource type="Texture2D" uid="uid://rpx0wfgb5ss7" path="res://assets/art/hud/30_Day_Fog_9_Tiles.png" id="2_ob828"]
+[ext_resource type="Theme" uid="uid://soi4w0p4anup" path="res://assets/themes/margin_container_for_texture_rect.tres" id="3_2fu6b"]
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +13,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.4)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rqbbn")
+expand_mode = 1
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -18,5 +32,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CreditsMenuContent" parent="CenterContainer" instance=ExtResource("1_1fet1")]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_ob828")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_2fu6b")
+
+[node name="CreditsMenuContent" parent="CenterContainer/PanelContainer/MarginContainer" instance=ExtResource("1_1fet1")]
 layout_mode = 2
