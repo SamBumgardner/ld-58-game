@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene load_steps=29 format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://src/gameplay/gameplay.gd" id="1_41n4r"]
 [ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="1_s5sow"]
@@ -18,9 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://cfn4gebfndu50" path="res://src/gameplay/hud/events/major_event_display.tscn" id="10_r22ir"]
 [ext_resource type="PackedScene" uid="uid://dmsrehee6sok5" path="res://src/gameplay/hud/events/event_outcome_display.tscn" id="11_p86j0"]
 [ext_resource type="Texture2D" uid="uid://cegwrvc3utwup" path="res://assets/art/weather_hot.png" id="11_ug0ik"]
-[ext_resource type="PackedScene" uid="uid://b0mcg1ibos2g1" path="res://src/gameplay/hud/end_day_summary.tscn" id="12_fbjph"]
+[ext_resource type="PackedScene" path="res://src/gameplay/hud/end_day_summary.tscn" id="12_fbjph"]
 [ext_resource type="Script" uid="uid://c267m4vx16j5c" path="res://src/gameplay/turbo_toggle.gd" id="13_23xb3"]
-[ext_resource type="PackedScene" uid="uid://cjkj3o2d3vkiq" path="res://src/gameplay/hud/preview_info.tscn" id="20_thf4h"]
+[ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="17_g7uyf"]
+[ext_resource type="Theme" uid="uid://soi4w0p4anup" path="res://assets/themes/margin_container_for_texture_rect.tres" id="18_0masv"]
+[ext_resource type="PackedScene" uid="uid://bmh68yefaofg8" path="res://src/menus/settings/settings_menu_content.tscn" id="19_psry0"]
+[ext_resource type="PackedScene" path="res://src/gameplay/hud/preview_info.tscn" id="20_thf4h"]
 
 [sub_resource type="Animation" id="Animation_23xb3"]
 length = 0.001
@@ -431,6 +434,36 @@ scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("6_yvprt")
 
+[node name="CenterContainerSettings" type="CenterContainer" parent="HudElements/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HudElements/Control/CenterContainerSettings"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HudElements/Control/CenterContainerSettings/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("18_0masv")
+
+[node name="SettingsMenuContent" parent="HudElements/Control/CenterContainerSettings/PanelContainer" instance=ExtResource("19_psry0")]
+layout_mode = 2
+
+[node name="ButtonSettings" type="Button" parent="HudElements/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -70.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme = ExtResource("17_g7uyf")
+text = "Settings"
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 496.0
@@ -585,5 +618,9 @@ layout_mode = 1
 offset_left = -200.0
 offset_right = 200.0
 theme_type_variation = &"NestedPanelContainer"
+
+[connection signal="buttonBackPressed" from="HudElements/Control/CenterContainerSettings/PanelContainer/SettingsMenuContent" to="." method="_on_settings_menu_content_button_back_pressed"]
+[connection signal="mouse_entered" from="HudElements/Control/ButtonSettings" to="." method="_on_button_settings_mouse_entered"]
+[connection signal="pressed" from="HudElements/Control/ButtonSettings" to="." method="_on_button_settings_pressed"]
 
 [editable path="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails"]

@@ -6,6 +6,7 @@ signal nextMajorEventChanged(newNextMajorEvent: MajorEvent);
 signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 
 #region node init
+@onready var centerContainerSettings: CenterContainer = $HudElements/Control/CenterContainerSettings;
 @onready var dayManager: DayManager = $DayManager;
 @onready var moodTracker: Node = $HudElements/Control/MoodTracker;
 @onready var dayCountTracker: Node = $HudElements/Control/DayCountTracker;
@@ -60,6 +61,7 @@ var receivedTransitionData: TransitionData;
 #region scene transition
 func _ready():
     process_mode = Node.PROCESS_MODE_DISABLED
+    # centerContainerSettings.hide()
 
     dayManager.weatherChanged.connect(_onWeatherChanged);
     dayManager.moodChanged.connect(_onMoodChanged);
@@ -280,3 +282,18 @@ static func _createActivityEnhancements(baseActivites: Array[Activity], day: Day
         result.push_back(enhanced);
     
     return result;
+
+#region settings menu methods
+func _on_button_settings_mouse_entered():
+    EventBus.globalUiElementMouseEntered.emit()
+
+func _on_button_settings_pressed():
+    EventBus.globalUiElementSelected.emit()
+    if centerContainerSettings.visible:
+        centerContainerSettings.hide()
+    else:
+        centerContainerSettings.show()
+
+func _on_settings_menu_content_button_back_pressed():
+    centerContainerSettings.hide()
+#endregion
