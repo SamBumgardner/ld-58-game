@@ -434,17 +434,6 @@ scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("6_yvprt")
 
-[node name="ButtonSettings" type="Button" parent="HudElements/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -70.0
-offset_bottom = 31.0
-grow_horizontal = 0
-theme = ExtResource("17_g7uyf")
-text = "Settings"
-
 [node name="CenterContainerSettings" type="CenterContainer" parent="HudElements/Control"]
 visible = false
 layout_mode = 1
@@ -463,6 +452,17 @@ theme = ExtResource("18_0masv")
 
 [node name="SettingsMenuContent" parent="HudElements/Control/CenterContainerSettings/PanelContainer" instance=ExtResource("19_psry0")]
 layout_mode = 2
+
+[node name="ButtonSettings" type="Button" parent="HudElements/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -70.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme = ExtResource("17_g7uyf")
+text = "Settings"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -617,8 +617,8 @@ offset_left = -200.0
 offset_right = 200.0
 theme_type_variation = &"NestedPanelContainer"
 
+[connection signal="buttonBackPressed" from="HudElements/Control/CenterContainerSettings/PanelContainer/SettingsMenuContent" to="." method="_on_settings_menu_content_button_back_pressed"]
 [connection signal="mouse_entered" from="HudElements/Control/ButtonSettings" to="." method="_on_button_settings_mouse_entered"]
 [connection signal="pressed" from="HudElements/Control/ButtonSettings" to="." method="_on_button_settings_pressed"]
-[connection signal="buttonBackPressed" from="HudElements/Control/CenterContainerSettings/PanelContainer/SettingsMenuContent" to="." method="_on_settings_menu_content_button_back_pressed"]
 
 [editable path="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails"]
