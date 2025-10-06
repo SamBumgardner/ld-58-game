@@ -356,26 +356,38 @@ scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("6_yvprt")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 256.0
+offset_right = 776.0
+offset_bottom = 295.08334
+theme_type_variation = &"HeaderLarge"
+text = "What will I do today?"
+
 [node name="ActivitySelection1" parent="." instance=ExtResource("7_uk44f")]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 290.0
-offset_right = 404.0
-offset_bottom = 546.0
+anchors_preset = 0
+offset_left = 182.0
+offset_top = 324.0
+offset_right = 438.0
+offset_bottom = 604.9861
 
 [node name="ActivitySelection2" parent="." instance=ExtResource("7_uk44f")]
 layout_mode = 0
-offset_left = 475.0
-offset_top = 290.0
-offset_right = 731.0
-offset_bottom = 546.0
+anchors_preset = 0
+offset_left = 509.0
+offset_top = 324.0
+offset_right = 765.0
+offset_bottom = 604.9861
 
 [node name="ActivitySelection3" parent="." instance=ExtResource("7_uk44f")]
 layout_mode = 0
-offset_left = 818.0
-offset_top = 288.0
-offset_right = 1074.0
-offset_bottom = 544.0
+anchors_preset = 0
+offset_left = 852.0
+offset_top = 322.0
+offset_right = 1108.0
+offset_bottom = 602.9861
 
 [node name="MajorEventDisplay" parent="." instance=ExtResource("10_r22ir")]
 visible = false

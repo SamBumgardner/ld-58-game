@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0xhkhdvqoeg5"]
+[gd_scene load_steps=3 format=3 uid="uid://0xhkhdvqoeg5"]
 
 [ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="1_xd7b0"]
+[ext_resource type="Script" uid="uid://cedqs605mvi7l" path="res://src/gameplay/hud/events/major_stat_icon.gd" id="2_ojw2h"]
 
 [node name="MajorStatIcon" type="TextureRect"]
 self_modulate = Color(1, 1, 1, 0.6862745)
@@ -8,6 +9,7 @@ custom_minimum_size = Vector2(76, 76)
 size_flags_horizontal = 6
 texture = ExtResource("1_xd7b0")
 expand_mode = 2
+script = ExtResource("2_ojw2h")
 
 [node name="MajorStatThreshold" type="Label" parent="."]
 layout_mode = 1
