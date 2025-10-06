@@ -1,5 +1,7 @@
 class_name EndDaySummary extends Control
 
+signal endOfDaySummaryClosed();
+
 # Activity Stat 
 const PREAMBLE = "Dear Diary,
 I worked on [img=48]%s[/img] today.
@@ -16,9 +18,13 @@ I hope I'll be ready.
 Your pal,
 %s"
 
-@onready var preamble: Label = $%Preamble;
-@onready var conclusion: Label = $%Conclusion;
+@onready var preamble: RichTextLabel = $%Preamble;
+@onready var conclusion: RichTextLabel = $%Conclusion;
 @onready var statChangeDisplays: Array[Node] = $%StatChanges.get_children();
+@onready var closeButton: Button = $MarginContainer/Button
+
+func _ready():
+    closeButton.pressed.connect(endOfDaySummaryClosed.emit);
 
 func setValues(trainedStat: Stats.Types, statChanges: Array[StatIncrease],
         currentWeather: Weather.Types, nextMood: Mood.Types, daysRemaining: int,

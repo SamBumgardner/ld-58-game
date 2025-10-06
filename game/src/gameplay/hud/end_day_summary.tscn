@@ -72,3 +72,9 @@ Your pal,
 NAME"
 fit_content = true
 autowrap_mode = 0
+
+[node name="Button" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Continue to Next Day"

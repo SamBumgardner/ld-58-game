@@ -20,6 +20,7 @@ signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 @onready var player: Player = $Player;
 @onready var majorEventDisplay: MajorEventDisplay = $MajorEventDisplay;
 @onready var eventOutcomeDisplay: EventOutcomeDisplay = $EventOutcomeDisplay;
+@onready var endDaySummary: EndDaySummary = $%EndDaySummary;
 #endregion
 
 
@@ -41,7 +42,8 @@ var dayCount: int:
 
 var activityOptions: Array[Activity] = [];
 var enhancedActivities: Array[ActivityEnhanced] = [];
-var lastCompletedActivity: Activity;
+var selectedActivity: Activity;
+var selectedActivityIndex: int;
 var lastOutcome: MajorOutcome;
 
 var receivedTransitionData: TransitionData;
@@ -71,6 +73,7 @@ func _ready():
     player.statsUpdated.connect(statDetails._onPlayerStatsUpdated);
     majorEventDisplay.eventOptionSelected.connect(_onMajorEventCompleted);
     eventOutcomeDisplay.outcomeDisplayConfirmed.connect(_onEventOutcomeConfirmed);
+    endDaySummary.endOfDaySummaryClosed.connect($AnimationPlayer.play.bind("new_day_fade_in"));
 
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
@@ -115,46 +118,46 @@ func startScene():
 
 #region day sequence management
 func _onActivityConfirmed(activityIndex: int) -> void:
-    var selectedActivity := activityOptions[activityIndex]
+    selectedActivity = activityOptions[activityIndex]
+    selectedActivityIndex = activityIndex;
     print_debug("activity confirmed");
-    # Activate fade-out
-    # Fade in training image
-    # show results of training
-    # expose button (or just click-anywhere) for user to continue.
-    lastCompletedActivity = selectedActivity;
-    _applyResultsOfActivity(activityIndex);
+    # starts fade-out, triggers next steps
+    process_mode = Node.PROCESS_MODE_DISABLED;
+    $AnimationPlayer.play("end_of_day_fadeout");
     
-    #todo: remove this later
-    _onSetUpNewDay();
-
-func _applyResultsOfActivity(activityIndex: int) -> void:
+func _applyResultsOfActivity() -> void:
     print_debug("applying results of activity");
     var enhancedActivityGains: Array[StatIncrease] = \
-        enhancedActivities[activityIndex].enhancedIncreases;
+        enhancedActivities[selectedActivityIndex].enhancedIncreases;
     player.applyStatIncreases(enhancedActivityGains);
+
+    _onSetUpNewDay();
 
 func _onSetUpNewDay() -> void:
     print_debug("setting up new day");
     if dayCount != 0: # don't want to these steps if we're starting a fresh play
-        var newDay = nextDayGenerator.getNextDay(dayManager.weather, dayManager.forecast, lastCompletedActivity);
+        var newDay = nextDayGenerator.getNextDay(dayManager.weather, dayManager.forecast, selectedActivity);
         newDay = dayManager.applyNewDay(newDay);
 
     activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
     enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
     activitiesChanged.emit(enhancedActivities);
-    
+        
     dayCount += 1;
     daysTillMajorEvent -= 1
     
-    #todo: remove this later
-    _onNewDayFadeIn();
+    if dayCount == 1:
+        _onNewDayFadeIn();
 
 func _onNewDayFadeIn() -> void:
     print_debug("new day is fading in");
+
     # this is where we check for events happening, bring up the exciting screen.
     if daysTillMajorEvent == 0:
         process_mode = Node.PROCESS_MODE_DISABLED;
         majorEventDisplay.open(nextMajorEvent);
+    else:
+        process_mode = Node.PROCESS_MODE_INHERIT;
 
 func _onEventCompleted(_selectionIndex: int) -> void:
     print_debug("event is completed");
