@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://co2mhrtt8s1c6"]
+
+[ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="1_11jar"]
+[ext_resource type="Script" uid="uid://c0q1ieoas7qpl" path="res://src/ending/ending_display.gd" id="2_jmycm"]
+[ext_resource type="Texture2D" uid="uid://d3g6fuom10m5t" path="res://assets/art/backgrounds/bg2.jpg" id="3_nqxh0"]
+[ext_resource type="StyleBox" uid="uid://eoki4f7rst2x" path="res://assets/art/hud/dark_panel.tres" id="4_yxki3"]
+[ext_resource type="PackedScene" uid="uid://cixu34tobcypn" path="res://src/intro/character_selector.tscn" id="5_nqxh0"]
+
+[node name="EndingDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_11jar")
+script = ExtResource("2_jmycm")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+self_modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nqxh0")
+expand_mode = 1
+
+[node name="MainContent" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+grow_horizontal = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "The world is magical and mysterious. "
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "The world is small; most folks' knowledge stopes at the edge of their village or town."
+horizontal_alignment = 1
+
+[node name="Title3" type="Label" parent="MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "The world is large; for those with the will and the means, most anything is possible."
+horizontal_alignment = 1
+
+[node name="Title4" type="Label" parent="MainContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "What will your story be?"
+horizontal_alignment = 1
+
+[node name="InstructionsContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -359.0
+offset_top = -66.83334
+offset_right = 359.0
+offset_bottom = 66.83334
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_yxki3")
+
+[node name="MarginContainer" type="MarginContainer" parent="InstructionsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="Instructions" type="Label" parent="InstructionsContainer/MarginContainer"]
+layout_mode = 2
+text = "Your character will determine your starting abilities & which types of challenges you'll face.
+
+Pick a type of training each day to improve your skills.
+
+Test yourself against the major events, and collect as many endings as possible!"
+horizontal_alignment = 1
+
+[node name="Character Select" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="CharacterSelector1" parent="Character Select" instance=ExtResource("5_nqxh0")]
+layout_mode = 2
+
+[node name="CharacterSelector2" parent="Character Select" instance=ExtResource("5_nqxh0")]
+layout_mode = 2
+characterIndex = 1
+
+[node name="CharacterSelector3" parent="Character Select" instance=ExtResource("5_nqxh0")]
+layout_mode = 2
+characterIndex = 2

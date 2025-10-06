@@ -11,6 +11,7 @@ class PlayerData extends Resource:
     var job: Job.Types;
     var stats: Array[Array]
     var character_name: String;
+    var characterPortrait: Texture2D;
 
 class MetaProgressionData extends Resource:
     var tutorialComplete: bool = false
