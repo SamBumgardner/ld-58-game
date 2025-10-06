@@ -15,6 +15,8 @@ class PlayerData extends Resource:
 class MetaProgressionData extends Resource:
     var tutorialComplete: bool = false
     var completedEndings: Dictionary = {}
+    var turboAvailable: bool = false
+    var turboMode: bool = false
 
 class InitialSetupData extends Resource:
     var possibleMajorEvents: Array[MajorEvent]

@@ -59,9 +59,9 @@ func initialize(initData: TransitionData.CurrentDayData):
 
       
 func applyNewDay(day: Day) -> Day:
-    for override in [moodOverride, weatherOverride]:
+    for override: ConditionOverride in [moodOverride, weatherOverride]:
         if override != null and override.remainingDays == 0:
-            match override.Types:
+            match override.overrideType:
                 ConditionOverride.Types.MOOD:
                     moodOverride = null;
                 ConditionOverride.Types.WEATHER:
@@ -79,8 +79,11 @@ func applyOverride(newOverride: ConditionOverride) -> void:
     match newOverride.overrideType:
         ConditionOverride.Types.MOOD:
             moodOverride = newOverride.duplicate();
+            mood = Mood.Types.RELAXED;
         ConditionOverride.Types.WEATHER:
             weatherOverride = newOverride.duplicate();
+            weather = originalWeather;
+            forecast = originalForecast;
 
 func forceRemoveOverride(overrideType: ConditionOverride.Types) -> void:
     match overrideType:

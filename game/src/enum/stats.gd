@@ -33,6 +33,11 @@ static var StudyNames: Array[String] = [
     "Knowledge",
     "Magic"
 ]
+static var StudyPaths: Array[String] = [
+    "res://assets/art/substats/substat_wit.png",
+    "res://assets/art/substats/substat_knowledge.png",
+    "res://assets/art/substats/substat_magic.png"
+]
 
 enum Physical {
     STRENGTH = 0,
@@ -43,6 +48,11 @@ static var PhysicalNames: Array[String] = [
     "Strength",
     "Courage",
     "Endurance"
+]
+static var PhysicalPaths: Array[String] = [
+    "res://assets/art/substats/substat_strength.png",
+    "res://assets/art/substats/substat_courage.png",
+    "res://assets/art/substats/substat_endurance.png"
 ]
 
 enum Craft {
@@ -55,18 +65,28 @@ static var CraftNames: Array[String] = [
     "Precision",
     "Planning"
 ]
+static var CraftPaths: Array[String] = [
+    "res://assets/art/substats/substat_creation.png",
+    "res://assets/art/substats/substat_precision.png",
+    "res://assets/art/substats/substat_planning.png"
+]
 
 static var NamesLookup: Array[Array] = [
     StudyNames,
     PhysicalNames,
     CraftNames,
 ]
+static var PathsLookup: Array[Array] = [
+    StudyPaths,
+    PhysicalPaths,
+    CraftPaths,
+]
 
 static func getNameForSubstat(statType: Types, substatIndex: int) -> Array[String]:
     return NamesLookup[statType][substatIndex];
 
 static var PrimaryStatIconPaths: Array[String] = [
-    "res://assets/art/stat_study.svg",
-    "res://assets/art/stat_physical.svg",
-    "res://assets/art/stat_craft.svg"
+    "res://assets/art/stat_study.png",
+    "res://assets/art/stat_physical.png",
+    "res://assets/art/stat_craft.png"
 ]

@@ -4,7 +4,7 @@
 
 [node name="MajorStatIcon" type="TextureRect"]
 self_modulate = Color(1, 1, 1, 0.6862745)
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(76, 76)
 size_flags_horizontal = 6
 texture = ExtResource("1_xd7b0")
 expand_mode = 2
