@@ -6,8 +6,11 @@ extends Node
 @onready var sfxUiClickConfirm = $SFXUIClickConfirm
 @onready var sfxUiMouseEntered = $SFXUIMouseEntered
 
+var playerSelectedJobType = Job.Types.TINKER;
+
 func _ready() -> void:
     EventBus.globalActivitySelected.connect(_playSfxTrainingComplete)
+    EventBus.globalJobSelected.connect(_setVoice)
     EventBus.globalUiElementMouseEntered.connect(_playSfxUiMouseEntered)
     EventBus.globalUiElementSelected.connect(_playSfxUiClickConfirm)
 
@@ -45,5 +48,15 @@ func _stopSfxTrainingComplete() -> void:
     sfxTrainingTypeCraftComplete.stop()
     sfxTrainingTypePhysicalComplete.stop()
     sfxTrainingTypeStudyComplete.stop()
+
+func _setVoice(jobType: Job.Types) -> void:
+    if jobType == Job.Types.HERO:
+        pass
+    elif jobType == Job.Types.SCHOLAR:
+        pass
+    elif jobType == Job.Types.TINKER:
+        pass
+    else:
+        print_debug("Warning: Tried to set voice for unexpected job type", jobType)
 
 #endregion
