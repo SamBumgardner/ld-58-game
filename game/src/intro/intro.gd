@@ -25,7 +25,8 @@ static func generateCharacterScenarios() -> Array[TransitionData]:
         [1, 2, 2],
     ])
     var adrianStartingScenarios: Array[MajorEvent] = [
-        load("res://assets/data/major_events/me_000_test.tres")
+        load("res://assets/data/major_events/me_000_test.tres"),
+        load("res://assets/data/major_events/me_002_tutor.tres")
     ];
     
     var stellaData: TransitionData.PlayerData = TransitionData.PlayerData.new()
@@ -38,7 +39,8 @@ static func generateCharacterScenarios() -> Array[TransitionData]:
         [1, 1, 1],
     ])
     var stellaStartingScenarios: Array[MajorEvent] = [
-        load("res://assets/data/major_events/me_000_test.tres")
+        load("res://assets/data/major_events/me_000_test.tres"),
+        load("res://assets/data/major_events/me_002_tutor.tres")
     ];
     
     
@@ -52,7 +54,8 @@ static func generateCharacterScenarios() -> Array[TransitionData]:
         [3, 3, 2],
     ])
     var cainStartingScenarios: Array[MajorEvent] = [
-        load("res://assets/data/major_events/me_000_test.tres")
+        load("res://assets/data/major_events/me_000_test.tres"),
+        load("res://assets/data/major_events/me_002_tutor.tres")
     ];
     
     result[0].playerData = adrianData;
