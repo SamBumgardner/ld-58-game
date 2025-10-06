@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_1vmgp")
 script = ExtResource("2_7dg0l")
+previewType = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -52,6 +53,16 @@ texture = ExtResource("4_gxhgt")
 expand_mode = 4
 stretch_mode = 5
 
+[node name="ImproveTextureLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "NONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
@@ -69,6 +80,16 @@ size_flags_vertical = 4
 texture = ExtResource("5_5qmwa")
 expand_mode = 4
 stretch_mode = 5
+
+[node name="WeakenTextureLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "NONE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -96,3 +117,13 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_nxfdw")
 expand_mode = 1
+
+[node name="BonusEffectTextureLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "NONE"
+horizontal_alignment = 1
+vertical_alignment = 1
