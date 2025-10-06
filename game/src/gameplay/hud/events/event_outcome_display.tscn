@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmsrehee6sok5"]
+[gd_scene load_steps=6 format=3 uid="uid://dmsrehee6sok5"]
 
 [ext_resource type="Script" uid="uid://gnw026frlxia" path="res://src/gameplay/hud/events/event_outcome_display.gd" id="1_41wie"]
 [ext_resource type="Resource" uid="uid://sher5mt0y7qg" path="res://assets/data/outcomes/oc_000_0_0_fireworks_failure.tres" id="2_dduxo"]
 [ext_resource type="PackedScene" uid="uid://chuptqvahkktv" path="res://src/gameplay/hud/events/stat_category_requirements.tscn" id="3_41wie"]
-[ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="4_dduxo"]
+[ext_resource type="Texture2D" uid="uid://dbxi6f6uibdfa" path="res://assets/art/mood_sad.png" id="4_0116r"]
+[ext_resource type="Texture2D" uid="uid://chcjit15sy7t3" path="res://assets/art/weather_rainy.png" id="5_0116r"]
 
 [node name="EventOutcomeDisplay" type="PanelContainer"]
 custom_minimum_size = Vector2(797, 0)
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -45,79 +46,144 @@ autowrap_mode = 2
 [node name="ResultsContainer" type="VBoxContainer" parent="MarginContainer/Content"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 12
 
 [node name="Spacing" type="MarginContainer" parent="MarginContainer/Content/ResultsContainer"]
-custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-
-[node name="ResultsHeader" type="Label" parent="MarginContainer/Content/ResultsContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_type_variation = &"HeaderSmall"
-text = "Results"
-horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Content/ResultsContainer"]
 layout_mode = 2
 
-[node name="StatRequirements" type="HBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResultsHeader" type="Label" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderSmall"
+text = "Stat Changes"
+horizontal_alignment = 1
+
+[node name="StatRequirements" type="HBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_constants/separation = 12
 
-[node name="StatCategoryRequirements" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/StatRequirements" instance=ExtResource("3_41wie")]
+[node name="StatCategoryRequirements" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("3_41wie")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="StatCategoryRequirements2" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/StatRequirements" instance=ExtResource("3_41wie")]
+[node name="StatCategoryRequirements2" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("3_41wie")]
 layout_mode = 2
 size_flags_horizontal = 6
 statCategory = 1
 
-[node name="StatCategoryRequirements3" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/StatRequirements" instance=ExtResource("3_41wie")]
+[node name="StatCategoryRequirements3" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("3_41wie")]
 layout_mode = 2
 size_flags_horizontal = 6
 statCategory = 2
 
-[node name="OptionalMoodAndWeatherInfo" type="VBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer"]
-visible = false
+[node name="OptionalMoodAndWeatherInfo" type="PanelContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MoodContainer" type="HBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo"]
+[node name="ResultsHeader2" type="Label" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderSmall"
+text = "Environment Changes"
+horizontal_alignment = 1
+
+[node name="MoodContainer" type="HBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MoodContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer/MoodContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Mood:"
+text = "Mood 
+Becomes:"
+horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MoodContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer/MoodContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MoodTexture" type="TextureRect" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer/MoodContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("4_dduxo")
-expand_mode = 3
+size_flags_vertical = 4
+texture = ExtResource("4_0116r")
+expand_mode = 1
 
-[node name="WeatherContainer" type="HBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo"]
+[node name="MoodDaysLabel" type="Label" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer/MoodContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "X Days"
+horizontal_alignment = 1
+
+[node name="WeatherContainer" type="HBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/WeatherContainer"]
+[node name="Label" type="Label" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer/WeatherContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Weather:"
+text = "Weather 
+Becomes:"
+horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/WeatherContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer/WeatherContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = -8
+
+[node name="WeatherTexture" type="TextureRect" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer/WeatherContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("4_dduxo")
-expand_mode = 3
+size_flags_vertical = 4
+texture = ExtResource("5_0116r")
+expand_mode = 1
+
+[node name="WeatherDaysLabel" type="Label" parent="MarginContainer/Content/ResultsContainer/HBoxContainer/OptionalMoodAndWeatherInfo/MarginContainer/VBoxContainer/WeatherContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "X Days"
+horizontal_alignment = 1
 
 [node name="Spacing2" type="MarginContainer" parent="MarginContainer/Content/ResultsContainer"]
-custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="ConfirmButton" type="Button" parent="MarginContainer/Content"]
