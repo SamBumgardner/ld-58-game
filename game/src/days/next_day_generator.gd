@@ -4,7 +4,7 @@ var weatherPool: Array[Weather.Types];
 # var eventPool: Array; # Stretch goal to implement minor events.
 
 func _init(_weatherPool: Array[Weather.Types] = []):
-    weatherPool = _weatherPool;
+    weatherPool = _weatherPool.duplicate();
 
 func overwriteWeatherPool(weatherTypes: Array[Weather.Types]) -> void:
     weatherPool = weatherTypes.duplicate();
