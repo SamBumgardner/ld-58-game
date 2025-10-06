@@ -17,7 +17,7 @@ static func generateCharacterScenarios() -> Array[TransitionData]:
     ]
     var adrianData: TransitionData.PlayerData = TransitionData.PlayerData.new()
     adrianData.character_name = "Adrian the Alchemist"
-    adrianData.characterPortrait = load("res://icon.svg")
+    adrianData.characterPortrait = load("res://assets/art/heads/npc_head_15.png")
     adrianData.job = Job.Types.SCHOLAR
     adrianData.stats.assign([
         [2, 3, 2],
@@ -30,7 +30,7 @@ static func generateCharacterScenarios() -> Array[TransitionData]:
     
     var stellaData: TransitionData.PlayerData = TransitionData.PlayerData.new()
     stellaData.character_name = "Stella the Soldier"
-    stellaData.characterPortrait = load("res://icon.svg")
+    stellaData.characterPortrait = load("res://assets/art/heads/npc_head_29.png")
     stellaData.job = Job.Types.HERO
     stellaData.stats.assign([
         [1, 1, 2],
@@ -44,7 +44,7 @@ static func generateCharacterScenarios() -> Array[TransitionData]:
     
     var cainData: TransitionData.PlayerData = TransitionData.PlayerData.new()
     cainData.character_name = "Cain the Craftsman"
-    cainData.characterPortrait = load("res://icon.svg")
+    cainData.characterPortrait = load("res://assets/art/heads/npc_head_12.png")
     cainData.job = Job.Types.TINKER
     cainData.stats.assign([
         [1, 2, 1],
