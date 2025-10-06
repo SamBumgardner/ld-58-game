@@ -48,15 +48,6 @@ layout_mode = 2
 text = "Programmer, Voice Actor"
 horizontal_alignment = 2
 
-[node name="NameWithColon5" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "Shawna Bumgardner:"
-
-[node name="Role5" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "Voice Actor"
-horizontal_alignment = 2
-
 [node name="NameWithColon1" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Sam Bumgardner:"
@@ -64,6 +55,15 @@ text = "Sam Bumgardner:"
 [node name="Role1" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Game Designer, Programmer"
+horizontal_alignment = 2
+
+[node name="NameWithColon5" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Shawna Bumgardner:"
+
+[node name="Role5" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Voice Actor"
 horizontal_alignment = 2
 
 [node name="NameWithColon4" type="Label" parent="GridContainer"]
