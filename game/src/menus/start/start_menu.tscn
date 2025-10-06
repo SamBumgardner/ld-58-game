@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8n42pjxqav47"]
+[gd_scene load_steps=4 format=3 uid="uid://b8n42pjxqav47"]
 
 [ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="1_cfpq2"]
+[ext_resource type="Texture2D" uid="uid://cs3oplwa3fxij" path="res://assets/art/backgrounds/bg3.jpg" id="2_cfpq2"]
 [ext_resource type="PackedScene" uid="uid://ca66knr0l7xhi" path="res://src/menus/start/start_menu_content.tscn" id="3_cfpq2"]
 
 [node name="StartMenu" type="Control"]
@@ -11,6 +12,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cfpq2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.4)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cfpq2")
+expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
