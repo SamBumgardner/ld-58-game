@@ -17,6 +17,7 @@ signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
     $ActivitySelection3,
 ];
 @onready var statDetails: Node = $HudElements/Control/StatDetails;
+@onready var eventStatDetails: Node = $%EventStatDetails;
 @onready var player: Player = $Player;
 @onready var eventsLayer: CanvasLayer = $EventsLayer
 @onready var majorEventDisplay: MajorEventDisplay = $%MajorEventDisplay;
@@ -73,6 +74,7 @@ func _ready():
         activitiesChanged.connect(activitySelection._onActivitiesChanged);
         activitySelection.activitySelected.connect(_onActivityConfirmed);
     player.statsUpdated.connect(statDetails._onPlayerStatsUpdated);
+    player.statsUpdated.connect(eventStatDetails._onPlayerStatsUpdated);
     majorEventDisplay.eventOptionSelected.connect(_onMajorEventCompleted);
     eventOutcomeDisplay.outcomeDisplayConfirmed.connect(_onEventOutcomeConfirmed);
     endDaySummary.endOfDaySummaryClosed.connect($AnimationPlayer.play.bind("new_day_fade_in"));
