@@ -1,13 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp1i2ft4knik3"]
+[gd_scene load_steps=3 format=3 uid="uid://bp1i2ft4knik3"]
 
 [ext_resource type="Script" uid="uid://cjg6gwtole0bd" path="res://src/gameplay/hud/activity_selection.gd" id="1_6ene7"]
-
-[sub_resource type="Gradient" id="Gradient_7pdct"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_uk44f"]
-gradient = SubResource("Gradient_7pdct")
+[ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="2_wrom3"]
 
 [node name="ActivitySelection" type="MarginContainer"]
 custom_minimum_size = Vector2(256, 256)
@@ -16,12 +10,11 @@ offset_top = 263.0
 offset_right = 686.0
 offset_bottom = 286.0
 pivot_offset = Vector2(128, 128)
+theme = ExtResource("2_wrom3")
 script = ExtResource("1_6ene7")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="Panel" parent="."]
 layout_mode = 2
-texture = SubResource("GradientTexture1D_uk44f")
-expand_mode = 2
 
 [node name="Content" type="VBoxContainer" parent="."]
 layout_mode = 2
