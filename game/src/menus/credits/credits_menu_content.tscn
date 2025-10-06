@@ -27,7 +27,7 @@ text = "Alex:"
 
 [node name="Role3" type="Label" parent="GridContainer"]
 layout_mode = 2
-text = "Game Designer, Artist"
+text = "Artist, Game Designer"
 horizontal_alignment = 2
 
 [node name="NameWithColon6" type="Label" parent="GridContainer"]
@@ -45,7 +45,7 @@ text = "Noah Bumgardner:"
 
 [node name="Role2" type="Label" parent="GridContainer"]
 layout_mode = 2
-text = "Programmer, Voice Actor"
+text = "Composer, Programmer, Voice Actor"
 horizontal_alignment = 2
 
 [node name="NameWithColon1" type="Label" parent="GridContainer"]
