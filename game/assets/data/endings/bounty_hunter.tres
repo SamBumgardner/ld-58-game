@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_kn73e")
 title = "Bounty Hunter"
-description = "With the information gathered, you capture the criminal with ease. You return with the stolen goods and captured criminal in tow. "
+description = "With the information gathered, you capture the criminal with ease. 
+You return with the stolen goods and captured criminal in tow. "
 win = true
 metadata/_custom_type_script = "uid://ctkljby408cvs"

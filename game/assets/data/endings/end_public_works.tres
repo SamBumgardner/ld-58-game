@@ -5,6 +5,9 @@
 [resource]
 script = ExtResource("1_rjbcv")
 title = "Public Works Project"
-description = "After successfully determining the cause of death, it becomes clear there's a dangerous pitfall that has formed through errosion in the forest. It is immediately filled, making the roads safer for all. "
+description = "After successfully determining the cause of death, it becomes clear there's a dangerous pitfall 
+that has formed through errosion in the forest. 
+
+It is immediately filled, making the roads safer for all. "
 win = true
 metadata/_custom_type_script = "uid://ctkljby408cvs"
