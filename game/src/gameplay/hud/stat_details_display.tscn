@@ -1,0 +1,189 @@
+[gd_scene load_steps=18 format=3 uid="uid://bycg83yijgs5y"]
+
+[ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://src/gameplay/hud/stat_details.gd" id="1_il4s4"]
+[ext_resource type="Script" uid="uid://bqfbocodahwu3" path="res://src/gameplay/hud/events/stat_category_requirements.gd" id="2_mj0hr"]
+[ext_resource type="PackedScene" uid="uid://0xhkhdvqoeg5" path="res://src/gameplay/hud/events/major_stat_icon.tscn" id="3_0d250"]
+[ext_resource type="Texture2D" uid="uid://dv3qtmmwvrt5w" path="res://assets/art/stat_study.png" id="4_xaogy"]
+[ext_resource type="PackedScene" uid="uid://cuy4c55ivelap" path="res://src/gameplay/hud/events/minor_stat_icon.tscn" id="5_5vajt"]
+[ext_resource type="Texture2D" uid="uid://b5eomjwcwdgj" path="res://assets/art/substats/substat_wit.png" id="6_1jk4v"]
+[ext_resource type="Texture2D" uid="uid://b08v3tqytwlar" path="res://assets/art/substats/substat_knowledge.png" id="7_avco1"]
+[ext_resource type="Texture2D" uid="uid://nmxpqqe5xrcr" path="res://assets/art/substats/substat_magic.png" id="8_mlplh"]
+[ext_resource type="Texture2D" uid="uid://cxvgn4jodvfq8" path="res://assets/art/stat_physical.png" id="9_vdgyk"]
+[ext_resource type="Texture2D" uid="uid://bi0m233xscyxi" path="res://assets/art/substats/substat_strength.png" id="10_8v7ig"]
+[ext_resource type="Texture2D" uid="uid://cwq0kph63fgad" path="res://assets/art/substats/substat_courage.png" id="11_oql46"]
+[ext_resource type="Texture2D" uid="uid://c81lmhj5y4aqh" path="res://assets/art/substats/substat_endurance.png" id="12_4yqvx"]
+[ext_resource type="Texture2D" uid="uid://dr0aycg7pbsp5" path="res://assets/art/stat_craft.png" id="13_k3dif"]
+[ext_resource type="Texture2D" uid="uid://i7r8a8g5h5dn" path="res://assets/art/substats/substat_creation.png" id="14_smeiu"]
+[ext_resource type="Texture2D" uid="uid://datc2l3oc2a1p" path="res://assets/art/substats/substat_precision.png" id="15_wnq15"]
+[ext_resource type="Texture2D" uid="uid://b4paisbn6qsio" path="res://assets/art/substats/substat_planning.png" id="16_w700p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pj0cy"]
+bg_color = Color(0, 0, 0, 0.74509805)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="StatDetails" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 215.0
+offset_top = 64.0
+offset_right = 702.0
+offset_bottom = 230.0
+script = ExtResource("1_il4s4")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.62352943)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pj0cy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 73.0
+offset_bottom = 33.5
+theme_override_font_sizes/font_size = 24
+text = "Stats:"
+
+[node name="StudyStats" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 34.0
+offset_right = 49.0
+offset_bottom = 74.0
+script = ExtResource("2_mj0hr")
+
+[node name="MajorStatIcon" parent="StudyStats" instance=ExtResource("3_0d250")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 34.0
+offset_top = -9.0
+offset_right = 110.0
+offset_bottom = 67.0
+texture = ExtResource("4_xaogy")
+
+[node name="MinorStatIcon1" parent="StudyStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = -14.0
+offset_top = 22.0
+offset_right = 50.0
+offset_bottom = 86.0
+texture = ExtResource("6_1jk4v")
+
+[node name="MinorStatIcon2" parent="StudyStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 39.0
+offset_top = 58.0
+offset_right = 103.0
+offset_bottom = 122.0
+texture = ExtResource("7_avco1")
+
+[node name="MinorStatIcon3" parent="StudyStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 99.0
+offset_top = 21.0
+offset_right = 163.0
+offset_bottom = 85.0
+texture = ExtResource("8_mlplh")
+
+[node name="PhysicalStats" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 176.0
+offset_top = 28.0
+offset_right = 216.0
+offset_bottom = 68.0
+script = ExtResource("2_mj0hr")
+statCategory = 1
+
+[node name="MajorStatIcon" parent="PhysicalStats" instance=ExtResource("3_0d250")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 44.0
+offset_right = 120.0
+offset_bottom = 76.0
+texture = ExtResource("9_vdgyk")
+
+[node name="MinorStatIcon1" parent="PhysicalStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 34.0
+offset_right = 62.0
+offset_bottom = 98.0
+texture = ExtResource("10_8v7ig")
+
+[node name="MinorStatIcon2" parent="PhysicalStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 71.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("11_oql46")
+
+[node name="MinorStatIcon3" parent="PhysicalStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 97.0
+offset_top = 36.0
+offset_right = 161.0
+offset_bottom = 100.0
+texture = ExtResource("12_4yqvx")
+
+[node name="CraftStats" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 351.0
+offset_top = 24.0
+offset_right = 391.0
+offset_bottom = 64.0
+script = ExtResource("2_mj0hr")
+statCategory = 2
+
+[node name="MajorStatIcon" parent="CraftStats" instance=ExtResource("3_0d250")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 29.0
+offset_top = -1.0
+offset_right = 105.0
+offset_bottom = 75.0
+texture = ExtResource("13_k3dif")
+
+[node name="MinorStatIcon1" parent="CraftStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = -22.0
+offset_top = 28.0
+offset_right = 42.0
+offset_bottom = 92.0
+texture = ExtResource("14_smeiu")
+
+[node name="MinorStatIcon2" parent="CraftStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 35.0
+offset_top = 68.0
+offset_right = 99.0
+offset_bottom = 132.0
+texture = ExtResource("15_wnq15")
+
+[node name="MinorStatIcon3" parent="CraftStats" instance=ExtResource("5_5vajt")]
+self_modulate = Color(1, 1, 1, 1)
+layout_mode = 0
+offset_left = 89.0
+offset_top = 32.0
+offset_right = 153.0
+offset_bottom = 96.0
+texture = ExtResource("16_w700p")

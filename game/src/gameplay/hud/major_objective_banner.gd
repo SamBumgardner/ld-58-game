@@ -1,6 +1,6 @@
-extends Label
+extends RichTextLabel
 
-const standardDisplayString = "Next Objective: %s\nin %d days";
+const standardDisplayString = "Next Event:\n[font_size=24]\"%s\"[/font_size]\nin %d days";
 var displayObjectiveName: String = "";
 var displayDaysRemaining: int = 0;
 
