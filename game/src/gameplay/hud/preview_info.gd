@@ -14,7 +14,7 @@ const TITLE = "Tomorrow's %s:";
 @onready var bonusEffectLabel: Label = $%BonusEffectTextureLabel;
 
 func setValues(tomorrowTypeIndex: int):
-    tomorrowTitle.text = TITLE % "Weather" if previewType == ConditionOverride.Types.WEATHER else "Mood"
+    tomorrowTitle.text = TITLE % "Weather" if previewType == ConditionOverride.Types.WEATHER else TITLE % "Mood"
     var improveTexturePath: String;
     var weakenTexturePath: String;
     var bonusEffectTexturePaths: Array[String];
@@ -64,32 +64,30 @@ func setValues(tomorrowTypeIndex: int):
                 weakenTexturePath = "";
                 bonusEffectTexturePaths = [];
             Mood.Types.HAPPY:
-                improveTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.PHYSICAL];
+                improveTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.CRAFT];
                 weakenTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.STUDY];
                 bonusEffectTexturePaths = [
-                    Mood.MoodIconPaths[Mood.Types.GRUMPY],
-                    Mood.MoodIconPaths[Mood.Types.SAD]
+                    Weather.WeatherIconPaths[Weather.Types.CLOUDY],
+                    Weather.WeatherIconPaths[Weather.Types.RAINY]
                 ];
             Mood.Types.SAD:
-                improveTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.CRAFT];
+                improveTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.STUDY];
                 weakenTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.PHYSICAL];
                 bonusEffectTexturePaths = [
-                    Mood.MoodIconPaths[Mood.Types.HAPPY],
-                    Mood.MoodIconPaths[Mood.Types.GRUMPY]
+                    Weather.WeatherIconPaths[Weather.Types.RAINY],
+                    Weather.WeatherIconPaths[Weather.Types.HOT]
                 ];
             Mood.Types.GRUMPY:
-                improveTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.STUDY];
+                improveTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.PHYSICAL];
                 weakenTexturePath = Stats.PrimaryStatIconPaths[Stats.Types.CRAFT];
                 bonusEffectTexturePaths = [
-                    Mood.MoodIconPaths[Mood.Types.SAD],
-                    Mood.MoodIconPaths[Mood.Types.HAPPY]
+                    Weather.WeatherIconPaths[Weather.Types.HOT],
+                    Weather.WeatherIconPaths[Weather.Types.CLOUDY]
                 ];
             Mood.Types.MOTIVATED:
                 improveTexturePath = "all";
                 weakenTexturePath = "";
-                bonusEffectTexturePaths = [
-                    Mood.MoodIconPaths[Mood.Types.RELAXED],
-                ];
+                bonusEffectTexturePaths = [];
         
     if improveTexturePath:
         if improveTexturePath == "all":

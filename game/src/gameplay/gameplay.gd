@@ -24,6 +24,8 @@ signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 @onready var majorEventDisplay: MajorEventDisplay = $%MajorEventDisplay;
 @onready var eventOutcomeDisplay: EventOutcomeDisplay = $%EventOutcomeDisplay;
 @onready var endDaySummary: EndDaySummary = $%EndDaySummary;
+@onready var weatherPreview: PreviewInfo = $%WeatherPreview;
+@onready var moodPreview: PreviewInfo = $%MoodPreview;
 #endregion
 
 
@@ -159,6 +161,8 @@ func _onSetUpNewDay() -> void:
         newDay = dayManager.applyNewDay(newDay);
         endDaySummary.setValues(selectedActivity.statType, selectedEnhancedActivity.enhancedIncreases,
             previousWeather, dayManager.mood, daysTillMajorEvent, nextMajorEvent.title, player.characterName);
+        weatherPreview.setValues(dayManager.weather);
+        moodPreview.setValues(dayManager.mood);
 
     activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
     enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
