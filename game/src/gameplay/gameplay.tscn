@@ -426,7 +426,8 @@ anchors_preset = -1
 layout_mode = 2
 mouse_filter = 2
 
-[node name="StatDetails2" parent="EventsLayer/ColorRect/MajorEventDisplay/Control" instance=ExtResource("6_5b1cb")]
+[node name="EventStatDetails" parent="EventsLayer/ColorRect/MajorEventDisplay/Control" instance=ExtResource("6_5b1cb")]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = -177.3591
 offset_top = 141.33408
@@ -434,21 +435,21 @@ offset_right = 309.6409
 offset_bottom = 307.3341
 mouse_filter = 2
 
-[node name="Panel" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/StatDetails2" index="0"]
+[node name="Panel" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="0"]
 offset_right = -314.0
 offset_bottom = 280.99997
 
-[node name="StudyStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/StatDetails2" index="2"]
+[node name="StudyStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="2"]
 offset_left = 10.0
 offset_right = 50.0
 
-[node name="PhysicalStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/StatDetails2" index="3"]
+[node name="PhysicalStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="3"]
 offset_left = 8.0
 offset_top = 172.0
 offset_right = 48.0
 offset_bottom = 212.0
 
-[node name="CraftStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/StatDetails2" index="4"]
+[node name="CraftStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="4"]
 offset_left = 22.0
 offset_top = 315.0
 offset_right = 62.0
@@ -485,4 +486,4 @@ offset_left = -200.0
 offset_right = 200.0
 theme_type_variation = &"NestedPanelContainer"
 
-[editable path="EventsLayer/ColorRect/MajorEventDisplay/Control/StatDetails2"]
+[editable path="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails"]
