@@ -18,12 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://cfn4gebfndu50" path="res://src/gameplay/hud/events/major_event_display.tscn" id="10_r22ir"]
 [ext_resource type="PackedScene" uid="uid://dmsrehee6sok5" path="res://src/gameplay/hud/events/event_outcome_display.tscn" id="11_p86j0"]
 [ext_resource type="Texture2D" uid="uid://cegwrvc3utwup" path="res://assets/art/weather_hot.png" id="11_ug0ik"]
-[ext_resource type="PackedScene" path="res://src/gameplay/hud/end_day_summary.tscn" id="12_fbjph"]
+[ext_resource type="PackedScene" uid="uid://b0mcg1ibos2g1" path="res://src/gameplay/hud/end_day_summary.tscn" id="12_fbjph"]
 [ext_resource type="Script" uid="uid://c267m4vx16j5c" path="res://src/gameplay/turbo_toggle.gd" id="13_23xb3"]
 [ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="17_g7uyf"]
 [ext_resource type="Theme" uid="uid://soi4w0p4anup" path="res://assets/themes/margin_container_for_texture_rect.tres" id="18_0masv"]
 [ext_resource type="PackedScene" uid="uid://bmh68yefaofg8" path="res://src/menus/settings/settings_menu_content.tscn" id="19_psry0"]
-[ext_resource type="PackedScene" path="res://src/gameplay/hud/preview_info.tscn" id="20_thf4h"]
+[ext_resource type="PackedScene" uid="uid://cjkj3o2d3vkiq" path="res://src/gameplay/hud/preview_info.tscn" id="20_thf4h"]
 
 [sub_resource type="Animation" id="Animation_23xb3"]
 length = 0.001
@@ -564,6 +564,7 @@ offset_bottom = 355.0
 
 [node name="EventOutcomeDisplay" parent="EventsLayer/ColorRect" instance=ExtResource("11_p86j0")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = -1
 

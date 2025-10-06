@@ -16,20 +16,20 @@ metadata/_custom_type_script = "uid://ccfhidydcpt2p"
 script = ExtResource("5_nxija")
 statType = 2
 subTypeIndex = 2
-changeAmount = 2
+changeAmount = 1
 metadata/_custom_type_script = "uid://op751y44hm3t"
 
 [sub_resource type="Resource" id="Resource_gqumi"]
 script = ExtResource("1_gqumi")
 overrideType = 1
 overrideValue = 3
-remainingDays = 1
+remainingDays = 2
 metadata/_custom_type_script = "uid://ccfhidydcpt2p"
 
 [resource]
 script = ExtResource("4_ds64x")
 title = "Failure..."
-description = "Organizing party was more complicated and stressful than you expected. It's done now, but you know it could've gone better.
+description = "Organizing party was more complicated and stressful than you expected. It's done now, but you know it could've gone better. 
 
 You're left with feelings of regret and disappointment..."
 statChangesToApply = Array[ExtResource("5_nxija")]([SubResource("Resource_6xhew")])
