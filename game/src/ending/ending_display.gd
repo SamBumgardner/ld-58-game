@@ -49,8 +49,8 @@ func initScene(transitionData: TransitionData):
     
     endingsAchievedLabel.text = ENDINGS_ACHIEVED_TEMPLATE % [completedEndings, totalEndings]
 
-    if ResourceSaver.save(receivedTransitionData.metaProgressionData, "user://metadata.res") != OK:
-        print_debug("save had an error");
+    # if ResourceSaver.save(receivedTransitionData.metaProgressionData, "user://metadata.res") != OK:
+    #     print_debug("save had an error");
 
 func startScene():
     process_mode = Node.PROCESS_MODE_INHERIT;
