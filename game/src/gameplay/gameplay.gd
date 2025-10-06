@@ -7,16 +7,16 @@ signal activitiesChanged(newActivities: Array[ActivityEnhanced]);
 
 #region node init
 @onready var dayManager: DayManager = $DayManager;
-@onready var moodTracker: Node = $MoodTracker;
-@onready var dayCountTracker: Node = $DayCountTracker;
-@onready var weatherDisplay: Node = $WeatherDisplay;
-@onready var majorObjectiveBanner: Node = $MajorObjectiveBanner;
+@onready var moodTracker: Node = $HudElements/Control/MoodTracker;
+@onready var dayCountTracker: Node = $HudElements/Control/DayCountTracker;
+@onready var weatherDisplay: Node = $HudElements/Control/WeatherDisplay;
+@onready var majorObjectiveBanner: Node = $HudElements/Control/MajorObjectiveBanner;
 @onready var activitySelections: Array[Node] = [
     $ActivitySelection1,
     $ActivitySelection2,
     $ActivitySelection3,
 ];
-@onready var statDetails: Node = $StatDetails;
+@onready var statDetails: Node = $HudElements/Control/StatDetails;
 @onready var player: Player = $Player;
 @onready var majorEventDisplay: MajorEventDisplay = $MajorEventDisplay;
 @onready var eventOutcomeDisplay: EventOutcomeDisplay = $EventOutcomeDisplay;

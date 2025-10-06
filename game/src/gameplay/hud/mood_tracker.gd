@@ -1,4 +1,4 @@
-extends Label
+extends TextureRect
 
 func _onMoodChange(newMood: Mood.Types) -> void:
-    text = "Mood: %s" % Mood.Types.find_key(newMood);
+    texture = load(Mood.MoodIconPaths[newMood]);
