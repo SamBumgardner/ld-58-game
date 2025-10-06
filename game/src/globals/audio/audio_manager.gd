@@ -57,7 +57,9 @@ func _setVoice(jobType: Job.Types) -> void:
         sfxTrainingTypePhysicalComplete.stream = load("res://assets/audio/sfx_422_physical_randomizer.tres")
         sfxTrainingTypeStudyComplete.stream = load("res://assets/audio/sfx_421_study_randomizer.tres")
     elif jobType == Job.Types.SCHOLAR:
-        pass
+        sfxTrainingTypeCraftComplete.stream = load("res://assets/audio/sfx_523_craft_randomizer.tres")
+        sfxTrainingTypePhysicalComplete.stream = load("res://assets/audio/sfx_522_physical_randomizer.tres")
+        sfxTrainingTypeStudyComplete.stream = load("res://assets/audio/sfx_521_study_randomizer.tres")
     elif jobType == Job.Types.TINKER:
         sfxTrainingTypeCraftComplete.stream = load("res://assets/audio/sfx_223_craft_randomizer.tres")
         sfxTrainingTypePhysicalComplete.stream = load("res://assets/audio/sfx_222_physical_randomizer.tres")
