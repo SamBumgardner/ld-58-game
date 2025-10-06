@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MajorEvent" load_steps=8 format=3 uid="uid://qf4ftxvsjwmp"]
 
 [ext_resource type="Script" uid="uid://cx0fvjypep5kl" path="res://src/events/event_option.gd" id="1_q4o1j"]
-[ext_resource type="Resource" uid="uid://cj3t85rm6mdd2" path="res://assets/data/endings/end_001_0_0_placeholder.tres" id="2_1oqpj"]
+[ext_resource type="Resource" uid="uid://cj3t85rm6mdd2" path="res://assets/data/end_001_0_0_placeholder.tres" id="2_1oqpj"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_brbut"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="2_x84cw"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="5_knoya"]
