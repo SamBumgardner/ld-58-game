@@ -40,6 +40,7 @@ alignment = 1
 layout_mode = 2
 
 [node name="MenuBarChooseCharacter" type="MenuBar" parent="Navigation/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="PopupMenu" type="PopupMenu" parent="Navigation/VBoxContainer/MenuBarChooseCharacter"]
