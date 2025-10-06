@@ -610,7 +610,6 @@ anchor_left = 0.82
 anchor_top = 0.5
 anchor_right = 0.82
 anchor_bottom = 0.5
-previewType = 0
 
 [node name="EndDaySummary" parent="CanvasLayer/ColorRect" instance=ExtResource("12_fbjph")]
 unique_name_in_owner = true
