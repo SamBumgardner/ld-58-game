@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://jxdfhdj0an7b"]
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=6 format=3 uid="uid://jxdfhdj0an7b"]
 
+[ext_resource type="Resource" uid="uid://dfqrmsxcktc75" path="res://assets/data/major_events/me_003_crop.tres" id="2_lond8"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_majjj"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="3_nb3ga"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_lty3h"]
@@ -16,5 +17,5 @@ script = ExtResource("3_nb3ga")
 title = "Failure..."
 description = "After staying up all night before making a long race track, you couldn't keep your breath long enough to explain how it works."
 statChangesToApply = Array[ExtResource("4_lty3h")]([SubResource("Resource_g5hl5")])
-daysUntilNextEvent = 0
+nextMajorObjective = Array[ExtResource("2_majjj")]([ExtResource("2_lond8")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

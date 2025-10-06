@@ -1,19 +1,96 @@
-[gd_resource type="Resource" script_class="MajorEvent" load_steps=6 format=3 uid="uid://b6lg7xkotu2n0"]
+[gd_resource type="Resource" script_class="MajorEvent" load_steps=20 format=3 uid="uid://b6lg7xkotu2n0"]
 
 [ext_resource type="Script" uid="uid://cx0fvjypep5kl" path="res://src/events/event_option.gd" id="1_imway"]
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="2_d3a6i"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_kxve8"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_lijif"]
+[ext_resource type="Resource" uid="uid://c20eihfiy16jn" path="res://assets/data/endings/end_public_works.tres" id="6_kxve8"]
+[ext_resource type="Resource" uid="uid://cturkpjo7bj73" path="res://assets/data/endings/spirit_medium.tres" id="7_b47fk"]
+[ext_resource type="Resource" uid="uid://bw5kmnuwjg1bh" path="res://assets/data/endings/charlatan.tres" id="7_odri4"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="9_8orua"]
+
+[sub_resource type="Resource" id="Resource_b47fk"]
+script = ExtResource("2_d3a6i")
+title = "Fearful Folk"
+description = "The entire town lives on edge now, believing the death is due to a terrible beast, stories will be passed down for generations of a spot in the woods where the beast hunts poor wayfarers. Many die year after year. "
+metadata/_custom_type_script = "uid://ctkljby408cvs"
+
+[sub_resource type="Resource" id="Resource_odri4"]
+script = ExtResource("4_kxve8")
+title = "Failure..."
+description = "What are these wounds? What could they mean? You're unsure and as far as you know it could've been a terrible beast!  "
+ending = SubResource("Resource_b47fk")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_imway"]
+script = ExtResource("4_kxve8")
+title = "Great Success!"
+description = "When you look at the wounds a clear picture comes together, someone took a fall while on a journey. A tragic accident. Although there's no way to bring back this bodies life, you can surely prevent further loss. "
+ending = ExtResource("6_kxve8")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_xkf17"]
+script = ExtResource("4_kxve8")
+title = "Success"
+description = "Whatever happened to this poor soul,
+ it was clearly an accident. There's no sign of struggle or violence just bruises and a broken neck. 
+"
+ending = ExtResource("6_kxve8")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
 
 [sub_resource type="Resource" id="Resource_dgngi"]
 script = ExtResource("1_imway")
 title = "Check Wounds"
-description = "A batch of magical fireworks will surely bring a smile to everyone's face. What could go wrong?"
+description = "Certainly it'd be best to investigate the wounds on the body. "
+majorStatRequirments = Array[int]([45, 30, 35])
+failureResult = SubResource("Resource_odri4")
+successResult = SubResource("Resource_xkf17")
+greatSuccessResult = SubResource("Resource_imway")
 metadata/_custom_type_script = "uid://cx0fvjypep5kl"
 
-[sub_resource type="Resource" id="Resource_xafv3"]
+[sub_resource type="Resource" id="Resource_yfqwu"]
+script = ExtResource("4_kxve8")
+title = "Failure..."
+description = "The ritual fizzles, you are unable to pierce through the veil between the living and the dead. After making a boast of your magical abilities, both this poor sod's story and the trust your community had in you is lost."
+ending = ExtResource("7_odri4")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_6gjcf"]
+script = ExtResource("4_kxve8")
+title = "Great Success!"
+description = "You call the spirit and it answers, not just of the dead, but of all that's immaterial. You peer through time and space to peek in on the events of the death. Witnessing a fatal tumble of a lone wayfarer. With the truth known, the soul may now rest. "
+ending = ExtResource("7_b47fk")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_kxve8"]
+script = ExtResource("4_lijif")
+subTypeIndex = 2
+changeAmount = 40
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_4ox40"]
+script = ExtResource("4_lijif")
+statType = 1
+subTypeIndex = 1
+changeAmount = 20
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_ixywa"]
+script = ExtResource("4_kxve8")
+title = "Success"
+description = "By drawing the soul back to the body you're able to ask questions to the recently departed. They speak in riddles, but you're able to piece together enough information to get an idea that their death was but a tragic accident. "
+ending = ExtResource("7_b47fk")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_lijif"]
 script = ExtResource("1_imway")
-title = "Magically Speak with the Victim"
-description = ""
+title = "Magically Ask Them Yourself"
+description = "You explain to all, of a simple magic ritual that can allow the deceased to tell their own story and get the answers you seek!"
+majorStatRequirments = Array[int]([55, 20, 0])
+minorStatRequirements = Array[ExtResource("4_lijif")]([SubResource("Resource_kxve8"), SubResource("Resource_4ox40")])
+failureResult = SubResource("Resource_yfqwu")
+successResult = SubResource("Resource_ixywa")
+greatSuccessResult = SubResource("Resource_6gjcf")
 metadata/_custom_type_script = "uid://cx0fvjypep5kl"
 
 [resource]
@@ -21,5 +98,5 @@ script = ExtResource("9_8orua")
 title = "Perform an Autopsy"
 description = "A murder?! An accident?! 
 A sudden death in the town has everyone on edge, you take on the responsibility to find answers and put both the poor soul and the town at peace. "
-options = Array[ExtResource("1_imway")]([SubResource("Resource_dgngi"), SubResource("Resource_xafv3")])
+options = Array[ExtResource("1_imway")]([SubResource("Resource_dgngi"), SubResource("Resource_lijif")])
 metadata/_custom_type_script = "uid://bldc6pmej3q38"

@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_qjpov"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_xhi78"]
-[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_iu1eb"]
+[ext_resource type="Resource" uid="uid://cy4hlxf7aodbg" path="res://assets/data/major_events/me_004_experiment.tres" id="3_qjpov"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_08iw4"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_2dhup"]
 
 [sub_resource type="Resource" id="Resource_p4wbo"]
 script = ExtResource("1_qjpov")
+overrideValue = 1
 remainingDays = 2
 metadata/_custom_type_script = "uid://ccfhidydcpt2p"
 
@@ -24,5 +25,5 @@ title = "Success!"
 description = "Enamored by their new tools and your encouraging words, the children shakily write out their first words."
 statChangesToApply = Array[ExtResource("5_2dhup")]([SubResource("Resource_6xhew")])
 moodOverride = SubResource("Resource_p4wbo")
-nextMajorObjective = Array[ExtResource("2_xhi78")]([ExtResource("3_iu1eb")])
+nextMajorObjective = Array[ExtResource("2_xhi78")]([ExtResource("3_qjpov")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

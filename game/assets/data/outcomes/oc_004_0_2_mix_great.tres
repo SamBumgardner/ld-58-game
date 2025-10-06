@@ -1,13 +1,25 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://becxt1adjcm6o"]
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=7 format=3 uid="uid://becxt1adjcm6o"]
 
-[ext_resource type="Resource" uid="uid://wq541clhgyw4" path="res://assets/data/endings/end_000_0_2_fireworks_maestro.tres" id="1_fw0l4"]
+[ext_resource type="Resource" uid="uid://b6lg7xkotu2n0" path="res://assets/data/major_events/me_011_do_autopsy.tres" id="2_fw0l4"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_n4ltt"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="3_nthov"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_rqsl8"]
 
+[sub_resource type="Resource" id="Resource_n4ltt"]
+script = ExtResource("4_rqsl8")
+changeAmount = 8
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_nthov"]
+script = ExtResource("4_rqsl8")
+statType = 2
+changeAmount = 8
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
 [resource]
 script = ExtResource("3_nthov")
 title = "Great Success!"
-description = "Looking carefully, you notice metallic debris at one spot in each circle. It is as if something sharp was shot from above, spun in a circle, and then shattered onto the ground."
-ending = ExtResource("1_fw0l4")
+description = "The reason why health potions are hard to make is because they require an original poem to be written in magic. After a few experiments you have a shelf full of heart warming potions at your disposal."
+statChangesToApply = Array[ExtResource("4_rqsl8")]([SubResource("Resource_n4ltt"), SubResource("Resource_nthov")])
+nextMajorObjective = Array[ExtResource("2_n4ltt")]([ExtResource("2_fw0l4")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

@@ -97,6 +97,7 @@ layout_mode = 2
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Bonus Effects During:"
+metadata/_edit_group_ = true
 
 [node name="BonusEffectTextures" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

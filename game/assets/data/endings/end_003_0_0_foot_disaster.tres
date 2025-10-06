@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_e2qwf")
-title = "Falling Disaster!"
-description = "Splat! You took too much falling damage."
+title = "Strange Obsession"
+description = "It's unclear why or how, but the unsolved mystery became so compelling that the entire village gave up farming.
+Wandering the fields isn't such a bad lot in life, but it doesn't leave much time for other pursuits."
 metadata/_custom_type_script = "uid://ctkljby408cvs"

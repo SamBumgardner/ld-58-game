@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_arnxa"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_onb3t"]
-[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_0nanb"]
+[ext_resource type="Resource" uid="uid://cy4hlxf7aodbg" path="res://assets/data/major_events/me_004_experiment.tres" id="3_arnxa"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_lh20h"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_b3hnf"]
 
@@ -19,5 +19,5 @@ description = "Your neighbors cheer at the fireworks display!
 
 Fortified by their praise, you look forward toward your next endeavor..."
 moodOverride = SubResource("Resource_2f4g7")
-nextMajorObjective = Array[ExtResource("2_onb3t")]([ExtResource("3_0nanb")])
+nextMajorObjective = Array[ExtResource("2_onb3t")]([ExtResource("3_arnxa")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

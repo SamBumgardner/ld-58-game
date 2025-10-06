@@ -1,19 +1,104 @@
-[gd_resource type="Resource" script_class="MajorEvent" load_steps=6 format=3 uid="uid://ce7xb27fq3jqk"]
+[gd_resource type="Resource" script_class="MajorEvent" load_steps=22 format=3 uid="uid://ce7xb27fq3jqk"]
 
 [ext_resource type="Script" uid="uid://cx0fvjypep5kl" path="res://src/events/event_option.gd" id="1_c7ety"]
+[ext_resource type="Resource" uid="uid://cuqbu5xmx5hn6" path="res://assets/data/endings/bounty_brawler.tres" id="2_15yol"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_15yol"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_cqyp0"]
+[ext_resource type="Resource" uid="uid://cgx6hoxk3xnf6" path="res://assets/data/endings/bounty_hunter.tres" id="6_15yol"]
+[ext_resource type="Resource" uid="uid://c157a5r8731fw" path="res://assets/data/endings/cobbler.tres" id="7_lf70t"]
+[ext_resource type="Resource" uid="uid://ckkqucklsrs63" path="res://assets/data/endings/justice.tres" id="8_lf70t"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="9_unpo5"]
+
+[sub_resource type="Resource" id="Resource_lf70t"]
+script = ExtResource("4_15yol")
+description = "Frustrated with the thugs' tight lips, you try to help loosen them with a decisive punch. Unfotunately it is difficult to get information when the people you're interrogating are unconscious. "
+ending = ExtResource("2_15yol")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_an5ak"]
+script = ExtResource("4_15yol")
+title = "Great Success!"
+description = "Through a mix of clever speech, an understanding of law, and your naturally intimidating demeanor the thug easily releases info on where and how to track down the wanted criminal."
+ending = ExtResource("6_15yol")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_c7ety"]
+script = ExtResource("4_cqyp0")
+changeAmount = 25
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_8cyif"]
+script = ExtResource("4_cqyp0")
+statType = 1
+changeAmount = 25
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_ofarv"]
+script = ExtResource("4_cqyp0")
+subTypeIndex = 1
+changeAmount = 15
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_lxnau"]
+script = ExtResource("4_15yol")
+title = "Success"
+description = "You crack your knuckles, and your confident show already has these brutes on edge. You don't get exact details through their stammering, but it's more than enough to track your quarry down with a bit of deduction. "
+ending = ExtResource("6_15yol")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
 
 [sub_resource type="Resource" id="Resource_dgngi"]
 script = ExtResource("1_c7ety")
 title = "Interrogate Thugs"
-description = ""
+description = "You know of a seedy tavern, steel yourself and see what information you can gather from others of the criminal persuassion. "
+majorStatRequirments = Array[int]([40, 35, 0])
+minorStatRequirements = Array[ExtResource("4_cqyp0")]([SubResource("Resource_c7ety"), SubResource("Resource_8cyif"), SubResource("Resource_ofarv")])
+failureResult = SubResource("Resource_lf70t")
+successResult = SubResource("Resource_lxnau")
+greatSuccessResult = SubResource("Resource_an5ak")
 metadata/_custom_type_script = "uid://cx0fvjypep5kl"
+
+[sub_resource type="Resource" id="Resource_a5nky"]
+script = ExtResource("4_15yol")
+title = "Failure..."
+description = "Your wanted poster does fails, in fact the caricature you try to create shifts blame to a completely innocent Cobbler. Many begin to scapegoat him for all kinds of mischief building up to a heavy sentence. "
+ending = ExtResource("7_lf70t")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_plhrt"]
+script = ExtResource("4_15yol")
+title = "Great Success!"
+description = "As the worlds flow out of your friend, they become clear lines on the page. A passing neighbor recognizes the face of the criminal before you even finish! "
+ending = ExtResource("8_lf70t")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
+
+[sub_resource type="Resource" id="Resource_15yol"]
+script = ExtResource("4_cqyp0")
+changeAmount = 25
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_cqyp0"]
+script = ExtResource("4_cqyp0")
+statType = 2
+subTypeIndex = 1
+changeAmount = 35
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_unpo5"]
+script = ExtResource("4_15yol")
+title = "Success!"
+description = "Your friend gives a clear description, you draw to the best of your ability. A few townspeople give tips, and after a few days you get a name and location to track down the theif. "
+ending = ExtResource("8_lf70t")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
 
 [sub_resource type="Resource" id="Resource_xafv3"]
 script = ExtResource("1_c7ety")
 title = "Draw Insulting Wanted Posters"
-description = ""
+description = "Thankfully your friend caught a glimpse of the perpatrator, draw a wanted poster to help track the criminal down. "
+majorStatRequirments = Array[int]([30, 0, 50])
+minorStatRequirements = Array[ExtResource("4_cqyp0")]([SubResource("Resource_15yol"), SubResource("Resource_cqyp0")])
+failureResult = SubResource("Resource_a5nky")
+successResult = SubResource("Resource_unpo5")
+greatSuccessResult = SubResource("Resource_plhrt")
 metadata/_custom_type_script = "uid://cx0fvjypep5kl"
 
 [resource]
