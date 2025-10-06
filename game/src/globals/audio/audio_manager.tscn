@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://fq68jyyyvhko"]
+[gd_scene load_steps=7 format=3 uid="uid://fq68jyyyvhko"]
 
 [ext_resource type="Script" uid="uid://bm3om7hdb11ly" path="res://src/globals/audio/audio_manager.gd" id="1_3jwtn"]
 [ext_resource type="AudioStream" uid="uid://8vswnvvii78l" path="res://assets/audio/sfx/sfx_102_click_confirm.wav" id="2_xevv2"]
+[ext_resource type="AudioStream" uid="uid://bcqo31cqh7hwv" path="res://assets/audio/sfx/sfx_101_mouse_over_on_enter.wav" id="3_lhb1d"]
 [ext_resource type="AudioStream" uid="uid://bcebkxinb37hw" path="res://assets/audio/sfx_221_study_randomizer.tres" id="3_yaxo8"]
 [ext_resource type="AudioStream" uid="uid://02i0pgnok325" path="res://assets/audio/sfx_222_physical_randomizer.tres" id="4_7tnnk"]
 [ext_resource type="AudioStream" uid="uid://f3ho02nepwi0" path="res://assets/audio/sfx_223_craft_randomizer.tres" id="5_lhb1d"]
@@ -12,6 +13,11 @@ script = ExtResource("1_3jwtn")
 [node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xevv2")
 max_polyphony = 2
+bus = &"Sound Effects"
+
+[node name="SFXUIMouseEntered" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lhb1d")
+max_polyphony = 5
 bus = &"Sound Effects"
 
 [node name="TrainingComplete" type="Node" parent="."]

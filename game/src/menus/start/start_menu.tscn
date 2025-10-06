@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8n42pjxqav47"]
+
+[ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="1_cfpq2"]
+[ext_resource type="Theme" uid="uid://cc4kinw8uu246" path="res://assets/themes/font_game_title.tres" id="2_gnfje"]
+[ext_resource type="Script" uid="uid://cyjyrwlu1uq73" path="res://src/menus/start/start_menu.gd" id="2_qjwho"]
+[ext_resource type="Theme" uid="uid://dlao31omhu6nr" path="res://assets/themes/font_header.tres" id="3_qjwho"]
+[ext_resource type="Theme" uid="uid://dij3inof1d6xx" path="res://assets/themes/button_big.tres" id="5_qjwho"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cfpq2")
+script = ExtResource("2_qjwho")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 683.0
+offset_bottom = 599.0
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_gnfje")
+text = "30 Days
+in the Fog"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_qjwho")
+text = "Ludum Dare 58 Game Jam Entry"
+horizontal_alignment = 1
+
+[node name="MarginContainerButtonPlay" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_qjwho")
+
+[node name="ButtonPlay" type="Button" parent="VBoxContainer/MarginContainerButtonPlay"]
+layout_mode = 2
+theme = ExtResource("5_qjwho")
+text = "Play"
+
+[node name="Navigation" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Navigation"]
+layout_mode = 2
+
+[node name="MenuBarChooseCharacter" type="MenuBar" parent="VBoxContainer/Navigation/VBoxContainer"]
+layout_mode = 2
+
+[node name="PopupMenu" type="PopupMenu" parent="VBoxContainer/Navigation/VBoxContainer/MenuBarChooseCharacter"]
+oversampling_override = 1.0
+title = "Choose a Character"
+item_count = 3
+item_0/text = "Alchemist"
+item_0/id = 0
+item_1/text = "Hero"
+item_1/id = 1
+item_2/text = "Smith"
+item_2/id = 2
+
+[node name="ButtonSettings" type="Button" parent="VBoxContainer/Navigation/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="ButtonCredits" type="Button" parent="VBoxContainer/Navigation/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="ButtonQuit" type="Button" parent="VBoxContainer/Navigation/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainerButtonPlay/ButtonPlay" to="." method="_on_button_play_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/MarginContainerButtonPlay/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Navigation/VBoxContainer/MenuBarChooseCharacter" to="." method="_on_menu_bar_choose_character_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Navigation/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Navigation/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Navigation/VBoxContainer/ButtonCredits" to="." method="_on_button_credits_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Navigation/VBoxContainer/ButtonCredits" to="." method="_on_button_credits_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Navigation/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Navigation/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

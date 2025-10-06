@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://d0ltv0r1flidc"]
+
+[resource]
+Button/constants/outline_size = 5
+Label/constants/outline_size = 7
+MenuBar/constants/outline_size = 5
+PopupMenu/constants/outline_size = 5
