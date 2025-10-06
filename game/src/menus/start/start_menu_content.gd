@@ -11,10 +11,10 @@ func _ready() -> void:
         buttonQuit.visible = false
     
     # load meta progression data - CURRENTLY BROKEN
-    if ResourceLoader.exists("user://metadata.res"):
-        var stuff = ResourceLoader.load("user://metadata.res")
-        if stuff is TransitionData.MetaProgressionData:
-            savedMetaProgression = stuff;
+    # if ResourceLoader.exists("user://metadata.res"):
+    #     var stuff = ResourceLoader.load("user://metadata.res")
+    #     if stuff is TransitionData.MetaProgressionData:
+    #         savedMetaProgression = stuff;
 
 #region button mouse entered
 func _on_button_credits_mouse_entered():
