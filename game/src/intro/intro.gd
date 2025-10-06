@@ -1,61 +1,102 @@
 extends Control
 
-const ENDINGS_ACHIEVED_TEMPLATE = "%d / %d Endings Achieved!"
-
 @export var isStartingScene: bool = false;
 
-@onready var title: Label = $%Title;
-@onready var description: Label = $%Description;
-@onready var splashImage: TextureRect = $%SplashImage;
-@onready var endingsAchievedLabel: Label = $%EndingsAchievedCount;
-@onready var restartButton: Button = $%RestartButton;
+@onready var characterSelectors: Array[Node] = $%CharacterSelectors.get_children();
+@onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 
 var receivedTransitionData: TransitionData;
+var characterScenarios: Array[TransitionData] = generateCharacterScenarios();
+
+static func generateCharacterScenarios() -> Array[TransitionData]:
+    var result: Array[TransitionData] = [
+        # load resources here with character & initial characterScenarios data here.
+        TransitionData.generateDefault(),
+        TransitionData.generateDefault(),
+        TransitionData.generateDefault(),
+    ]
+    var adrianData: TransitionData.PlayerData = TransitionData.PlayerData.new()
+    adrianData.character_name = "Adrian the Alchemist"
+    adrianData.characterPortrait = load("res://icon.svg")
+    adrianData.job = Job.Types.SCHOLAR
+    adrianData.stats.assign([
+        [2, 3, 2],
+        [1, 1, 1],
+        [1, 2, 2],
+    ])
+    var adrianStartingScenarios: Array[MajorEvent] = [
+        load("res://assets/data/major_events/me_000_test.tres")
+    ];
+    
+    var stellaData: TransitionData.PlayerData = TransitionData.PlayerData.new()
+    stellaData.character_name = "Stella the Soldier"
+    stellaData.characterPortrait = load("res://icon.svg")
+    stellaData.job = Job.Types.HERO
+    stellaData.stats.assign([
+        [1, 1, 2],
+        [3, 2, 2],
+        [1, 1, 1],
+    ])
+    var stellaStartingScenarios: Array[MajorEvent] = [
+        load("res://assets/data/major_events/me_000_test.tres")
+    ];
+    
+    
+    var cainData: TransitionData.PlayerData = TransitionData.PlayerData.new()
+    cainData.character_name = "Cain the Craftsman"
+    cainData.characterPortrait = load("res://icon.svg")
+    cainData.job = Job.Types.TINKER
+    cainData.stats.assign([
+        [1, 2, 1],
+        [2, 1, 1],
+        [3, 3, 2],
+    ])
+    var cainStartingScenarios: Array[MajorEvent] = [
+        load("res://assets/data/major_events/me_000_test.tres")
+    ];
+    
+    result[0].playerData = adrianData;
+    result[0].initialSetupData.possibleMajorEvents = adrianStartingScenarios;
+    result[1].playerData = stellaData;
+    result[1].initialSetupData.possibleMajorEvents = stellaStartingScenarios;
+    result[2].playerData = cainData;
+    result[2].initialSetupData.possibleMajorEvents = cainStartingScenarios;
+
+    return result
+
 
 func _ready() -> void:
     process_mode = Node.PROCESS_MODE_DISABLED;
     # connect button click to restart game behavior
-    restartButton.pressed.connect(_onRestartPressed);
-    
+
+    for characterSelector: CharacterSelector in characterSelectors:
+        characterSelector.characterSelected.connect(_onCharacterSelected);
+
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
 
 func rootSceneActions() -> void:
     isStartingScene = true;
     receivedTransitionData = TransitionData.generateDefault();
-    receivedTransitionData.endingData = TransitionData.EndingData.new();
-    receivedTransitionData.endingData.achieved_ending = load("res://assets/data/endings/end_000_0_2_fireworks_maestro.tres");
     initScene(receivedTransitionData);
     startScene();
 
 
 func initScene(transitionData: TransitionData):
     receivedTransitionData = transitionData;
-    var ending = transitionData.endingData.achieved_ending;
-    title.text = ending.title;
-    description.text = ending.description;
-    if ending.splashImage == null:
-        splashImage.hide();
-    
-    var previousEndingCount = receivedTransitionData.metaProgressionData.completedEndings.values().filter(func(x): return x).size()
-    receivedTransitionData.metaProgressionData.completedEndings[ending.resource_path] = 1
-    var totalEndings: int = receivedTransitionData.metaProgressionData.completedEndings.size();
-    var completedEndings: int = receivedTransitionData.metaProgressionData.completedEndings.values().filter(func(x): return x).size()
-    
-    # First-time completer
-    if previousEndingCount != 1 and completedEndings == 1:
-        $MetaContent/SkipDiaryNotice.show();
-    
-    endingsAchievedLabel.text = ENDINGS_ACHIEVED_TEMPLATE % [completedEndings, totalEndings]
+    for characterSelector in characterSelectors:
+        characterSelector.setValues(characterScenarios);
 
 func startScene():
     process_mode = Node.PROCESS_MODE_INHERIT;
 
-func _onRestartPressed():
-    print_debug("Starting to play again");
-    var newTransitionData: TransitionData = TransitionData.generateDefault();
+func _onCharacterSelected(characterIndex: int):
+    print_debug("character selected");
+    var newTransitionData: TransitionData = characterScenarios[characterIndex];
     newTransitionData.metaProgressionData = receivedTransitionData.metaProgressionData;
-    newTransitionData.metaProgressionData.turboAvailable = true;
+    
+    #TODO: Noah - set audio info here. Job.Types is an enum value that is unique for each character.
+    var selectedJob: Job.Types = newTransitionData.playerData.job
 
     var nextScene: PackedScene = load("res://src/gameplay/gameplay.tscn");
     var nextRoot: Node = nextScene.instantiate();
@@ -63,4 +104,8 @@ func _onRestartPressed():
     nextRoot.initScene(newTransitionData);
     nextRoot.call_deferred("startScene");
     queue_free();
-    return ;
+
+func _input(event: InputEvent):
+    if (event is InputEventKey or event is InputEventMouseButton) and animationPlayer.is_playing():
+        animationPlayer.advance(10);
+        get_viewport().set_input_as_handled();

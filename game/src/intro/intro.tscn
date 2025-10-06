@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://co2mhrtt8s1c6"]
+[gd_scene load_steps=9 format=3 uid="uid://co2mhrtt8s1c6"]
 
 [ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="1_11jar"]
+[ext_resource type="Script" uid="uid://c0tgwqwbxvp4o" path="res://src/intro/intro.gd" id="2_nqxh0"]
 [ext_resource type="Texture2D" uid="uid://d3g6fuom10m5t" path="res://assets/art/backgrounds/bg2.jpg" id="3_nqxh0"]
 [ext_resource type="StyleBox" uid="uid://eoki4f7rst2x" path="res://assets/art/hud/dark_panel.tres" id="4_yxki3"]
 [ext_resource type="PackedScene" uid="uid://cixu34tobcypn" path="res://src/intro/character_selector.tscn" id="5_nqxh0"]
@@ -72,7 +73,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Character Select:visible")
+tracks/5/path = NodePath("CharacterSelectors:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -84,7 +85,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Character Select:modulate")
+tracks/6/path = NodePath("CharacterSelectors:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -159,7 +160,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Character Select:visible")
+tracks/5/path = NodePath("CharacterSelectors:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -171,7 +172,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Character Select:modulate")
+tracks/6/path = NodePath("CharacterSelectors:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -195,6 +196,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_11jar")
+script = ExtResource("2_nqxh0")
 
 [node name="ColorRect" type="TextureRect" parent="."]
 self_modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
@@ -218,7 +220,6 @@ grow_horizontal = 2
 theme_override_constants/separation = 16
 
 [node name="Title" type="Label" parent="MainContent"]
-unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
@@ -226,7 +227,6 @@ text = "The world is magical and mysterious. "
 horizontal_alignment = 1
 
 [node name="Title2" type="Label" parent="MainContent"]
-unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
@@ -234,7 +234,6 @@ text = "The world is small; most folks' knowledge stops at the edge of town."
 horizontal_alignment = 1
 
 [node name="Title3" type="Label" parent="MainContent"]
-unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
@@ -242,7 +241,6 @@ text = "The world is large; for those with the will and the means, most anything
 horizontal_alignment = 1
 
 [node name="Title4" type="Label" parent="MainContent"]
-unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
@@ -281,7 +279,8 @@ Pick a type of training each day to improve your skills.
 Test yourself against the major events, and collect as many endings as possible!"
 horizontal_alignment = 1
 
-[node name="Character Select" type="HBoxContainer" parent="."]
+[node name="CharacterSelectors" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -294,14 +293,15 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 16
 
-[node name="CharacterSelector1" parent="Character Select" instance=ExtResource("5_nqxh0")]
+[node name="CharacterSelector1" parent="CharacterSelectors" instance=ExtResource("5_nqxh0")]
 layout_mode = 2
+characterIndex = 0
 
-[node name="CharacterSelector2" parent="Character Select" instance=ExtResource("5_nqxh0")]
+[node name="CharacterSelector2" parent="CharacterSelectors" instance=ExtResource("5_nqxh0")]
 layout_mode = 2
 characterIndex = 1
 
-[node name="CharacterSelector3" parent="Character Select" instance=ExtResource("5_nqxh0")]
+[node name="CharacterSelector3" parent="CharacterSelectors" instance=ExtResource("5_nqxh0")]
 layout_mode = 2
 characterIndex = 2
 

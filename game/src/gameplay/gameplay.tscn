@@ -498,6 +498,7 @@ offset_right = 1108.0
 offset_bottom = 602.9861
 
 [node name="TurboToggle" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 21.0
 offset_top = 638.0

@@ -1,4 +1,4 @@
-class_name HeroSelector extends Control
+class_name CharacterSelector extends Control
 
 signal characterSelected(characterIndex: int)
 
@@ -10,7 +10,7 @@ signal characterSelected(characterIndex: int)
 func _ready() -> void:
     $%Button.pressed.connect(characterSelected.emit.bind(characterIndex))
 
-func setValues(possibleCharacters: Array[TransitionData.PlayerData]):
-    var playerData = possibleCharacters[characterIndex]
+func setValues(possibleCharacters: Array[TransitionData]):
+    var playerData = possibleCharacters[characterIndex].playerData;
     characterNameLabel.text = playerData.character_name;
     portraitTexture.texture = playerData.characterPortrait;
