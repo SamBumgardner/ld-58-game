@@ -1,64 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp1i2ft4knik3"]
+[gd_scene load_steps=5 format=3 uid="uid://bp1i2ft4knik3"]
 
 [ext_resource type="Script" uid="uid://cjg6gwtole0bd" path="res://src/gameplay/hud/activity_selection.gd" id="1_6ene7"]
 [ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="2_wrom3"]
+[ext_resource type="PackedScene" uid="uid://0xhkhdvqoeg5" path="res://src/gameplay/hud/events/major_stat_icon.tscn" id="3_n76qk"]
+[ext_resource type="PackedScene" uid="uid://cuy4c55ivelap" path="res://src/gameplay/hud/events/minor_stat_icon.tscn" id="3_sboxq"]
 
 [node name="ActivitySelection" type="MarginContainer"]
-custom_minimum_size = Vector2(256, 256)
-offset_left = 516.0
-offset_top = 263.0
-offset_right = 686.0
-offset_bottom = 286.0
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = -1
 pivot_offset = Vector2(128, 128)
 theme = ExtResource("2_wrom3")
 script = ExtResource("1_6ene7")
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="PanelContainer" parent="."]
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="."]
+[node name="Content" type="VBoxContainer" parent="Background"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Content"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Content"]
+[node name="MajorStatIcon" parent="Background/Content/HBoxContainer" instance=ExtResource("3_n76qk")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Activity: Stat Category"
-horizontal_alignment = 1
 
-[node name="StatIncreases" type="VBoxContainer" parent="Content"]
+[node name="StatIncreases" type="GridContainer" parent="Background/Content"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_constants/separation = 12
+columns = 2
 
-[node name="Increase1" type="Label" parent="Content/StatIncreases"]
-unique_name_in_owner = true
+[node name="MinorStatIcon" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
 layout_mode = 2
-text = "Stat upgrade 1"
-horizontal_alignment = 1
 
-[node name="Increase2" type="Label" parent="Content/StatIncreases"]
-unique_name_in_owner = true
+[node name="MinorStatIcon2" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
 layout_mode = 2
-text = "Stat upgrade 1"
-horizontal_alignment = 1
 
-[node name="Increase3" type="Label" parent="Content/StatIncreases"]
-unique_name_in_owner = true
+[node name="MinorStatIcon3" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
 layout_mode = 2
-text = "Stat upgrade 1"
-horizontal_alignment = 1
 
-[node name="Increase4" type="Label" parent="Content/StatIncreases"]
-unique_name_in_owner = true
+[node name="MinorStatIcon4" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
 layout_mode = 2
-text = "Stat upgrade 1"
-horizontal_alignment = 1
 
-[node name="Increase5" type="Label" parent="Content/StatIncreases"]
-unique_name_in_owner = true
+[node name="MinorStatIcon5" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
+visible = false
 layout_mode = 2
-text = "Stat upgrade 1"
-horizontal_alignment = 1
+
+[node name="MinorStatIcon6" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
+visible = false
+layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 2
