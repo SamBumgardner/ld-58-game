@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmh68yefaofg8"]
+
+[ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="1_xi740"]
+[ext_resource type="Script" uid="uid://dxco6t3rwdn4f" path="res://src/menus/settings/settings_menu_content.gd" id="1_ygsja"]
+[ext_resource type="Theme" uid="uid://dij3inof1d6xx" path="res://assets/themes/button_big.tres" id="2_xi740"]
+[ext_resource type="PackedScene" uid="uid://bnfwtncedr0e4" path="res://src/menus/settings/volume/volume_slider.tscn" id="3_my5v2"]
+
+[node name="SettingsMenuContent" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xi740")
+script = ExtResource("1_ygsja")
+
+[node name="VolumeSliderMaster" parent="." instance=ExtResource("3_my5v2")]
+layout_mode = 2
+
+[node name="VolumeSliderMusic" parent="." instance=ExtResource("3_my5v2")]
+layout_mode = 2
+audioBusNameToEdit = &"Music"
+
+[node name="VolumeSliderSFX" parent="." instance=ExtResource("3_my5v2")]
+layout_mode = 2
+audioBusNameToEdit = &"Sound Effects"
+
+[node name="VolumeSliderSFXVocal" parent="." instance=ExtResource("3_my5v2")]
+layout_mode = 2
+audioBusNameToEdit = &"Sound Effects: Vocal"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_xi740")
+
+[node name="ButtonBack" type="Button" parent="MarginContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="mouse_entered" from="MarginContainer/ButtonBack" to="." method="_on_button_back_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/ButtonBack" to="." method="_on_button_back_pressed"]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://nc5eq6u5b733"]
+
+[ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="1_t4rna"]
+[ext_resource type="Theme" uid="uid://dlao31omhu6nr" path="res://assets/themes/font_header.tres" id="2_b78oc"]
+[ext_resource type="Script" uid="uid://duuywyo83x21a" path="res://src/menus/credits/credits_menu_content.gd" id="2_dxiie"]
+[ext_resource type="Theme" uid="uid://dij3inof1d6xx" path="res://assets/themes/button_big.tres" id="4_kp3gj"]
+
+[node name="CreditsMenuContent" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_t4rna")
+script = ExtResource("2_dxiie")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_b78oc")
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="NameWithColon3" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Alex:"
+
+[node name="Role3" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Artist, Game Designer"
+horizontal_alignment = 2
+
+[node name="NameWithColon6" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Luke Bumgardner:"
+
+[node name="Role6" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Voice Actor"
+horizontal_alignment = 2
+
+[node name="NameWithColon2" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Noah Bumgardner:"
+
+[node name="Role2" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Composer, Programmer, Voice Actor"
+horizontal_alignment = 2
+
+[node name="NameWithColon1" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Sam Bumgardner:"
+
+[node name="Role1" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Game Designer, Programmer"
+horizontal_alignment = 2
+
+[node name="NameWithColon5" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Shawna Bumgardner:"
+
+[node name="Role5" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Voice Actor"
+horizontal_alignment = 2
+
+[node name="NameWithColon4" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Thomas Bumgardner:"
+
+[node name="Role4" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Artist"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("4_kp3gj")
+
+[node name="ButtonBack" type="Button" parent="MarginContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="mouse_entered" from="MarginContainer/ButtonBack" to="." method="_on_button_back_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/ButtonBack" to="." method="_on_button_back_pressed"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnfwtncedr0e4"]
+
+[ext_resource type="Script" uid="uid://b3p3rtsr1i0qb" path="res://src/menus/settings/volume/volume_slider.gd" id="1_7iqg0"]
+[ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="1_174ar"]
+
+[node name="VolumeSlider" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_174ar")
+script = ExtResource("1_7iqg0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="HalfText" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelAudioBusName" type="Label" parent="HBoxContainer/HalfText"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+horizontal_alignment = 2
+
+[node name="Colon" type="Label" parent="HBoxContainer/HalfText"]
+layout_mode = 2
+text = ":"
+
+[node name="HalfValue" type="HBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PercentValue" type="Label" parent="HBoxContainer/HalfValue"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="PercentSign" type="Label" parent="HBoxContainer/HalfValue"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "%"
+
+[node name="HSliderVolume" type="HSlider" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="value_changed" from="HSliderVolume" to="." method="_on_h_slider_volume_value_changed"]
+[connection signal="value_changed" from="HSliderVolume" to="." method="_on_h_slider_value_changed"]

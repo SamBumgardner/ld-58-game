@@ -4,24 +4,30 @@ extends Node
 @onready var sfxTrainingTypePhysicalComplete = $TrainingComplete/SFXTrainingTypePhysicalComplete
 @onready var sfxTrainingTypeStudyComplete = $TrainingComplete/SFXTrainingTypeStudyComplete
 @onready var sfxUiClickConfirm = $SFXUIClickConfirm
+@onready var sfxUiMouseEntered = $SFXUIMouseEntered
 
 func _ready() -> void:
     EventBus.globalActivitySelected.connect(_playSfxTrainingComplete)
+    EventBus.globalUiElementMouseEntered.connect(_playSfxUiMouseEntered)
+    EventBus.globalUiElementSelected.connect(_playSfxUiClickConfirm)
 
-func _playSfxUiClickConfirm(_unused: int) -> void:
+func _playSfxUiClickConfirm() -> void:
     sfxUiClickConfirm.play()
+
+func _playSfxUiMouseEntered() -> void:
+    sfxUiMouseEntered.play()
 
 #region training complete
 
-func _playSfxTrainingComplete(_unused: int) -> void:
-    if _unused == 0:
+func _playSfxTrainingComplete(activityIndex: int) -> void:
+    if activityIndex == 0:
         _playSfxTrainingTypeStudyComplete()
-    elif _unused == 1:
+    elif activityIndex == 1:
         _playSfxTrainingTypePhysicalComplete()
-    elif _unused == 2:
+    elif activityIndex == 2:
         _playSfxTrainingTypeCraftComplete()
     else:
-        print_debug("Warning: Tried to play SFX out of bounds at", _unused)
+        print_debug("Warning: Tried to play SFX out of bounds at", activityIndex)
 
 func _playSfxTrainingTypeCraftComplete() -> void:
     _stopSfxTrainingComplete()
