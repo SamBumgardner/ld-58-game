@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://hvotr0jdlv6v"]
+
+[ext_resource type="Resource" uid="uid://wq541clhgyw4" path="res://assets/data/endings/end_000_0_2_fireworks_maestro.tres" id="1_tj6mb"]
+[ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_kxp5b"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="3_8y6gy"]
+[ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_ooeto"]
+
+[resource]
+script = ExtResource("3_8y6gy")
+title = "Great Success!"
+description = "Your well thought out relay race inspired towns to put on their own races annually in your honor."
+ending = ExtResource("1_tj6mb")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"

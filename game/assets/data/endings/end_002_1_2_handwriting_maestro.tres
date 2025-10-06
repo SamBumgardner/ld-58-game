@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://br2wlexp1bkww"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_644yc"]
+
+[resource]
+script = ExtResource("1_644yc")
+title = "Fireworks Maestro"
+description = "You become so inspired by your students that you decide to become a teacher yourself."
+win = true
+metadata/_custom_type_script = "uid://ctkljby408cvs"

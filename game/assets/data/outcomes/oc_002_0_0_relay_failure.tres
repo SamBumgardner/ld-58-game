@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://jxdfhdj0an7b"]
+
+[ext_resource type="Resource" uid="uid://s7bv7cgm58jd" path="res://assets/data/endings/end_000_0_0_fireworks_disaster.tres" id="1_2hyko"]
+[ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_majjj"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="3_nb3ga"]
+[ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="4_lty3h"]
+
+[resource]
+script = ExtResource("3_nb3ga")
+title = "Failure..."
+description = "After staying up all night before making a long race track, you couldn't keep your breath long enough to explain how it works."
+daysUntilNextEvent = 0
+ending = ExtResource("1_2hyko")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
