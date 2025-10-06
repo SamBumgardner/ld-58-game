@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_644yc")
-title = "Fireworks Maestro"
+title = "Budding Teacher"
 description = "You become so inspired by your students that you decide to become a teacher yourself."
 win = true
 metadata/_custom_type_script = "uid://ctkljby408cvs"
