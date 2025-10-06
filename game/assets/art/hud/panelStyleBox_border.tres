@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d33e0y1ljewut"]
+
+[ext_resource type="Texture2D" uid="uid://rpx0wfgb5ss7" path="res://assets/art/hud/30_Day_Fog_9_Tiles.png" id="1_l7lmx"]
+
+[resource]
+texture = ExtResource("1_l7lmx")
+texture_margin_left = 38.26346
+texture_margin_top = 32.15896
+texture_margin_right = 37.54528
+texture_margin_bottom = 36.827103
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(-0.38002777, 0.16433334, 298.04306, 255.67065)
+modulate_color = Color(0.8560673, 0.8560673, 0.85606724, 1)

@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ctxs8u1hji701"]
+
+[ext_resource type="StyleBox" uid="uid://d33e0y1ljewut" path="res://assets/art/hud/panelStyleBox_border.tres" id="1_ew55u"]
+
+[resource]
+Label/constants/outline_size = 10
+Panel/styles/panel = ExtResource("1_ew55u")
+PanelContainer/styles/panel = ExtResource("1_ew55u")
+RichTextLabel/constants/outline_size = 10
