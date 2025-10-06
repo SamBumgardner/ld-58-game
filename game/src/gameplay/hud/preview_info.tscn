@@ -13,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_1vmgp")
 script = ExtResource("2_7dg0l")
-previewType = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -32,12 +31,12 @@ text = "Tomorrow's Weather:"
 
 [node name="TomorrowTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(144, 144)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_eh7ct")
-stretch_mode = 5
+expand_mode = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
