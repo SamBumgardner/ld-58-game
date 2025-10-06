@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0oh4lk6lmf63"]
+[gd_scene load_steps=5 format=3 uid="uid://b0oh4lk6lmf63"]
 
 [ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="1_46xre"]
 [ext_resource type="Script" uid="uid://c0q1ieoas7qpl" path="res://src/ending/ending_display.gd" id="1_f1g78"]
+[ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="1_unls0"]
+[ext_resource type="Texture2D" uid="uid://cth7dx3uxmc3n" path="res://assets/art/backgrounds/bg4.jpg" id="2_tn784"]
 
 [node name="EndingDisplay" type="Control"]
 layout_mode = 3
@@ -10,16 +12,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_unls0")
 script = ExtResource("1_f1g78")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
+self_modulate = Color(0.29954728, 0.2995475, 0.29954743, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+texture = ExtResource("2_tn784")
+expand_mode = 1
 
 [node name="MainContent" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -58,15 +63,16 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.9
+anchor_top = 0.85
 anchor_right = 0.5
-anchor_bottom = 0.9
+anchor_bottom = 0.85
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 16
 
 [node name="Flavor" type="Label" parent="MetaContent"]
 layout_mode = 2
+theme_type_variation = &"HeaderLarge"
 text = "As one story ends, another begins..."
 horizontal_alignment = 1
 
