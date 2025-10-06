@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=7 format=3 uid="uid://dphjmewd77pfl"]
+
+[ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_x57mi"]
+[ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_ir80k"]
+[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_cv21i"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_ywg0h"]
+[ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_lf8ap"]
+
+[sub_resource type="Resource" id="Resource_2f4g7"]
+script = ExtResource("1_x57mi")
+overrideValue = 4
+remainingDays = 2
+metadata/_custom_type_script = "uid://ccfhidydcpt2p"
+
+[resource]
+script = ExtResource("4_ywg0h")
+title = "Success!"
+description = "The plants were cut down recently with evenly wide curves. You take notes as you walk to put together the whole picture later."
+moodOverride = SubResource("Resource_2f4g7")
+nextMajorObjective = Array[ExtResource("2_ir80k")]([ExtResource("3_cv21i")])
+metadata/_custom_type_script = "uid://i2f2r7105gxu"

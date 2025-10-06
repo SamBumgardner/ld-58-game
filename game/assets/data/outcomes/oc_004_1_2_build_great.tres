@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=10 format=3 uid="uid://c20qr60ukf63x"]
+
+[ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_7miab"]
+[ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_q8bef"]
+[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_tkpew"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_af5nt"]
+[ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_2f6cy"]
+
+[sub_resource type="Resource" id="Resource_p4wbo"]
+script = ExtResource("1_7miab")
+remainingDays = 2
+metadata/_custom_type_script = "uid://ccfhidydcpt2p"
+
+[sub_resource type="Resource" id="Resource_6xhew"]
+script = ExtResource("5_2f6cy")
+statType = 2
+subTypeIndex = 2
+changeAmount = 4
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_sqmph"]
+script = ExtResource("5_2f6cy")
+changeAmount = 2
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[sub_resource type="Resource" id="Resource_x0nqs"]
+script = ExtResource("5_2f6cy")
+statType = 1
+changeAmount = 2
+metadata/_custom_type_script = "uid://op751y44hm3t"
+
+[resource]
+script = ExtResource("4_af5nt")
+title = "Great Success!"
+description = "After making a hot air balloon, you sail above and draw the shapes inside your journal. The circles alternate between large and small, almost like a code."
+statChangesToApply = Array[ExtResource("5_2f6cy")]([SubResource("Resource_6xhew"), SubResource("Resource_sqmph"), SubResource("Resource_x0nqs")])
+moodOverride = SubResource("Resource_p4wbo")
+nextMajorObjective = Array[ExtResource("2_q8bef")]([ExtResource("3_tkpew")])
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
