@@ -50,12 +50,18 @@ func _stopSfxTrainingComplete() -> void:
     sfxTrainingTypeStudyComplete.stop()
 
 func _setVoice(jobType: Job.Types) -> void:
+    if jobType == playerSelectedJobType:
+        print_debug("Job voice of ", str(jobType)," is alreay set.")
     if jobType == Job.Types.HERO:
-        pass
+        sfxTrainingTypeCraftComplete.stream = load("res://assets/audio/sfx_423_craft_randomizer.tres")
+        sfxTrainingTypePhysicalComplete.stream = load("res://assets/audio/sfx_422_physical_randomizer.tres")
+        sfxTrainingTypeStudyComplete.stream = load("res://assets/audio/sfx_421_study_randomizer.tres")
     elif jobType == Job.Types.SCHOLAR:
         pass
     elif jobType == Job.Types.TINKER:
-        pass
+        sfxTrainingTypeCraftComplete.stream = load("res://assets/audio/sfx_223_craft_randomizer.tres")
+        sfxTrainingTypePhysicalComplete.stream = load("res://assets/audio/sfx_222_physical_randomizer.tres")
+        sfxTrainingTypeStudyComplete.stream = load("res://assets/audio/sfx_221_study_randomizer.tres")
     else:
         print_debug("Warning: Tried to set voice for unexpected job type", jobType)
 
