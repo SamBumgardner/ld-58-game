@@ -42,6 +42,7 @@ var dayCount: int:
 
 var activityOptions: Array[Activity] = [];
 var enhancedActivities: Array[ActivityEnhanced] = [];
+var selectedEnhancedActivity: ActivityEnhanced;
 var selectedActivity: Activity;
 var selectedActivityIndex: int;
 var lastOutcome: MajorOutcome;
@@ -127,7 +128,8 @@ func startScene():
 
 #region day sequence management
 func _onActivityConfirmed(activityIndex: int) -> void:
-    selectedActivity = activityOptions[activityIndex]
+    selectedEnhancedActivity = enhancedActivities[activityIndex];
+    selectedActivity = activityOptions[activityIndex];
     selectedActivityIndex = activityIndex;
     print_debug("activity confirmed");
     # starts fade-out, triggers next steps
@@ -151,7 +153,7 @@ func _onSetUpNewDay() -> void:
     if dayCount != 0: # don't want to these steps if we're starting a fresh play
         var newDay = nextDayGenerator.getNextDay(dayManager.weather, dayManager.forecast, selectedActivity);
         newDay = dayManager.applyNewDay(newDay);
-        endDaySummary.setValues(selectedActivity.statType, enhancedActivities[selectedActivityIndex].enhancedIncreases,
+        endDaySummary.setValues(selectedActivity.statType, selectedEnhancedActivity.enhancedIncreases,
             previousWeather, dayManager.mood, daysTillMajorEvent, nextMajorEvent.title, player.characterName);
 
     activityOptions = ActivityGenerator.generateActivities(dayManager.getCurrentDay(), player);
