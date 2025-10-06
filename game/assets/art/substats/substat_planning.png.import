@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqp5turo6b3rq"
-path="res://.godot/imported/stat_craft.svg-576caeb4b855247cff42f04f657901c3.ctex"
+uid="uid://b4paisbn6qsio"
+path="res://.godot/imported/substat_planning.png-5e3e3774a654a809da5d4740bf1d20a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/stat_craft.svg"
-dest_files=["res://.godot/imported/stat_craft.svg-576caeb4b855247cff42f04f657901c3.ctex"]
+source_file="res://assets/art/substats/substat_planning.png"
+dest_files=["res://.godot/imported/substat_planning.png-5e3e3774a654a809da5d4740bf1d20a5.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

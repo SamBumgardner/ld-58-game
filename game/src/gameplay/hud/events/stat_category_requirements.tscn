@@ -6,6 +6,7 @@
 
 [node name="StatCategoryRequirements" type="VBoxContainer"]
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 script = ExtResource("1_0o46o")
 
 [node name="MajorStatIcon" parent="." instance=ExtResource("2_8q3c2")]

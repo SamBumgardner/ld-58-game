@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkbmov5sws5ky"
-path="res://.godot/imported/stat_physical.svg-b64611a4c0a151aa9f9af3c27b2cde34.ctex"
+uid="uid://c81lmhj5y4aqh"
+path="res://.godot/imported/substat_endurance.png-2486f2111c3ee5d460fa5bfc118d76a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/stat_physical.svg"
-dest_files=["res://.godot/imported/stat_physical.svg-b64611a4c0a151aa9f9af3c27b2cde34.ctex"]
+source_file="res://assets/art/substats/substat_endurance.png"
+dest_files=["res://.godot/imported/substat_endurance.png-2486f2111c3ee5d460fa5bfc118d76a4.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

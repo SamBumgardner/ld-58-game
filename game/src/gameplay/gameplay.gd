@@ -75,6 +75,7 @@ func _ready():
     majorEventDisplay.eventOptionSelected.connect(_onMajorEventCompleted);
     eventOutcomeDisplay.outcomeDisplayConfirmed.connect(_onEventOutcomeConfirmed);
     endDaySummary.endOfDaySummaryClosed.connect($AnimationPlayer.play.bind("new_day_fade_in"));
+    $TurboToggle.pressed.connect(_onTurboTogglePressed);
 
     if self == get_tree().current_scene || isStartingScene:
         rootSceneActions();
@@ -94,6 +95,12 @@ func initScene(transitionData: TransitionData):
     # Initialize player with starting stats from transitionData
     player.initalize(transitionData.playerData.job, transitionData.playerData.stats,
         transitionData.playerData.character_name);
+
+    # Allow turbo for players with meta progression
+    if transitionData.metaProgressionData != null and transitionData.metaProgressionData.turboAvailable == true:
+        $TurboToggle.show();
+        turboMode = transitionData.metaProgressionData.turboMode;
+        $TurboToggle.text = "Skip Diary: ON" if turboMode else "Skip Diary: OFF"
 
     if newStart:
         print_debug("determined that we're starting a fresh game");
@@ -156,6 +163,10 @@ func _onSetUpNewDay() -> void:
     dayCount += 1;
     daysTillMajorEvent -= 1
     
+    if daysTillMajorEvent == 0:
+        process_mode = Node.PROCESS_MODE_DISABLED;
+        majorEventDisplay.open(nextMajorEvent);
+    
     if dayCount == 1 or turboMode:
         _onNewDayFadeIn();
 
@@ -165,7 +176,6 @@ func _onNewDayFadeIn() -> void:
     # this is where we check for events happening, bring up the exciting screen.
     if daysTillMajorEvent == 0:
         process_mode = Node.PROCESS_MODE_DISABLED;
-        majorEventDisplay.open(nextMajorEvent);
     else:
         process_mode = Node.PROCESS_MODE_INHERIT;
 
@@ -235,6 +245,10 @@ func _onMoodChanged(_newMood: Mood.Types) -> void:
     enhancedActivities = _createActivityEnhancements(activityOptions, dayManager.getCurrentDay(), player)
 
 #endregion
+
+func _onTurboTogglePressed():
+    turboMode = not turboMode;
+    $TurboToggle.text = "Skip Diary: ON" if turboMode else "Skip Diary: OFF"
 
 # Needs to re-run when player changes or when day changes.
 static func _createActivityEnhancements(baseActivites: Array[Activity], day: Day, p: Player) -> Array[ActivityEnhanced]:
