@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://n4dxgnefsdqg"]
+
+[ext_resource type="Resource" uid="uid://br2wlexp1bkww" path="res://assets/data/endings/end_002_1_2_handwriting_maestro.tres" id="1_dcadi"]
+[ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_8jxvp"]
+[ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_h8k1e"]
+[ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_hc3le"]
+
+[resource]
+script = ExtResource("4_h8k1e")
+title = "Great Success!"
+description = "After showing the technique on a large board, the kids copy your style until they write their whole alphabet in cursive.
+
+Then they ask, \"What's cursive?\""
+daysUntilNextEvent = 0
+ending = ExtResource("1_dcadi")
+metadata/_custom_type_script = "uid://i2f2r7105gxu"
