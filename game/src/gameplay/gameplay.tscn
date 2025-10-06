@@ -9,11 +9,11 @@
 [ext_resource type="Script" uid="uid://sjthgtynkfv6" path="res://src/gameplay/hud/day_count_tracker.gd" id="4_7pdct"]
 [ext_resource type="Texture2D" uid="uid://cau7fhofse071" path="res://assets/art/hud/corner.png" id="5_tjoey"]
 [ext_resource type="Script" uid="uid://cg87aybsxabex" path="res://src/gameplay/hud/weather_display.gd" id="5_uk44f"]
+[ext_resource type="PackedScene" uid="uid://bycg83yijgs5y" path="res://src/gameplay/hud/stat_details_display.tscn" id="6_5b1cb"]
 [ext_resource type="Texture2D" uid="uid://dad2kxhql8oq4" path="res://assets/art/hud/todo_list.png" id="6_cjh3j"]
 [ext_resource type="Script" uid="uid://cqei7411b6o8u" path="res://src/gameplay/hud/major_objective_banner.gd" id="6_yvprt"]
 [ext_resource type="Texture2D" uid="uid://dbxi6f6uibdfa" path="res://assets/art/mood_sad.png" id="7_mr2br"]
 [ext_resource type="PackedScene" uid="uid://bp1i2ft4knik3" path="res://src/gameplay/hud/activity_selection.tscn" id="7_uk44f"]
-[ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://src/gameplay/hud/stat_details.gd" id="8_yvprt"]
 [ext_resource type="Texture2D" uid="uid://cct6qlsqgd110" path="res://assets/art/weather_fair.png" id="9_efja1"]
 [ext_resource type="PackedScene" uid="uid://cfn4gebfndu50" path="res://src/gameplay/hud/events/major_event_display.tscn" id="10_r22ir"]
 [ext_resource type="PackedScene" uid="uid://dmsrehee6sok5" path="res://src/gameplay/hud/events/event_outcome_display.tscn" id="11_p86j0"]
@@ -246,6 +246,13 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_s5sow")
 
+[node name="StatDetails" parent="HudElements/Control" instance=ExtResource("6_5b1cb")]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 62.0
+offset_right = 705.0
+offset_bottom = 228.0
+
 [node name="CornerCompass" type="TextureRect" parent="HudElements/Control"]
 layout_mode = 0
 offset_right = 1280.0
@@ -335,116 +342,40 @@ text = "Day
 horizontal_alignment = 1
 script = ExtResource("4_7pdct")
 
-[node name="MajorObjectiveBanner" type="Label" parent="HudElements/Control"]
+[node name="MajorObjectiveBanner" type="RichTextLabel" parent="HudElements/Control"]
 layout_mode = 0
-offset_left = 1043.0
-offset_top = 43.0
-offset_right = 1226.0
-offset_bottom = 66.0
-text = "Major Objective Banner"
+offset_left = 994.0
+offset_top = 4.0
+offset_right = 1277.0
+offset_bottom = 123.0
+bbcode_enabled = true
+text = "Next Event:
+[font_size=24]\"A Birthday to Remember\"[/font_size]
+in %d days "
+scroll_active = false
+horizontal_alignment = 1
 script = ExtResource("6_yvprt")
-
-[node name="StatDetails" type="GridContainer" parent="HudElements/Control"]
-layout_mode = 0
-offset_left = 266.0
-offset_top = 113.0
-offset_right = 1212.0
-offset_bottom = 211.0
-columns = 3
-script = ExtResource("8_yvprt")
-
-[node name="Substat1" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Substat2" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Substat3" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Substat4" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Substat5" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Substat6" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Substat7" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Substat8" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Substat9" type="Label" parent="HudElements/Control/StatDetails"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Substat 1"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ActivitySelection1" parent="." instance=ExtResource("7_uk44f")]
 layout_mode = 0
-offset_left = 153.0
-offset_top = 301.0
-offset_right = 409.0
-offset_bottom = 557.0
+offset_left = 148.0
+offset_top = 290.0
+offset_right = 404.0
+offset_bottom = 546.0
 
 [node name="ActivitySelection2" parent="." instance=ExtResource("7_uk44f")]
 layout_mode = 0
-offset_left = 530.0
-offset_top = 234.0
-offset_right = 786.0
-offset_bottom = 490.0
+offset_left = 475.0
+offset_top = 290.0
+offset_right = 731.0
+offset_bottom = 546.0
 
 [node name="ActivitySelection3" parent="." instance=ExtResource("7_uk44f")]
 layout_mode = 0
-offset_left = 882.0
-offset_top = 273.0
-offset_right = 1138.0
-offset_bottom = 529.0
+offset_left = 818.0
+offset_top = 288.0
+offset_right = 1074.0
+offset_bottom = 544.0
 
 [node name="MajorEventDisplay" parent="." instance=ExtResource("10_r22ir")]
 visible = false

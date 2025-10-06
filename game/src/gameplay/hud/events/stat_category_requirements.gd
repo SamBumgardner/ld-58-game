@@ -1,4 +1,4 @@
-class_name StatCategoryRequirements extends VBoxContainer
+class_name StatCategoryRequirements extends Control
 
 @export var statCategory: Stats.Types;
 
@@ -50,3 +50,14 @@ func displayChanges(statChanges: Array[StatIncrease], majorAlwaysVisible: bool =
             minorStatLabel.text = "%+d" % filteredMinorStatChanges[i].changeAmount
         else:
             minorStatIcons[i].hide();
+
+func setPlayerValues(playerStats: PlayerStats):
+    majorStatThreshold.text = "%d" % playerStats.majorTotal(statCategory);
+    majorStatIcon.texture = load(Stats.PrimaryStatIconPaths[statCategory]);
+    majorStatThreshold.show();
+    var minorStatValues = playerStats.stats[statCategory];
+    for i in minorStatLabels.size():
+        minorStatIcons[i].show();
+        minorStatIcons[i].texture = load(Stats.PathsLookup[statCategory][i]);
+        var minorStatLabel: Label = minorStatLabels[i]
+        minorStatLabel.text = "%d" % minorStatValues[i]
