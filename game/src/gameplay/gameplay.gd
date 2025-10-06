@@ -59,7 +59,7 @@ var receivedTransitionData: TransitionData;
 #region scene transition
 func _ready():
     process_mode = Node.PROCESS_MODE_DISABLED
-    centerContainerSettings.hide()
+    # centerContainerSettings.hide()
 
     dayManager.weatherChanged.connect(_onWeatherChanged);
     dayManager.moodChanged.connect(_onMoodChanged);
