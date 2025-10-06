@@ -4,14 +4,16 @@ extends Control
 @export
 var audioBusNameToEdit: StringName = "Master";
 
-@onready var hSliderVolume: HSlider = $%HSliderVolume;
 @onready var displayPercentValue: Label = $%PercentValue;
+@onready var hSliderVolume: HSlider = $%HSliderVolume;
+@onready var labelAudioBusName: Label = $%LabelAudioBusName;
 
 var audioBusIndex: int = 0;
 const displayPercentageMultiplier = 100
 #endregion
 
 func _ready() -> void:
+    labelAudioBusName.text = audioBusNameToEdit
     audioBusIndex = AudioServer.get_bus_index(audioBusNameToEdit)
 
     if audioBusIndex == -1:
