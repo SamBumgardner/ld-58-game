@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_gqumi"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_rc8km"]
-[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_ts1m0"]
+[ext_resource type="Resource" uid="uid://cy4hlxf7aodbg" path="res://assets/data/major_events/me_004_experiment.tres" id="3_gqumi"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_ds64x"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_nxija"]
 
@@ -35,5 +35,5 @@ You're left with feelings of regret and disappointment..."
 statChangesToApply = Array[ExtResource("5_nxija")]([SubResource("Resource_6xhew")])
 moodOverride = SubResource("Resource_p4wbo")
 weatherOverride = SubResource("Resource_gqumi")
-nextMajorObjective = Array[ExtResource("2_rc8km")]([ExtResource("3_ts1m0")])
+nextMajorObjective = Array[ExtResource("2_rc8km")]([ExtResource("3_gqumi")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=6 format=3 uid="uid://dwc008b173sq"]
+[gd_resource type="Resource" script_class="MajorOutcome" load_steps=5 format=3 uid="uid://dwc008b173sq"]
 
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_d7uo7"]
-[ext_resource type="Resource" uid="uid://dfqrmsxcktc75" path="res://assets/data/major_events/me_003_crop.tres" id="2_lc1m6"]
 [ext_resource type="Resource" uid="uid://cy4hlxf7aodbg" path="res://assets/data/major_events/me_004_experiment.tres" id="3_d7uo7"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_t8by2"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_123c7"]
@@ -11,5 +10,5 @@ script = ExtResource("4_t8by2")
 title = "Failure..."
 description = "While your back was turned the kids drew all over the walls. 
 At least they had some fun with it."
-nextMajorObjective = Array[ExtResource("2_d7uo7")]([ExtResource("2_lc1m6"), ExtResource("3_d7uo7")])
+nextMajorObjective = Array[ExtResource("2_d7uo7")]([ExtResource("3_d7uo7")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"

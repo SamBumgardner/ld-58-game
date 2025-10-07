@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_gvrxh"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_umxsd"]
-[ext_resource type="Resource" uid="uid://cmyr3dtqdmqj7" path="res://assets/data/major_events/me_009_save_dimension.tres" id="3_gvrxh"]
+[ext_resource type="Resource" uid="uid://b6lg7xkotu2n0" path="res://assets/data/major_events/me_011_do_autopsy.tres" id="3_gvrxh"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_wxbje"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_qaor8"]
 
