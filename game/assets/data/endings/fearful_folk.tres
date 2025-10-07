@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ending" load_steps=2 format=3 uid="uid://i35bsbpsw6y2"]
+
+[ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_1mqye"]
+
+[resource]
+script = ExtResource("1_1mqye")
+title = "Fearful Folk"
+description = "The entire town lives on edge now, believing the death is due to a terrible beast, stories will be passed down for generations of a spot in the woods where the beast hunts poor wayfarers. Many die year after year. "
+metadata/_custom_type_script = "uid://ctkljby408cvs"

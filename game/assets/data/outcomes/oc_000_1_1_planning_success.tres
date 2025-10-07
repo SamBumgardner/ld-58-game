@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_p4wbo"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_6xhew"]
-[ext_resource type="Resource" uid="uid://qf4ftxvsjwmp" path="res://assets/data/major_events/me_001_placeholder_continue.tres" id="3_5vntj"]
+[ext_resource type="Resource" uid="uid://dfqrmsxcktc75" path="res://assets/data/major_events/me_003_crop.tres" id="3_p4wbo"]
 [ext_resource type="Script" uid="uid://i2f2r7105gxu" path="res://src/events/major/major_outcome.gd" id="4_fl2ac"]
 [ext_resource type="Script" uid="uid://op751y44hm3t" path="res://src/activities/stat_increase.gd" id="5_wiq5o"]
 
@@ -27,5 +27,5 @@ Food and drink flow freely, and everyone enjoys their fill.
 Your confidence in your planning expertise grows a bit!"
 statChangesToApply = Array[ExtResource("5_wiq5o")]([SubResource("Resource_6xhew")])
 moodOverride = SubResource("Resource_p4wbo")
-nextMajorObjective = Array[ExtResource("2_6xhew")]([ExtResource("3_5vntj")])
+nextMajorObjective = Array[ExtResource("2_6xhew")]([ExtResource("3_p4wbo")])
 metadata/_custom_type_script = "uid://i2f2r7105gxu"
