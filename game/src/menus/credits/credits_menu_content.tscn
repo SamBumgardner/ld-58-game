@@ -1,85 +1,85 @@
-[gd_scene load_steps=5 format=3 uid="uid://nc5eq6u5b733"]
+[gd_scene format=3 uid="uid://nc5eq6u5b733"]
 
 [ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="1_t4rna"]
 [ext_resource type="Theme" uid="uid://dlao31omhu6nr" path="res://assets/themes/font_header.tres" id="2_b78oc"]
 [ext_resource type="Script" uid="uid://duuywyo83x21a" path="res://src/menus/credits/credits_menu_content.gd" id="2_dxiie"]
 [ext_resource type="Theme" uid="uid://dij3inof1d6xx" path="res://assets/themes/button_big.tres" id="4_kp3gj"]
 
-[node name="CreditsMenuContent" type="VBoxContainer"]
+[node name="CreditsMenuContent" type="VBoxContainer" unique_id=1237619623]
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("1_t4rna")
 script = ExtResource("2_dxiie")
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=1714438874]
 layout_mode = 2
 theme = ExtResource("2_b78oc")
 text = "Credits"
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=562632511]
 layout_mode = 2
 columns = 2
 
-[node name="NameWithColon3" type="Label" parent="GridContainer"]
+[node name="NameWithColon3" type="Label" parent="GridContainer" unique_id=934961060]
 layout_mode = 2
 text = "Alex:"
 
-[node name="Role3" type="Label" parent="GridContainer"]
+[node name="Role3" type="Label" parent="GridContainer" unique_id=948505125]
 layout_mode = 2
 text = "Artist, UI Designer"
 horizontal_alignment = 2
 
-[node name="NameWithColon6" type="Label" parent="GridContainer"]
+[node name="NameWithColon6" type="Label" parent="GridContainer" unique_id=2083544280]
 layout_mode = 2
 text = "Luke Bumgardner:"
 
-[node name="Role6" type="Label" parent="GridContainer"]
+[node name="Role6" type="Label" parent="GridContainer" unique_id=1296478619]
 layout_mode = 2
 text = "Voice Actor"
 horizontal_alignment = 2
 
-[node name="NameWithColon2" type="Label" parent="GridContainer"]
+[node name="NameWithColon2" type="Label" parent="GridContainer" unique_id=721717179]
 layout_mode = 2
 text = "Noah Bumgardner:"
 
-[node name="Role2" type="Label" parent="GridContainer"]
+[node name="Role2" type="Label" parent="GridContainer" unique_id=1762907304]
 layout_mode = 2
 text = "Composer, Programmer, Voice Actor"
 horizontal_alignment = 2
 
-[node name="NameWithColon1" type="Label" parent="GridContainer"]
+[node name="NameWithColon1" type="Label" parent="GridContainer" unique_id=1513726030]
 layout_mode = 2
 text = "Sam Bumgardner:"
 
-[node name="Role1" type="Label" parent="GridContainer"]
+[node name="Role1" type="Label" parent="GridContainer" unique_id=718601719]
 layout_mode = 2
 text = "Game Designer, Programmer"
 horizontal_alignment = 2
 
-[node name="NameWithColon5" type="Label" parent="GridContainer"]
+[node name="NameWithColon5" type="Label" parent="GridContainer" unique_id=418055246]
 layout_mode = 2
 text = "Shawna Bumgardner:"
 
-[node name="Role5" type="Label" parent="GridContainer"]
+[node name="Role5" type="Label" parent="GridContainer" unique_id=822997275]
 layout_mode = 2
 text = "Voice Actor"
 horizontal_alignment = 2
 
-[node name="NameWithColon4" type="Label" parent="GridContainer"]
+[node name="NameWithColon4" type="Label" parent="GridContainer" unique_id=1003531726]
 layout_mode = 2
 text = "Tom Bumgardner:"
 
-[node name="Role4" type="Label" parent="GridContainer"]
+[node name="Role4" type="Label" parent="GridContainer" unique_id=1387236547]
 layout_mode = 2
 text = "Artist"
 horizontal_alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1795995910]
 layout_mode = 2
 theme = ExtResource("4_kp3gj")
 
-[node name="ButtonBack" type="Button" parent="MarginContainer"]
+[node name="ButtonBack" type="Button" parent="MarginContainer" unique_id=1734681299]
 layout_mode = 2
 text = "Back"
 

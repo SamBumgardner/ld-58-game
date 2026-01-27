@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dpxe6jiswo1v2"]
+[gd_scene format=3 uid="uid://dpxe6jiswo1v2"]
 
 [ext_resource type="Script" uid="uid://dyy6ws8a2onar" path="res://src/gameplay/gameplay.gd" id="1_41n4r"]
 [ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="1_s5sow"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cfn4gebfndu50" path="res://src/gameplay/hud/events/major_event_display.tscn" id="10_r22ir"]
 [ext_resource type="PackedScene" uid="uid://dmsrehee6sok5" path="res://src/gameplay/hud/events/event_outcome_display.tscn" id="11_p86j0"]
 [ext_resource type="Texture2D" uid="uid://cegwrvc3utwup" path="res://assets/art/weather_hot.png" id="11_ug0ik"]
-[ext_resource type="PackedScene" uid="uid://b0mcg1ibos2g1" path="res://src/gameplay/hud/end_day_summary.tscn" id="12_fbjph"]
+[ext_resource type="PackedScene" uid="uid://c4n0ww425qtyp" path="res://src/gameplay/hud/end_day_summary.tscn" id="12_fbjph"]
 [ext_resource type="Script" uid="uid://c267m4vx16j5c" path="res://src/gameplay/turbo_toggle.gd" id="13_23xb3"]
 [ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="17_g7uyf"]
 [ext_resource type="Theme" uid="uid://soi4w0p4anup" path="res://assets/themes/margin_container_for_texture_rect.tres" id="18_0masv"]
@@ -276,7 +276,7 @@ _data = {
 &"new_day_fade_in": SubResource("Animation_s5sow")
 }
 
-[node name="Gameplay" type="Control"]
+[node name="Gameplay" type="Control" unique_id=1580040516]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,21 +286,19 @@ grow_vertical = 2
 theme = ExtResource("1_s5sow")
 script = ExtResource("1_41n4r")
 
-[node name="Player" type="Node" parent="."]
+[node name="Player" type="Node" parent="." unique_id=754975]
 script = ExtResource("2_r5as3")
 metadata/_custom_type_script = "uid://b4mr4nqec0gds"
 
-[node name="DayManager" type="Node" parent="."]
+[node name="DayManager" type="Node" parent="." unique_id=90945780]
 script = ExtResource("2_ueusv")
 metadata/_custom_type_script = "uid://6ugnkjruhtf5"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=928236456]
 process_mode = 3
-libraries = {
-&"": SubResource("AnimationLibrary_s5sow")
-}
+libraries/ = SubResource("AnimationLibrary_s5sow")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1564809168]
 self_modulate = Color(0.8175213, 0.8175213, 0.81752115, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -311,10 +309,10 @@ grow_vertical = 2
 texture = ExtResource("3_thf4h")
 expand_mode = 1
 
-[node name="HudElements" type="CanvasLayer" parent="."]
+[node name="HudElements" type="CanvasLayer" parent="." unique_id=893603017]
 layer = 0
 
-[node name="Control" type="Control" parent="HudElements"]
+[node name="Control" type="Control" parent="HudElements" unique_id=1124846179]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -324,14 +322,14 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_s5sow")
 
-[node name="StatDetails" parent="HudElements/Control" instance=ExtResource("6_5b1cb")]
+[node name="StatDetails" parent="HudElements/Control" unique_id=2019078188 instance=ExtResource("6_5b1cb")]
 layout_mode = 0
 offset_left = 218.0
 offset_top = 62.0
 offset_right = 705.0
 offset_bottom = 228.0
 
-[node name="CornerCompass" type="TextureRect" parent="HudElements/Control"]
+[node name="CornerCompass" type="TextureRect" parent="HudElements/Control" unique_id=2127959174]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -339,7 +337,7 @@ mouse_filter = 2
 texture = ExtResource("5_tjoey")
 expand_mode = 1
 
-[node name="ToDoNote" type="TextureRect" parent="HudElements/Control"]
+[node name="ToDoNote" type="TextureRect" parent="HudElements/Control" unique_id=1304016316]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -347,12 +345,12 @@ mouse_filter = 2
 texture = ExtResource("6_cjh3j")
 expand_mode = 1
 
-[node name="WeatherDisplay" type="Control" parent="HudElements/Control"]
+[node name="WeatherDisplay" type="Control" parent="HudElements/Control" unique_id=461906782]
 layout_mode = 1
 anchors_preset = 0
 script = ExtResource("5_uk44f")
 
-[node name="CurrentWeatherText" type="Label" parent="HudElements/Control/WeatherDisplay"]
+[node name="CurrentWeatherText" type="Label" parent="HudElements/Control/WeatherDisplay" unique_id=113189586]
 visible = false
 layout_mode = 0
 offset_top = -1.0
@@ -360,7 +358,7 @@ offset_right = 137.0
 offset_bottom = 21.333334
 text = "Current Weather"
 
-[node name="ForecastWeatherText" type="Label" parent="HudElements/Control/WeatherDisplay"]
+[node name="ForecastWeatherText" type="Label" parent="HudElements/Control/WeatherDisplay" unique_id=1813899548]
 visible = false
 layout_mode = 0
 offset_top = 25.0
@@ -368,7 +366,7 @@ offset_right = 137.0
 offset_bottom = 47.333336
 text = "Forecast Weather"
 
-[node name="CurrentWeather" type="TextureRect" parent="HudElements/Control/WeatherDisplay"]
+[node name="CurrentWeather" type="TextureRect" parent="HudElements/Control/WeatherDisplay" unique_id=960772832]
 layout_mode = 0
 offset_left = -6.0
 offset_top = -14.0
@@ -377,7 +375,7 @@ offset_bottom = 148.0
 texture = ExtResource("11_ug0ik")
 stretch_mode = 4
 
-[node name="ForecastWeather" type="TextureRect" parent="HudElements/Control/WeatherDisplay"]
+[node name="ForecastWeather" type="TextureRect" parent="HudElements/Control/WeatherDisplay" unique_id=372613204]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 218.0
@@ -387,7 +385,7 @@ texture = ExtResource("9_efja1")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="HudElements/Control/WeatherDisplay/ForecastWeather"]
+[node name="Label" type="Label" parent="HudElements/Control/WeatherDisplay/ForecastWeather" unique_id=150603298]
 layout_mode = 0
 offset_left = 16.0
 offset_top = -24.0
@@ -397,7 +395,7 @@ theme_override_font_sizes/font_size = 12
 text = "Tomorrow's
 Forecast:"
 
-[node name="MoodTracker" type="TextureRect" parent="HudElements/Control"]
+[node name="MoodTracker" type="TextureRect" parent="HudElements/Control" unique_id=1541662153]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 113.0
@@ -408,7 +406,7 @@ expand_mode = 1
 stretch_mode = 4
 script = ExtResource("3_ueusv")
 
-[node name="DayCountTracker" type="Label" parent="HudElements/Control"]
+[node name="DayCountTracker" type="Label" parent="HudElements/Control" unique_id=119477930]
 layout_mode = 0
 offset_left = 138.0
 offset_top = 5.0
@@ -420,7 +418,7 @@ text = "Day
 horizontal_alignment = 1
 script = ExtResource("4_7pdct")
 
-[node name="MajorObjectiveBanner" type="RichTextLabel" parent="HudElements/Control"]
+[node name="MajorObjectiveBanner" type="RichTextLabel" parent="HudElements/Control" unique_id=1634894209]
 layout_mode = 0
 offset_left = 994.0
 offset_top = 4.0
@@ -434,7 +432,7 @@ scroll_active = false
 horizontal_alignment = 1
 script = ExtResource("6_yvprt")
 
-[node name="CenterContainerSettings" type="CenterContainer" parent="HudElements/Control"]
+[node name="CenterContainerSettings" type="CenterContainer" parent="HudElements/Control" unique_id=2140795986]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -443,17 +441,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="HudElements/Control/CenterContainerSettings"]
+[node name="PanelContainer" type="PanelContainer" parent="HudElements/Control/CenterContainerSettings" unique_id=1562531059]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HudElements/Control/CenterContainerSettings/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HudElements/Control/CenterContainerSettings/PanelContainer" unique_id=1010400256]
 layout_mode = 2
 theme = ExtResource("18_0masv")
 
-[node name="SettingsMenuContent" parent="HudElements/Control/CenterContainerSettings/PanelContainer" instance=ExtResource("19_psry0")]
+[node name="SettingsMenuContent" parent="HudElements/Control/CenterContainerSettings/PanelContainer" unique_id=1633621588 instance=ExtResource("19_psry0")]
 layout_mode = 2
 
-[node name="ButtonSettings" type="Button" parent="HudElements/Control"]
+[node name="ButtonSettings" type="Button" parent="HudElements/Control" unique_id=494016553]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -464,7 +462,7 @@ grow_horizontal = 0
 theme = ExtResource("17_g7uyf")
 text = "Settings"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1414002576]
 layout_mode = 0
 offset_left = 496.0
 offset_top = 256.0
@@ -473,31 +471,28 @@ offset_bottom = 295.08334
 theme_type_variation = &"HeaderLarge"
 text = "What will I do today?"
 
-[node name="ActivitySelection1" parent="." instance=ExtResource("7_uk44f")]
+[node name="ActivitySelection1" parent="." unique_id=1055338215 instance=ExtResource("7_uk44f")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 182.0
 offset_top = 324.0
 offset_right = 438.0
 offset_bottom = 604.9861
 
-[node name="ActivitySelection2" parent="." instance=ExtResource("7_uk44f")]
+[node name="ActivitySelection2" parent="." unique_id=513921381 instance=ExtResource("7_uk44f")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 509.0
 offset_top = 324.0
 offset_right = 765.0
 offset_bottom = 604.9861
 
-[node name="ActivitySelection3" parent="." instance=ExtResource("7_uk44f")]
+[node name="ActivitySelection3" parent="." unique_id=1174107405 instance=ExtResource("7_uk44f")]
 layout_mode = 0
-anchors_preset = 0
 offset_left = 852.0
 offset_top = 322.0
 offset_right = 1108.0
 offset_bottom = 602.9861
 
-[node name="TurboToggle" type="Button" parent="."]
+[node name="TurboToggle" type="Button" parent="." unique_id=2024507520]
 visible = false
 layout_mode = 0
 offset_left = 21.0
@@ -507,12 +502,12 @@ offset_bottom = 669.0
 text = "Skip Diary: OFF"
 script = ExtResource("13_23xb3")
 
-[node name="EventsLayer" type="CanvasLayer" parent="."]
+[node name="EventsLayer" type="CanvasLayer" parent="." unique_id=1894151047]
 process_mode = 3
 layer = 2
 visible = false
 
-[node name="ColorRect" type="TextureRect" parent="EventsLayer"]
+[node name="ColorRect" type="TextureRect" parent="EventsLayer" unique_id=34420064]
 self_modulate = Color(0.49747366, 0.49747366, 0.49747366, 1)
 anchors_preset = 15
 anchor_right = 1.0
@@ -524,17 +519,17 @@ theme = ExtResource("1_s5sow")
 texture = ExtResource("3_thf4h")
 expand_mode = 1
 
-[node name="MajorEventDisplay" parent="EventsLayer/ColorRect" instance=ExtResource("10_r22ir")]
+[node name="MajorEventDisplay" parent="EventsLayer/ColorRect" unique_id=719456251 instance=ExtResource("10_r22ir")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
 
-[node name="Control" type="Control" parent="EventsLayer/ColorRect/MajorEventDisplay"]
+[node name="Control" type="Control" parent="EventsLayer/ColorRect/MajorEventDisplay" unique_id=1565671528]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="EventStatDetails" parent="EventsLayer/ColorRect/MajorEventDisplay/Control" instance=ExtResource("6_5b1cb")]
+[node name="EventStatDetails" parent="EventsLayer/ColorRect/MajorEventDisplay/Control" unique_id=1576223726 instance=ExtResource("6_5b1cb")]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = -177.3591
@@ -543,38 +538,38 @@ offset_right = 309.6409
 offset_bottom = 307.3341
 mouse_filter = 2
 
-[node name="Panel" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="0"]
+[node name="Panel" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="0" unique_id=1493947283]
 offset_right = -314.0
 offset_bottom = 280.99997
 
-[node name="StudyStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="2"]
+[node name="StudyStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="2" unique_id=1613301344]
 offset_left = 10.0
 offset_right = 50.0
 
-[node name="PhysicalStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="3"]
+[node name="PhysicalStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="3" unique_id=807279277]
 offset_left = 8.0
 offset_top = 172.0
 offset_right = 48.0
 offset_bottom = 212.0
 
-[node name="CraftStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="4"]
+[node name="CraftStats" parent="EventsLayer/ColorRect/MajorEventDisplay/Control/EventStatDetails" index="4" unique_id=520762575]
 offset_left = 22.0
 offset_top = 315.0
 offset_right = 62.0
 offset_bottom = 355.0
 
-[node name="EventOutcomeDisplay" parent="EventsLayer/ColorRect" instance=ExtResource("11_p86j0")]
+[node name="EventOutcomeDisplay" parent="EventsLayer/ColorRect" unique_id=754051198 instance=ExtResource("11_p86j0")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=318354927]
 process_mode = 3
 layer = 2
 visible = false
 
-[node name="ColorRect" type="TextureRect" parent="CanvasLayer"]
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer" unique_id=1199624353]
 self_modulate = Color(0.49747366, 0.49747366, 0.49747366, 1)
 anchors_preset = 15
 anchor_right = 1.0
@@ -586,7 +581,7 @@ theme = ExtResource("1_s5sow")
 texture = ExtResource("3_thf4h")
 expand_mode = 1
 
-[node name="PreviewInfo" type="Control" parent="CanvasLayer/ColorRect"]
+[node name="PreviewInfo" type="Control" parent="CanvasLayer/ColorRect" unique_id=526207691]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -594,7 +589,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WeatherPreview" parent="CanvasLayer/ColorRect/PreviewInfo" instance=ExtResource("20_thf4h")]
+[node name="WeatherPreview" parent="CanvasLayer/ColorRect/PreviewInfo" unique_id=1140633134 instance=ExtResource("20_thf4h")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -604,7 +599,7 @@ anchor_right = 0.18
 anchor_bottom = 0.5
 previewType = 1
 
-[node name="MoodPreview" parent="CanvasLayer/ColorRect/PreviewInfo" instance=ExtResource("20_thf4h")]
+[node name="MoodPreview" parent="CanvasLayer/ColorRect/PreviewInfo" unique_id=858205664 instance=ExtResource("20_thf4h")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
@@ -613,7 +608,7 @@ anchor_top = 0.5
 anchor_right = 0.82
 anchor_bottom = 0.5
 
-[node name="EndDaySummary" parent="CanvasLayer/ColorRect" instance=ExtResource("12_fbjph")]
+[node name="EndDaySummary" parent="CanvasLayer/ColorRect" unique_id=1452070298 instance=ExtResource("12_fbjph")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
