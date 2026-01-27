@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MajorEvent" load_steps=16 format=3 uid="uid://75uy7w2khp77"]
+[gd_resource type="Resource" script_class="MajorEvent" format=3 uid="uid://75uy7w2khp77"]
 
 [ext_resource type="Script" uid="uid://cx0fvjypep5kl" path="res://src/events/event_option.gd" id="1_h32b4"]
 [ext_resource type="Resource" uid="uid://sher5mt0y7qg" path="res://assets/data/outcomes/oc_000_0_0_fireworks_failure.tres" id="2_xafv3"]

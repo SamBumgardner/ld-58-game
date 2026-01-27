@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MajorEvent" load_steps=22 format=3 uid="uid://ce7xb27fq3jqk"]
+[gd_resource type="Resource" script_class="MajorEvent" format=3 uid="uid://ce7xb27fq3jqk"]
 
 [ext_resource type="Script" uid="uid://cx0fvjypep5kl" path="res://src/events/event_option.gd" id="1_c7ety"]
 [ext_resource type="Resource" uid="uid://cuqbu5xmx5hn6" path="res://assets/data/endings/bounty_brawler.tres" id="2_15yol"]

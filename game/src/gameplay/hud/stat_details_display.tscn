@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bycg83yijgs5y"]
+[gd_scene format=3 uid="uid://bycg83yijgs5y"]
 
 [ext_resource type="Script" uid="uid://btp7dix2graa3" path="res://src/gameplay/hud/stat_details.gd" id="1_il4s4"]
 [ext_resource type="StyleBox" uid="uid://eoki4f7rst2x" path="res://assets/art/hud/dark_panel.tres" id="2_0d250"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://datc2l3oc2a1p" path="res://assets/art/substats/substat_precision.png" id="15_wnq15"]
 [ext_resource type="Texture2D" uid="uid://b4paisbn6qsio" path="res://assets/art/substats/substat_planning.png" id="16_w700p"]
 
-[node name="StatDetails" type="Control"]
+[node name="StatDetails" type="Control" unique_id=1699082044]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 215.0
@@ -27,7 +27,7 @@ offset_right = 702.0
 offset_bottom = 230.0
 script = ExtResource("1_il4s4")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1493947283]
 self_modulate = Color(1, 1, 1, 0.62352943)
 layout_mode = 1
 anchors_preset = 15
@@ -38,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("2_0d250")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1687190458]
 layout_mode = 0
 offset_left = 8.0
 offset_right = 73.0
@@ -46,7 +46,7 @@ offset_bottom = 33.5
 theme_override_font_sizes/font_size = 24
 text = "Stats:"
 
-[node name="StudyStats" type="Control" parent="."]
+[node name="StudyStats" type="Control" parent="." unique_id=1613301344]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 9.0
@@ -55,7 +55,7 @@ offset_right = 49.0
 offset_bottom = 74.0
 script = ExtResource("2_mj0hr")
 
-[node name="MajorStatIcon" parent="StudyStats" instance=ExtResource("3_0d250")]
+[node name="MajorStatIcon" parent="StudyStats" unique_id=1102268397 instance=ExtResource("3_0d250")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 34.0
@@ -64,7 +64,7 @@ offset_right = 110.0
 offset_bottom = 67.0
 texture = ExtResource("4_xaogy")
 
-[node name="MinorStatIcon1" parent="StudyStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon1" parent="StudyStats" unique_id=1054487955 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = -14.0
@@ -73,7 +73,7 @@ offset_right = 50.0
 offset_bottom = 86.0
 texture = ExtResource("6_1jk4v")
 
-[node name="MinorStatIcon2" parent="StudyStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon2" parent="StudyStats" unique_id=539135347 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 39.0
@@ -82,7 +82,7 @@ offset_right = 103.0
 offset_bottom = 122.0
 texture = ExtResource("7_avco1")
 
-[node name="MinorStatIcon3" parent="StudyStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon3" parent="StudyStats" unique_id=2115677517 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 99.0
@@ -91,7 +91,7 @@ offset_right = 163.0
 offset_bottom = 85.0
 texture = ExtResource("8_mlplh")
 
-[node name="PhysicalStats" type="Control" parent="."]
+[node name="PhysicalStats" type="Control" parent="." unique_id=807279277]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 176.0
@@ -101,7 +101,7 @@ offset_bottom = 68.0
 script = ExtResource("2_mj0hr")
 statCategory = 1
 
-[node name="MajorStatIcon" parent="PhysicalStats" instance=ExtResource("3_0d250")]
+[node name="MajorStatIcon" parent="PhysicalStats" unique_id=1833288692 instance=ExtResource("3_0d250")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 44.0
@@ -109,7 +109,7 @@ offset_right = 120.0
 offset_bottom = 76.0
 texture = ExtResource("9_vdgyk")
 
-[node name="MinorStatIcon1" parent="PhysicalStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon1" parent="PhysicalStats" unique_id=540256771 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = -2.0
@@ -118,7 +118,7 @@ offset_right = 62.0
 offset_bottom = 98.0
 texture = ExtResource("10_8v7ig")
 
-[node name="MinorStatIcon2" parent="PhysicalStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon2" parent="PhysicalStats" unique_id=298597949 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 49.0
@@ -127,7 +127,7 @@ offset_right = 113.0
 offset_bottom = 135.0
 texture = ExtResource("11_oql46")
 
-[node name="MinorStatIcon3" parent="PhysicalStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon3" parent="PhysicalStats" unique_id=893679328 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 97.0
@@ -136,7 +136,7 @@ offset_right = 161.0
 offset_bottom = 100.0
 texture = ExtResource("12_4yqvx")
 
-[node name="CraftStats" type="Control" parent="."]
+[node name="CraftStats" type="Control" parent="." unique_id=520762575]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_left = 351.0
@@ -146,7 +146,7 @@ offset_bottom = 64.0
 script = ExtResource("2_mj0hr")
 statCategory = 2
 
-[node name="MajorStatIcon" parent="CraftStats" instance=ExtResource("3_0d250")]
+[node name="MajorStatIcon" parent="CraftStats" unique_id=1684674252 instance=ExtResource("3_0d250")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 29.0
@@ -155,7 +155,7 @@ offset_right = 105.0
 offset_bottom = 75.0
 texture = ExtResource("13_k3dif")
 
-[node name="MinorStatIcon1" parent="CraftStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon1" parent="CraftStats" unique_id=508405262 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = -22.0
@@ -164,7 +164,7 @@ offset_right = 42.0
 offset_bottom = 92.0
 texture = ExtResource("14_smeiu")
 
-[node name="MinorStatIcon2" parent="CraftStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon2" parent="CraftStats" unique_id=320565312 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 35.0
@@ -173,7 +173,7 @@ offset_right = 99.0
 offset_bottom = 132.0
 texture = ExtResource("15_wnq15")
 
-[node name="MinorStatIcon3" parent="CraftStats" instance=ExtResource("5_5vajt")]
+[node name="MinorStatIcon3" parent="CraftStats" unique_id=1822169658 instance=ExtResource("5_5vajt")]
 self_modulate = Color(1, 1, 1, 1)
 layout_mode = 0
 offset_left = 89.0

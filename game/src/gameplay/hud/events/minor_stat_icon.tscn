@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuy4c55ivelap"]
+[gd_scene format=3 uid="uid://cuy4c55ivelap"]
 
 [ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="1_f7tf7"]
 [ext_resource type="Script" uid="uid://dbxdv428owyhj" path="res://src/gameplay/hud/events/minor_stat_icon.gd" id="2_nfsim"]
 
-[node name="MinorStatIcon" type="TextureRect"]
+[node name="MinorStatIcon" type="TextureRect" unique_id=1275032066]
 self_modulate = Color(1, 1, 1, 0.6862745)
 custom_minimum_size = Vector2(64, 64)
 size_flags_horizontal = 6
@@ -11,7 +11,7 @@ texture = ExtResource("1_f7tf7")
 expand_mode = 2
 script = ExtResource("2_nfsim")
 
-[node name="MinorStatThreshold" type="Label" parent="."]
+[node name="MinorStatThreshold" type="Label" parent="." unique_id=909958739]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

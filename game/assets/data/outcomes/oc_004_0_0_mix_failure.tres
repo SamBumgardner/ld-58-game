@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=6 format=3 uid="uid://87bxubnem1y7"]
+[gd_resource type="Resource" script_class="MajorOutcome" format=3 uid="uid://87bxubnem1y7"]
 
 [ext_resource type="Script" uid="uid://ctkljby408cvs" path="res://src/events/ending/ending.gd" id="1_pnibq"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_cts2p"]

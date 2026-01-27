@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=9 format=3 uid="uid://opueiii278yf"]
+[gd_resource type="Resource" script_class="MajorOutcome" format=3 uid="uid://opueiii278yf"]
 
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_gqumi"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_rc8km"]
