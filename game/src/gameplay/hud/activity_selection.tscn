@@ -1,57 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp1i2ft4knik3"]
+[gd_scene format=3 uid="uid://bp1i2ft4knik3"]
 
 [ext_resource type="Script" uid="uid://cjg6gwtole0bd" path="res://src/gameplay/hud/activity_selection.gd" id="1_6ene7"]
 [ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="2_wrom3"]
 [ext_resource type="PackedScene" uid="uid://0xhkhdvqoeg5" path="res://src/gameplay/hud/events/major_stat_icon.tscn" id="3_n76qk"]
 [ext_resource type="PackedScene" uid="uid://cuy4c55ivelap" path="res://src/gameplay/hud/events/minor_stat_icon.tscn" id="3_sboxq"]
 
-[node name="ActivitySelection" type="MarginContainer"]
+[node name="ActivitySelection" type="MarginContainer" unique_id=1405597549]
 custom_minimum_size = Vector2(256, 0)
-anchors_preset = -1
 pivot_offset = Vector2(128, 128)
 theme = ExtResource("2_wrom3")
 script = ExtResource("1_6ene7")
 
-[node name="Background" type="PanelContainer" parent="."]
+[node name="Background" type="PanelContainer" parent="." unique_id=1179543278]
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="Background"]
+[node name="Content" type="VBoxContainer" parent="Background" unique_id=747005029]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/Content"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Content" unique_id=600409499]
 layout_mode = 2
 
-[node name="MajorStatIcon" parent="Background/Content/HBoxContainer" instance=ExtResource("3_n76qk")]
+[node name="MajorStatIcon" parent="Background/Content/HBoxContainer" unique_id=1036666583 instance=ExtResource("3_n76qk")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StatIncreases" type="GridContainer" parent="Background/Content"]
+[node name="StatIncreases" type="GridContainer" parent="Background/Content" unique_id=1354515768]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 columns = 2
 
-[node name="MinorStatIcon" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
+[node name="MinorStatIcon" parent="Background/Content/StatIncreases" unique_id=1851893470 instance=ExtResource("3_sboxq")]
 layout_mode = 2
 
-[node name="MinorStatIcon2" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
+[node name="MinorStatIcon2" parent="Background/Content/StatIncreases" unique_id=746539626 instance=ExtResource("3_sboxq")]
 layout_mode = 2
 
-[node name="MinorStatIcon3" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
+[node name="MinorStatIcon3" parent="Background/Content/StatIncreases" unique_id=73597838 instance=ExtResource("3_sboxq")]
 layout_mode = 2
 
-[node name="MinorStatIcon4" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
+[node name="MinorStatIcon4" parent="Background/Content/StatIncreases" unique_id=605191850 instance=ExtResource("3_sboxq")]
 layout_mode = 2
 
-[node name="MinorStatIcon5" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
+[node name="MinorStatIcon5" parent="Background/Content/StatIncreases" unique_id=385404229 instance=ExtResource("3_sboxq")]
 visible = false
 layout_mode = 2
 
-[node name="MinorStatIcon6" parent="Background/Content/StatIncreases" instance=ExtResource("3_sboxq")]
+[node name="MinorStatIcon6" parent="Background/Content/StatIncreases" unique_id=1103582318 instance=ExtResource("3_sboxq")]
 visible = false
 layout_mode = 2
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1677431273]
 layout_mode = 2

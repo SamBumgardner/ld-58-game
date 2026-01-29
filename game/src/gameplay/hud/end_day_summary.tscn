@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0mcg1ibos2g1"]
+[gd_scene format=3 uid="uid://c4n0ww425qtyp"]
 
 [ext_resource type="PackedScene" uid="uid://chuptqvahkktv" path="res://src/gameplay/hud/events/stat_category_requirements.tscn" id="1_4aoew"]
 [ext_resource type="Script" uid="uid://dwvwlcirsflnh" path="res://src/gameplay/hud/end_day_summary.gd" id="1_h2rau"]
 
-[node name="EndDaySummary" type="PanelContainer"]
+[node name="EndDaySummary" type="PanelContainer" unique_id=1741147268]
 custom_minimum_size = Vector2(400, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -14,27 +14,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h2rau")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1453327116]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1962674568]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2071315055]
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
 text = "Another Day Well Spent!"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=179700596]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="Preamble" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Preamble" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=749492055]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -45,22 +45,22 @@ Here's how it went:"
 fit_content = true
 autowrap_mode = 0
 
-[node name="StatChanges" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="StatChanges" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2129847805]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StatCategoryRequirements" parent="MarginContainer/VBoxContainer/StatChanges" instance=ExtResource("1_4aoew")]
+[node name="StatCategoryRequirements" parent="MarginContainer/VBoxContainer/StatChanges" unique_id=389106774 instance=ExtResource("1_4aoew")]
 layout_mode = 2
 
-[node name="StatCategoryRequirements2" parent="MarginContainer/VBoxContainer/StatChanges" instance=ExtResource("1_4aoew")]
+[node name="StatCategoryRequirements2" parent="MarginContainer/VBoxContainer/StatChanges" unique_id=1732946399 instance=ExtResource("1_4aoew")]
 layout_mode = 2
 statCategory = 1
 
-[node name="StatCategoryRequirements3" parent="MarginContainer/VBoxContainer/StatChanges" instance=ExtResource("1_4aoew")]
+[node name="StatCategoryRequirements3" parent="MarginContainer/VBoxContainer/StatChanges" unique_id=442072493 instance=ExtResource("1_4aoew")]
 layout_mode = 2
 statCategory = 2
 
-[node name="Conclusion" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Conclusion" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1499397578]
 unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
@@ -72,11 +72,11 @@ I hope I'll be ready."
 fit_content = true
 autowrap_mode = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1049753622]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=326880360]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Continue to Next Day"

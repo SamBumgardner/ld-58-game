@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjkj3o2d3vkiq"]
+[gd_scene format=3 uid="uid://cjkj3o2d3vkiq"]
 
 [ext_resource type="StyleBox" uid="uid://eoki4f7rst2x" path="res://assets/art/hud/dark_panel.tres" id="1_1vmgp"]
 [ext_resource type="Script" uid="uid://bplj1q15skwh5" path="res://src/gameplay/hud/preview_info.gd" id="2_7dg0l"]
@@ -8,28 +8,28 @@
 [ext_resource type="Texture2D" uid="uid://5lx5hh12o8jy" path="res://assets/art/mood_grumpy.png" id="6_6kknw"]
 [ext_resource type="Texture2D" uid="uid://dbxi6f6uibdfa" path="res://assets/art/mood_sad.png" id="7_nxfdw"]
 
-[node name="PreviewInfo" type="PanelContainer"]
+[node name="PreviewInfo" type="PanelContainer" unique_id=718221226]
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_1vmgp")
 script = ExtResource("2_7dg0l")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1606751379]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=129902680]
 layout_mode = 2
 
-[node name="TomorrowTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="TomorrowTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2080781580]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Tomorrow's Weather:"
 
-[node name="TomorrowTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="TomorrowTexture" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1573370247]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(144, 144)
 layout_mode = 2
@@ -38,11 +38,11 @@ size_flags_vertical = 4
 texture = ExtResource("3_eh7ct")
 expand_mode = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1089696593]
 layout_mode = 2
 text = "Improves:"
 
-[node name="ImproveTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="ImproveTexture" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1501787031]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -52,7 +52,7 @@ texture = ExtResource("4_gxhgt")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="ImproveTextureLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="ImproveTextureLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=218188624]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(64, 64)
@@ -62,15 +62,15 @@ text = "NONE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=125738053]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=208298030]
 layout_mode = 2
 text = "Weakens:"
 
-[node name="WeakenTexture" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="WeakenTexture" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1797830437]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -80,7 +80,7 @@ texture = ExtResource("5_5qmwa")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="WeakenTextureLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="WeakenTextureLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=305589307]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(64, 64)
@@ -90,35 +90,35 @@ text = "NONE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=464281347]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer" unique_id=736890590]
 layout_mode = 2
 text = "Bonus Effects During:"
 metadata/_edit_group_ = true
 
-[node name="BonusEffectTextures" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="BonusEffectTextures" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=633729664]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 8
 
-[node name="BonusEffectTexture1" type="TextureRect" parent="MarginContainer/VBoxContainer/BonusEffectTextures"]
+[node name="BonusEffectTexture1" type="TextureRect" parent="MarginContainer/VBoxContainer/BonusEffectTextures" unique_id=1953412237]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("6_6kknw")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="BonusEffectTexture2" type="TextureRect" parent="MarginContainer/VBoxContainer/BonusEffectTextures"]
+[node name="BonusEffectTexture2" type="TextureRect" parent="MarginContainer/VBoxContainer/BonusEffectTextures" unique_id=705308982]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_nxfdw")
 expand_mode = 1
 
-[node name="BonusEffectTextureLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="BonusEffectTextureLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=418624473]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(64, 64)

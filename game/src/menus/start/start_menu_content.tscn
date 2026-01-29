@@ -1,49 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca66knr0l7xhi"]
+[gd_scene format=3 uid="uid://ca66knr0l7xhi"]
 
 [ext_resource type="Script" uid="uid://dthw00pg3gb53" path="res://src/menus/start/start_menu_content.gd" id="1_1100q"]
 [ext_resource type="Theme" uid="uid://cc4kinw8uu246" path="res://assets/themes/font_game_title.tres" id="1_giw0s"]
 [ext_resource type="Theme" uid="uid://dlao31omhu6nr" path="res://assets/themes/font_header.tres" id="2_1100q"]
 [ext_resource type="Theme" uid="uid://dij3inof1d6xx" path="res://assets/themes/button_big.tres" id="3_wawef"]
 
-[node name="StartMenuContent" type="VBoxContainer"]
+[node name="StartMenuContent" type="VBoxContainer" unique_id=402802917]
 alignment = 1
 script = ExtResource("1_1100q")
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="." unique_id=2030136119]
 layout_mode = 2
 theme = ExtResource("1_giw0s")
 text = "30 Days
 in the Fog"
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="."]
+[node name="Subtitle" type="Label" parent="." unique_id=1707873213]
 layout_mode = 2
 theme = ExtResource("2_1100q")
 text = "Ludum Dare 58 Game Jam Entry"
 horizontal_alignment = 1
 
-[node name="MarginContainerButtonPlay" type="MarginContainer" parent="."]
+[node name="MarginContainerButtonPlay" type="MarginContainer" parent="." unique_id=1355833492]
 layout_mode = 2
 theme = ExtResource("3_wawef")
 
-[node name="ButtonPlay" type="Button" parent="MarginContainerButtonPlay"]
+[node name="ButtonPlay" type="Button" parent="MarginContainerButtonPlay" unique_id=219921292]
 layout_mode = 2
 theme = ExtResource("3_wawef")
 text = "Play"
 
-[node name="Navigation" type="VBoxContainer" parent="."]
+[node name="Navigation" type="VBoxContainer" parent="." unique_id=1130721678]
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Navigation"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Navigation" unique_id=1348123245]
 layout_mode = 2
 
-[node name="MenuBarChooseCharacter" type="MenuBar" parent="Navigation/VBoxContainer"]
+[node name="MenuBarChooseCharacter" type="MenuBar" parent="Navigation/VBoxContainer" unique_id=1115898320]
 visible = false
 layout_mode = 2
 
-[node name="PopupMenu" type="PopupMenu" parent="Navigation/VBoxContainer/MenuBarChooseCharacter"]
+[node name="PopupMenu" type="PopupMenu" parent="Navigation/VBoxContainer/MenuBarChooseCharacter" unique_id=565926190]
 oversampling_override = 1.0
 title = "Choose a Character"
 item_count = 3
@@ -54,15 +54,15 @@ item_1/id = 1
 item_2/text = "Smith"
 item_2/id = 2
 
-[node name="ButtonSettings" type="Button" parent="Navigation/VBoxContainer"]
+[node name="ButtonSettings" type="Button" parent="Navigation/VBoxContainer" unique_id=1767168053]
 layout_mode = 2
 text = "Settings"
 
-[node name="ButtonCredits" type="Button" parent="Navigation/VBoxContainer"]
+[node name="ButtonCredits" type="Button" parent="Navigation/VBoxContainer" unique_id=1697028279]
 layout_mode = 2
 text = "Credits"
 
-[node name="ButtonQuit" type="Button" parent="Navigation/VBoxContainer"]
+[node name="ButtonQuit" type="Button" parent="Navigation/VBoxContainer" unique_id=878572711]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"

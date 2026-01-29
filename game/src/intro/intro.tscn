@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://co2mhrtt8s1c6"]
+[gd_scene format=3 uid="uid://co2mhrtt8s1c6"]
 
 [ext_resource type="Theme" uid="uid://ctxs8u1hji701" path="res://assets/art/hud/new_default_theme.tres" id="1_11jar"]
 [ext_resource type="Script" uid="uid://c0tgwqwbxvp4o" path="res://src/intro/intro.gd" id="2_nqxh0"]
@@ -188,7 +188,7 @@ _data = {
 &"entry": SubResource("Animation_nqxh0")
 }
 
-[node name="Intro" type="Control"]
+[node name="Intro" type="Control" unique_id=1288527227]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -198,7 +198,7 @@ grow_vertical = 2
 theme = ExtResource("1_11jar")
 script = ExtResource("2_nqxh0")
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1947511441]
 self_modulate = Color(0.41598046, 0.41598043, 0.4159804, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -209,7 +209,7 @@ grow_vertical = 2
 texture = ExtResource("3_nqxh0")
 expand_mode = 1
 
-[node name="MainContent" type="VBoxContainer" parent="."]
+[node name="MainContent" type="VBoxContainer" parent="." unique_id=1821253378]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -219,35 +219,35 @@ anchor_bottom = 0.05
 grow_horizontal = 2
 theme_override_constants/separation = 16
 
-[node name="Title" type="Label" parent="MainContent"]
+[node name="Title" type="Label" parent="MainContent" unique_id=876252788]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "The world is magical and mysterious. "
 horizontal_alignment = 1
 
-[node name="Title2" type="Label" parent="MainContent"]
+[node name="Title2" type="Label" parent="MainContent" unique_id=145920027]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "The world is small; most folks' knowledge stops at the edge of town."
 horizontal_alignment = 1
 
-[node name="Title3" type="Label" parent="MainContent"]
+[node name="Title3" type="Label" parent="MainContent" unique_id=1729823867]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "The world is large; for those with the will and the means, most anything is possible."
 horizontal_alignment = 1
 
-[node name="Title4" type="Label" parent="MainContent"]
+[node name="Title4" type="Label" parent="MainContent" unique_id=757781472]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "What will your story be?"
 horizontal_alignment = 1
 
-[node name="InstructionsContainer" type="PanelContainer" parent="."]
+[node name="InstructionsContainer" type="PanelContainer" parent="." unique_id=1140875585]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -263,14 +263,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("4_yxki3")
 
-[node name="MarginContainer" type="MarginContainer" parent="InstructionsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="InstructionsContainer" unique_id=1488354598]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 6
 
-[node name="Instructions" type="Label" parent="InstructionsContainer/MarginContainer"]
+[node name="Instructions" type="Label" parent="InstructionsContainer/MarginContainer" unique_id=907589647]
 layout_mode = 2
 text = "Your character will determine your starting abilities & which types of challenges you'll face.
 
@@ -279,7 +279,7 @@ Pick a type of training each day to improve your skills.
 Test yourself against the major events, and collect as many endings as possible!"
 horizontal_alignment = 1
 
-[node name="CharacterSelectors" type="HBoxContainer" parent="."]
+[node name="CharacterSelectors" type="HBoxContainer" parent="." unique_id=118383155]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -293,20 +293,18 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 16
 
-[node name="CharacterSelector1" parent="CharacterSelectors" instance=ExtResource("5_nqxh0")]
+[node name="CharacterSelector1" parent="CharacterSelectors" unique_id=1970850452 instance=ExtResource("5_nqxh0")]
 layout_mode = 2
 characterIndex = 0
 
-[node name="CharacterSelector2" parent="CharacterSelectors" instance=ExtResource("5_nqxh0")]
+[node name="CharacterSelector2" parent="CharacterSelectors" unique_id=2063544993 instance=ExtResource("5_nqxh0")]
 layout_mode = 2
 characterIndex = 1
 
-[node name="CharacterSelector3" parent="CharacterSelectors" instance=ExtResource("5_nqxh0")]
+[node name="CharacterSelector3" parent="CharacterSelectors" unique_id=2102188331 instance=ExtResource("5_nqxh0")]
 layout_mode = 2
 characterIndex = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bqxb2")
-}
-autoplay = "entry"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1260247220]
+libraries/ = SubResource("AnimationLibrary_bqxb2")
+autoplay = &"entry"

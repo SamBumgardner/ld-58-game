@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=8 format=3 uid="uid://bb3riq3k580xg"]
+[gd_resource type="Resource" script_class="MajorOutcome" format=3 uid="uid://bb3riq3k580xg"]
 
 [ext_resource type="Resource" uid="uid://ce7xb27fq3jqk" path="res://assets/data/major_events/me_010_capture_bounty.tres" id="2_1u31w"]
 [ext_resource type="Script" uid="uid://bldc6pmej3q38" path="res://src/events/major/major_event.gd" id="2_mxniu"]

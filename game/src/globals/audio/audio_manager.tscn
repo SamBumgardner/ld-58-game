@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://fq68jyyyvhko"]
+[gd_scene format=3 uid="uid://fq68jyyyvhko"]
 
 [ext_resource type="Script" uid="uid://bm3om7hdb11ly" path="res://src/globals/audio/audio_manager.gd" id="1_3jwtn"]
 [ext_resource type="AudioStream" uid="uid://ce6g3ymw5p2xi" path="res://assets/audio/001_loop_music.ogg" id="2_lhb1d"]
@@ -8,34 +8,34 @@
 [ext_resource type="AudioStream" uid="uid://02i0pgnok325" path="res://assets/audio/sfx_222_physical_randomizer.tres" id="4_7tnnk"]
 [ext_resource type="AudioStream" uid="uid://f3ho02nepwi0" path="res://assets/audio/sfx_223_craft_randomizer.tres" id="5_lhb1d"]
 
-[node name="AudioManager" type="Node"]
+[node name="AudioManager" type="Node" unique_id=1890252699]
 script = ExtResource("1_3jwtn")
 
-[node name="MusicGameplay" type="AudioStreamPlayer" parent="."]
+[node name="MusicGameplay" type="AudioStreamPlayer" parent="." unique_id=1115103419]
 stream = ExtResource("2_lhb1d")
 autoplay = true
 bus = &"Music"
 
-[node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="."]
+[node name="SFXUIClickConfirm" type="AudioStreamPlayer" parent="." unique_id=161973299]
 stream = ExtResource("2_xevv2")
 max_polyphony = 2
 bus = &"Sound Effects"
 
-[node name="SFXUIMouseEntered" type="AudioStreamPlayer" parent="."]
+[node name="SFXUIMouseEntered" type="AudioStreamPlayer" parent="." unique_id=266619279]
 stream = ExtResource("3_lhb1d")
 max_polyphony = 5
 bus = &"Sound Effects"
 
-[node name="TrainingComplete" type="Node" parent="."]
+[node name="TrainingComplete" type="Node" parent="." unique_id=1693204816]
 
-[node name="SFXTrainingTypeStudyComplete" type="AudioStreamPlayer" parent="TrainingComplete"]
+[node name="SFXTrainingTypeStudyComplete" type="AudioStreamPlayer" parent="TrainingComplete" unique_id=1074475646]
 stream = ExtResource("3_yaxo8")
 bus = &"Sound Effects: Vocal"
 
-[node name="SFXTrainingTypePhysicalComplete" type="AudioStreamPlayer" parent="TrainingComplete"]
+[node name="SFXTrainingTypePhysicalComplete" type="AudioStreamPlayer" parent="TrainingComplete" unique_id=530381460]
 stream = ExtResource("4_7tnnk")
 bus = &"Sound Effects: Vocal"
 
-[node name="SFXTrainingTypeCraftComplete" type="AudioStreamPlayer" parent="TrainingComplete"]
+[node name="SFXTrainingTypeCraftComplete" type="AudioStreamPlayer" parent="TrainingComplete" unique_id=1013980763]
 stream = ExtResource("5_lhb1d")
 bus = &"Sound Effects: Vocal"

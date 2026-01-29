@@ -1,21 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cixu34tobcypn"]
+[gd_scene format=3 uid="uid://cixu34tobcypn"]
 
 [ext_resource type="Script" uid="uid://bmegbpoghslyj" path="res://src/intro/character_selector.gd" id="1_1yhuj"]
 [ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="1_dadvg"]
 
-[node name="CharacterSelector" type="PanelContainer"]
+[node name="CharacterSelector" type="PanelContainer" unique_id=1116379492]
 script = ExtResource("1_1yhuj")
 characterIndex = null
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=475159282]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="VBoxContainer"]
+[node name="Name" type="Label" parent="VBoxContainer" unique_id=1040233104]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Hilda, The Hero"
 
-[node name="Portrait" type="TextureRect" parent="VBoxContainer"]
+[node name="Portrait" type="TextureRect" parent="VBoxContainer" unique_id=1019311458]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
@@ -23,7 +23,7 @@ texture = ExtResource("1_dadvg")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=280036412]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Begin"

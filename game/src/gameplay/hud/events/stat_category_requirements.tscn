@@ -1,22 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://chuptqvahkktv"]
+[gd_scene format=3 uid="uid://chuptqvahkktv"]
 
 [ext_resource type="Script" uid="uid://bqfbocodahwu3" path="res://src/gameplay/hud/events/stat_category_requirements.gd" id="1_0o46o"]
 [ext_resource type="PackedScene" uid="uid://0xhkhdvqoeg5" path="res://src/gameplay/hud/events/major_stat_icon.tscn" id="2_8q3c2"]
 [ext_resource type="PackedScene" uid="uid://cuy4c55ivelap" path="res://src/gameplay/hud/events/minor_stat_icon.tscn" id="3_8q3c2"]
 
-[node name="StatCategoryRequirements" type="VBoxContainer"]
+[node name="StatCategoryRequirements" type="VBoxContainer" unique_id=25358804]
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 script = ExtResource("1_0o46o")
 
-[node name="MajorStatIcon" parent="." instance=ExtResource("2_8q3c2")]
+[node name="MajorStatIcon" parent="." unique_id=543377126 instance=ExtResource("2_8q3c2")]
 layout_mode = 2
 
-[node name="MinorStatIcon1" parent="." instance=ExtResource("3_8q3c2")]
+[node name="MinorStatIcon1" parent="." unique_id=1965567450 instance=ExtResource("3_8q3c2")]
 layout_mode = 2
 
-[node name="MinorStatIcon2" parent="." instance=ExtResource("3_8q3c2")]
+[node name="MinorStatIcon2" parent="." unique_id=862959553 instance=ExtResource("3_8q3c2")]
 layout_mode = 2
 
-[node name="MinorStatIcon3" parent="." instance=ExtResource("3_8q3c2")]
+[node name="MinorStatIcon3" parent="." unique_id=71986791 instance=ExtResource("3_8q3c2")]
 layout_mode = 2

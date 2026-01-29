@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0oh4lk6lmf63"]
+[gd_scene format=3 uid="uid://b0oh4lk6lmf63"]
 
 [ext_resource type="Texture2D" uid="uid://b1mlvk6tg1i1x" path="res://icon.svg" id="1_46xre"]
 [ext_resource type="Script" uid="uid://c0q1ieoas7qpl" path="res://src/ending/ending_display.gd" id="1_f1g78"]
 [ext_resource type="Theme" uid="uid://d0ltv0r1flidc" path="res://assets/themes/default.tres" id="1_unls0"]
 [ext_resource type="Texture2D" uid="uid://cth7dx3uxmc3n" path="res://assets/art/backgrounds/bg4.jpg" id="2_tn784"]
 
-[node name="EndingDisplay" type="Control"]
+[node name="EndingDisplay" type="Control" unique_id=1209759635]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_vertical = 2
 theme = ExtResource("1_unls0")
 script = ExtResource("1_f1g78")
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1898897153]
 self_modulate = Color(0.29954728, 0.2995475, 0.29954743, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -26,7 +26,7 @@ grow_vertical = 2
 texture = ExtResource("2_tn784")
 expand_mode = 1
 
-[node name="MainContent" type="VBoxContainer" parent="."]
+[node name="MainContent" type="VBoxContainer" parent="." unique_id=646790972]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -39,27 +39,27 @@ offset_bottom = 345.0
 grow_horizontal = 2
 theme_override_constants/separation = 16
 
-[node name="Title" type="Label" parent="MainContent"]
+[node name="Title" type="Label" parent="MainContent" unique_id=1884573851]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Title"
 horizontal_alignment = 1
 
-[node name="SplashImage" type="TextureRect" parent="MainContent"]
+[node name="SplashImage" type="TextureRect" parent="MainContent" unique_id=1040512219]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("1_46xre")
 stretch_mode = 2
 
-[node name="Description" type="Label" parent="MainContent"]
+[node name="Description" type="Label" parent="MainContent" unique_id=636063052]
 unique_name_in_owner = true
 layout_mode = 2
 text = "An ending description lies here..."
 horizontal_alignment = 1
 
-[node name="MetaContent" type="VBoxContainer" parent="."]
+[node name="MetaContent" type="VBoxContainer" parent="." unique_id=1607338329]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -70,19 +70,19 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 16
 
-[node name="Flavor" type="Label" parent="MetaContent"]
+[node name="Flavor" type="Label" parent="MetaContent" unique_id=469820402]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "As one story ends, another begins..."
 horizontal_alignment = 1
 
-[node name="EndingsAchievedCount" type="Label" parent="MetaContent"]
+[node name="EndingsAchievedCount" type="Label" parent="MetaContent" unique_id=426612256]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1 / 10 Endings Achieved!"
 horizontal_alignment = 1
 
-[node name="SkipDiaryNotice" type="Label" parent="MetaContent"]
+[node name="SkipDiaryNotice" type="Label" parent="MetaContent" unique_id=104394685]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
@@ -90,7 +90,7 @@ theme_override_constants/outline_size = 10
 text = "New \"Skip Diary\" Button Now Available!"
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="MetaContent"]
+[node name="RestartButton" type="Button" parent="MetaContent" unique_id=1428946566]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

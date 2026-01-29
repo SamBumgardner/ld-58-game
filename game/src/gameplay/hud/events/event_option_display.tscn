@@ -1,31 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://daf2ytso3cs48"]
+[gd_scene format=3 uid="uid://daf2ytso3cs48"]
 
 [ext_resource type="Script" uid="uid://bmop7dlgni0qo" path="res://src/gameplay/hud/events/event_option_display.gd" id="1_bgh2p"]
 [ext_resource type="PackedScene" uid="uid://chuptqvahkktv" path="res://src/gameplay/hud/events/stat_category_requirements.tscn" id="1_olpdw"]
 [ext_resource type="StyleBox" uid="uid://eoki4f7rst2x" path="res://assets/art/hud/dark_panel.tres" id="2_0lgsk"]
 
-[node name="EventOptionDisplay" type="PanelContainer"]
+[node name="EventOptionDisplay" type="PanelContainer" unique_id=1674261415]
 custom_minimum_size = Vector2(240, 0)
 size_flags_horizontal = 3
 script = ExtResource("1_bgh2p")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2084721040]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Content" type="VBoxContainer" parent="MarginContainer"]
+[node name="Content" type="VBoxContainer" parent="MarginContainer" unique_id=146016825]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="MarginContainer/Content"]
+[node name="Title" type="Label" parent="MarginContainer/Content" unique_id=2057647316]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderSmall"
 text = "Option Title"
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="MarginContainer/Content"]
+[node name="Description" type="Label" parent="MarginContainer/Content" unique_id=1215772617]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
@@ -35,42 +35,42 @@ Organizing an event on this scale will be a challenge, though."
 autowrap_mode = 2
 clip_text = true
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Content"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Content" unique_id=1443915488]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("2_0lgsk")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Content/PanelContainer" unique_id=1949277814]
 layout_mode = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Content/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Content/PanelContainer/MarginContainer" unique_id=116864456]
 layout_mode = 2
 
-[node name="Requires" type="Label" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Requires" type="Label" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer" unique_id=937451404]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Requires:"
 autowrap_mode = 2
 
-[node name="StatRequirements" type="HBoxContainer" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="StatRequirements" type="HBoxContainer" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer" unique_id=266345821]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StatCategoryRequirements" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("1_olpdw")]
+[node name="StatCategoryRequirements" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" unique_id=705203858 instance=ExtResource("1_olpdw")]
 layout_mode = 2
 
-[node name="StatCategoryRequirements2" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("1_olpdw")]
+[node name="StatCategoryRequirements2" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" unique_id=806846546 instance=ExtResource("1_olpdw")]
 layout_mode = 2
 statCategory = 1
 
-[node name="StatCategoryRequirements3" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" instance=ExtResource("1_olpdw")]
+[node name="StatCategoryRequirements3" parent="MarginContainer/Content/PanelContainer/MarginContainer/VBoxContainer/StatRequirements" unique_id=318624951 instance=ExtResource("1_olpdw")]
 layout_mode = 2
 statCategory = 2
 
-[node name="AttemptButton" type="Button" parent="MarginContainer/Content"]
+[node name="AttemptButton" type="Button" parent="MarginContainer/Content" unique_id=1580783911]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10

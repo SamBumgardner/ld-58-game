@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MajorOutcome" load_steps=9 format=3 uid="uid://qbnetr44iwl"]
+[gd_resource type="Resource" script_class="MajorOutcome" format=3 uid="uid://qbnetr44iwl"]
 
 [ext_resource type="Resource" uid="uid://cvefexdnb6bi7" path="res://assets/data/endings/end_003_0_1_above_disaster.tres" id="1_5wx0d"]
 [ext_resource type="Script" uid="uid://ccfhidydcpt2p" path="res://src/days/condition_override.gd" id="1_hc7ro"]
